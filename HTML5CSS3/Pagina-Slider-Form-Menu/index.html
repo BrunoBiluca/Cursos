@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+	<title>Wild Photos</title>
+	<script src="js/prefixfree.min.js"></script>
+</head>
+<body>
+
+	<header>
+		<ul class="menu clearfix">
+			<li><img src="images/logo.jpg"></li>
+			<li><a href="#home">HOME<span class="active"></span></a></li>
+			<li><a href="#sobre">SOBRE<span></span></a></li>
+			<li><a href="#palestrantes">PALESTRANTES<span></span></a></li>
+			<li><a href="#programas">PROGRAMAS<span></span></a></li>
+			<li><a href="#parceiros">PARCEIROS<span></span></a></li>
+			<li><a href="#ingressos">INGRESSOS<span></span></a></li>
+			<li class="icon">
+				<a href="javascript:void(0);" style="font-size: 1.8em;" onclick="menu()">☰</a>
+			</li>
+		</ul>
+	</header>
+
+	<section>
+
+		<div class="slideshow">
+			<button class="anterior" onclick="ImagemAnterior()"></button>	
+			<button class="proxima" onclick="ImagemProxima()"></button>
+
+			<img src="images/slide1.jpg" alt="">
+			<img src="images/slide2.jpg" alt="">
+			<img src="images/slide3.jpg" alt="">
+			<img src="images/slide4.jpg" alt="" class="active">
+			<img src="images/slide5.jpg" alt="">
+		</div>
+
+		<div class="formulario clearfix">
+			<div id="sucesso">
+				<p><b>Sucesso:</b> O formulário foi salvo com sucesso!</p>
+			</div>
+
+			<form id="dform" method="post" action="" name="dform">
+				<h2>Preencher Campos [+]</h2>
+				<p class="p-name">
+					<label for="name">Nome</label>
+					<input type="text" id='name' name="name">
+					<span class="hint">+ obrigatório</span>
+					<span class="error"></span>
+				</p>
+				<p class="p-email">
+					<label for="email">E-mail</label>
+					<input type="email" id='email' name="email">
+					<span class="hint"></span>
+					<span class="error"></span>
+				</p>
+				<p class="p-doc">
+					<input type="radio" name="docCadastro" value="cpf" checked> CPF<br>
+					<input type="radio" name="docCadastro" value="cnpj"> CNPJ
+					<input type="text" id='doc' name="docCadastro" onkeyup="Mascara_Cpf()" maxlength="14">
+				</p>					
+				<p class="p-cep">
+					<label for="cep">CEP</label>
+					<input type="text" id='cep' name="cep" onkeyup="Mascara_Cep()" maxlength="9">
+					<span class="hint"></span>
+					<span class="error"></span>
+				</p>
+				<div class="endereco">
+					<p>
+						<label for="estado">Estado</label>
+						<input type="text" id='estado' name="estado">
+						<span class="hint"></span>
+					</p>
+					<p>
+						<label for="cidade">Cidade</label>
+						<input type="text" id='cidade' name="cidade">
+						<span class="hint"></span>
+					</p>
+				</div>
+				<div class="botao-form">
+					<button type="submit" class="submit"">Salvar</button>
+				</div>
+			</form>
+		</div>
+	</section>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script src="js/menu.js"></script>
+	<script src="js/mascaras.js"></script>
+	<script src="js/slider.js"></script>
+	<script src="js/validacao.js"></script>
+</script>
+</body>
+</html>

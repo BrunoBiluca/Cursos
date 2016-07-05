@@ -1,0 +1,41 @@
+@font-face {
+	font-family: 'IconicFill';
+	src: url('../fonts/iconic_fill.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+h1 { color: #BD2C00; font-size: 1.2em; margin: 0; }
+
+h2 { font-size: 1em;	margin: 5px 0; }
+
+ul { background-color: #56B4EF;	background-image: -webkit-linear-gradient(top, #56B4EF, #148EDA);
+	float: left; padding: 0; margin: 10px 10px 0 0;	width: 230px; list-style: none;	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.3); }
+
+
+.container{ margin: 0 auto; width: 960px; }
+
+.available{	background-color: #6CC644; color: white; text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.7);
+	border-radius: 3px;	font-size: 0.8em; font-weight: bold; padding: 3px 7px; }
+
+
+.icon {	color: white; display: block; font-size: 0.9em; font-weight: bold; padding: 5px;
+	text-decoration: none; text-shadow: 0 1px 0 rgba(0, 0, 0, 0.9);	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+.icon:before { font-family: 'IconicFill'; margin: 0 5px; }
+.icon:hover { background-color: rgba(0, 0, 0, 0.1); }
+
+.paper{	border-top: none; }
+.paper:before {	content: '\e00b';	/* Livrinho */ }
+
+.package { border-bottom: none; }
+.package:before { content: '\e022';	/* Medalhinha */ }
+
+.digital:before { content: '\e044';	/* Nuvenzinha */ }
+
+
+.book {	background-color: #E0E0E0; background-image: -webkit-linear-gradient(top, #E0E0E0, #EEE); padding: 10px;
+	border-radius: 5px;	border: 1px solid #CCC;	width: 600px; }
+
+.clear { clear: both; }

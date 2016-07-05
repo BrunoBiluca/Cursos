@@ -1,0 +1,31 @@
+.container {margin: 0 auto; width: 960px; padding: 20px;}
+
+/***************************************************************
+Efeitos 2D
+***************************************************************/
+
+ul { list-style: none; padding: 0; }
+
+li { float: left; margin-left: 10px; position: relative;
+	transition: transform 0.2s linear; /* Dita como será as transições no layout */
+}
+
+/* Seletor para determinar os elementos ímpares e pares */
+li:nth-child(even) { transform: rotate(5deg); }
+li:nth-child(odd) { transform: rotate(-5deg); }
+
+li:hover { transform: scale(1.3); z-index: 1; }
+
+span {	color: #153755;	display: block;	font-weight: bold; margin-top: 5px; text-align: center; }
+
+img { width: 152px; height: 152px; }
+
+.clearfix:before, .clearfix:after{
+	content: "";
+	display: table;
+}
+
+.clearfix:after{
+	clear: both;
+}
+

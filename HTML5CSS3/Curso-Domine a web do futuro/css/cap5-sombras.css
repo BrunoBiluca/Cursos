@@ -1,0 +1,95 @@
+.container{ margin: 0 auto; width: 960px; }
+
+
+/* Caixa de ajuda */
+.help {
+	background-color: #F1EFE6;
+	width: 300px;
+	border: 1px solid #D3CDAE;
+	padding: 10px;
+	font-size: 0.9em;
+	position: relative;
+}
+
+.shadow-bottom{ box-shadow: 3px 3px 3px #AAA; }
+.shadow-up{ box-shadow: -3px -3px 3px #AAA; }
+
+/* Seta que sai da caixa de ajuda */
+.help::before {
+	border-color: transparent #D3CDAE transparent transparent;
+	border-style: solid;
+	border-width: 14px;
+	margin-top: -14px;
+	left: -28px;
+	position: absolute;
+	top: 50%;
+	content: "";
+}
+
+/* Usar sombras interiores para criar um efeito de pressionado */
+input {
+	border: 1px solid #999;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25) inset; /* inset = sombras internas */
+	padding: 2px 5px;
+}
+
+input:focus {
+	border-color: #36861B;
+	box-shadow: 0 0 5px #35861B, 2px 2px 2px rgba(0, 0, 0, 0.25) inset;
+	outline: none;
+}
+
+/* Usando sombras para criar um efeito de brilho em sombras externas */
+.nav {
+	background-color: #B9522D;
+	height: 30px;
+	list-style: none;
+	padding: 0;
+	width: 210px;
+}
+
+.nav li {
+	float: left;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	width: 70px;
+}
+
+.nav a {
+	color: white;
+}
+
+.nav .current {
+	background-color: #A64A28;
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Sombras em textos */
+h1 {
+	background-color: #1D9AC0;
+	color: #FFF;
+	padding: 10px;
+	text-shadow: 2px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+.status {
+	color: white;
+	display: inline-block;
+	font-weight: bold;
+	padding: 7px 10px; 
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.failed {
+	background-color: #BD2C00;
+}
+
+.shipped {
+	background-color: #6CC644;
+}
+
+.processing {
+	background-color: #FC9800;
+}

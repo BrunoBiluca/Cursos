@@ -1,0 +1,71 @@
+.container{
+	margin: 0 auto;
+	width: 960px;
+}
+
+/* Nova tag para localizar as imagens e organizar junto com a legenda */
+figure {
+	position: relative;
+}
+
+img {
+	display: block;
+}
+
+/* Legenda da imagem em cima da imagem e com um efeito de fundo tranparente */
+figcaption {
+	bottom: 50px;
+	margin: 0 5px;
+	padding: 5px;
+	position: relative;
+	width: 300px;
+	background-color: #000;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #FFF;
+}
+
+/* Lista criando um efeito de gradiente entre o fundo e as bordas que envolvem os itens*/
+ul {
+	height: 35px;
+	list-style:none;
+	padding: 0;
+	width: 210px;
+	background-color: #CCC;
+	color: white;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+li:first-child {
+	border-left: none;
+}
+
+li:last-child {
+	border-right: none;
+}
+
+li {
+	float: left;
+	line-height: 35px;
+	font-size: 0.9em;
+	width: 50px;
+	text-align: center;
+	border-left: 1px solid rgba(255, 255, 255, 0.3);
+	border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Utilizando gradientes */
+.div-grad{
+	font-weight: bold;
+	height: 50px;
+	line-height: 25px;
+	margin-bottom: 10px;
+	padding: 5px;
+	text-align: center;
+	width: 220px;
+}
+
+/* Importante adicionar a cor sólida caso o navegador não possui suporte ao linear gradient */
+.blue {	background-color: #4377FA; background-image: -webkit-linear-gradient(top, #4377FA, #0537B7); }
+.reverse-blue {	background-image: -webkit-linear-gradient(top, #0537B7, #4377FA); }
+.omg-pink { background-image: -webkit-linear-gradient(top right, #FC0050, #FF79A3); }
+.stops { background-image: -webkit-linear-gradient(top, #F5B951 48%, #F2A31C 56%); }

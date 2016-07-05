@@ -1,0 +1,27 @@
+﻿@{Layout = "~/_Layout.cshtml";}
+
+@{ 
+    //Buscando o caminho das imagens
+    var imagePath = "";
+    if (Request["opcao"] != null) {
+        { imagePath = "Images/" + Request["opcao"]; }
+    }
+}
+
+<h1>Formulário para o uso dinâmico de imagens</h1>
+<form method="post" action="">
+    Eu quero ver a imagem:
+    <select name="opcao">
+        <option value="image1.jpg">Image 1</option>
+        <option value="image2.jpg">Image 2</option>
+        <option value="image3.jpg">Image 3</option>
+    </select>
+    <input type="submit" value="Enviar" />
+    @{ 
+        if (imagePath != "") {
+            <p>
+                <img src="@imagePath" alt="sample" />
+            </p>
+        }
+    }
+</form>

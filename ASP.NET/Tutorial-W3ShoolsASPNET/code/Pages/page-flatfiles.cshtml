@@ -1,0 +1,16 @@
+﻿@{Layout = "~/_Layout.cshtml";}
+
+
+@{ 
+    //Buscando caminho dos arquivos
+    var dataFile = Server.MapPath("~/App_Data/Pessoas.txt");
+    Array dados = File.ReadAllLines(dataFile);
+}
+
+<h1>Lendo dados contidos em Flat Files</h1>
+@foreach (string linha in dados) {
+    foreach (string item in linha.Split(',')) {
+        @item <text>&nbsp;</text>
+    }
+    <br />
+}

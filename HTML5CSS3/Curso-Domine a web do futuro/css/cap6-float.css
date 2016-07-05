@@ -1,0 +1,51 @@
+.container {background-color: #E8E8E8; width: 960px; margin: 0 auto; padding: 10px; }
+
+.posts {
+	width: 600px;
+	float: left;
+}
+
+h1 {
+	float: left;
+	margin: 0 0 20px;
+}
+
+.timestamp {
+	background-color: #000;
+	color: #FFF;
+	padding: 3px 7px;
+	font-size: 0.9em;
+	float: right;
+	margin-top: 10px;
+}
+
+p {
+	clear: both;
+}
+
+aside {
+	float: right;
+	border: 1px solid #CCC;
+	background-color: #FFFBE4;
+	padding: 10px;
+	width: 200px;
+}
+
+aside h3 {
+	margin: 0;
+}
+
+/* Solução para o problema de uso do float em divs, clearfix */
+.clearfix:before, .clearfix:after{
+	content: "";
+	display: table;
+}
+
+.clearfix:after{
+	clear: both;
+}
+
+/* Zoom usada para versões antigas do internet explorer */
+.clearfix {
+	*zoom: 1;
+}

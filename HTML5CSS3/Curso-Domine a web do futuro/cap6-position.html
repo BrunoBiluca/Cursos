@@ -1,0 +1,39 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/cap6-position.css">
+	<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet'>
+	<script src="js/prefixfree.min.js"></script>
+
+	<title></title>
+</head>
+<body>
+
+
+	<div class="container">
+		<a id='show-modal' href="javascript:;">Exibir modal</a>
+		<div class="notice">
+			<h1>Atenção</h1>
+			<p>Aqui você pode exibir alguma mensagem importante, que ela irá sobrepor todo o conteúdo do seu site.</p>
+			<a class="close" href="javascript:;">Fechar</a>
+		</div>
+		<div class='overlay'></div>
+	</div>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script>
+		$('#show-modal').on('click', function (){
+			$('.overlay, .notice').show();
+		});
+		$('.overlay, .notice').on('click', function (){
+			$('.overlay, .notice').hide();
+		});
+		$(document).keyup(function(e) {
+			if(e.which == 27) {
+				$('.overlay, .notice').hide();
+			}
+		});
+	</script>
+
+</body>
+</html>

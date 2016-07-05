@@ -1,0 +1,36 @@
+.container { height: 300px; position: relative; width: 200px; margin: 0 auto;
+	perspective: 500px; /* Ajusta a perspectiva do navegador para criar uma noção melhor de profundidade nos elementos 3D */
+}
+
+.card {
+	border-radius: 5px;
+	border: 1px solid #CCC;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	transform-style: preserve-3d; /* Permite aos elementos filhos preservar as transformações 3D */
+	transition: transform 1s;
+}
+
+.card section {
+	background-color: #FFF;
+	border-radius: 5px;
+	position: absolute;
+	backface-visibility: hidden; /* Esconde as costas do elemento do formulário */
+}
+
+.card.flipped {
+	transform: rotateY(180deg);
+}
+
+.signup {
+	transform: rotateY(180deg);
+}
+
+form { font-size: 0.8em; padding: 10px; }
+
+label { display: block; margin-top: 3px;}
+
+input { display: block; margin-top: 3px; box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.3); border: 1px solid #CCC; padding: 2px 5px; border-radius: 3px;}
+
+button {border: 1px solid #CCC; border-radius: 3px; background-color: #E5E5E5; background-image: -webkit-linear-gradient(top, #FFF, #E5E5E5); padding: 2px 5px;}

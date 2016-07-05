@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{D46CCCE0-1851-E7B5-4CBB-F35FB476FDE7}") = "CrazyMemory", "Assembly-CSharp.csproj", "{DD27F0BA-C981-90DD-4423-EC683C12785C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD27F0BA-C981-90DD-4423-EC683C12785C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD27F0BA-C981-90DD-4423-EC683C12785C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD27F0BA-C981-90DD-4423-EC683C12785C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD27F0BA-C981-90DD-4423-EC683C12785C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

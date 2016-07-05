@@ -1,0 +1,90 @@
+@media print {
+	/* Evitar de deixar cores e efeitos na versão de impressão */
+	* {
+		background: transparent !important ;
+		border-color: #000 !important ;
+		box-shadow: none !important ;
+		color: #000 !important ;
+		text-shadow: none !important ;
+	}
+
+	/* Destacar os links e deixar o link impresso ao lado */
+	a {
+		text-decoration: underline !important ;
+	}
+
+	a[href]::after {
+		content: " (" attr(href) ")";
+	}
+
+	/* Não é necessária inserção de links para javascript e links vazios */
+	a[href^="javascript:"]::after, a[href^="#"]::after {
+		content: "";
+	}
+
+	/* Cria a querbra de página no conteúdo do site */
+	.page-break {
+		display: block;
+		page-break-before: always;
+	}
+
+	/* Define versão de impressão para tabelas */
+	table {
+		width: 100%;
+	}
+	td {
+		border-color: #000;
+	}
+
+	/* Tentar excluir da visualização de impressão elementos de navegação do site */
+	.actions {
+		display: none;
+	}
+
+	/* Já que as cores são removidas na versão de impressão,
+	é necessário introduzir outros elementos que fazem a mesma função */
+	.expense::before {
+		content: "- ";
+	}
+	.expense::after {
+		content: " - Despesa";
+	}
+	.profit::before {
+		content: "+ ";
+	}
+	.profit::after {
+		content: " - Receita";
+	}
+
+}
+
+/* Define uma quebra de página que deve ocorrer na versão impressa */
+.page-break {
+	display: none;
+}
+
+table {
+	width: 500px;
+}
+td {
+	border: 1px dotted #666;
+	padding: 5px;
+}
+td a {
+	color: #3B5998;
+}
+.expense, .profit, .actions {
+	text-align: right;
+}
+.expense, .profit {
+	font-weight: bold;
+}
+.expense { color: red; }
+.profit { color: green; }
+.actions a {
+	font-size: 0.9em;
+	color: white;
+	padding: 2px 5px;
+	background-color: #3B5998;
+	text-decoration: none;
+}

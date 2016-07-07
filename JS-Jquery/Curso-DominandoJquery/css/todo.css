@@ -1,0 +1,89 @@
+/*
+	Paleta de cores:
+	#ffffff
+	#cc0000
+	#333333
+*/
+html {
+	font: 100%;
+	font-family: helvetica, colibri, tahoma, sans-serif;
+	color: #333;
+	background-image: url("../img/brillant.png");
+	background-position: initial initial;
+	background-repeat: initial initial;
+	text-shadow: 0.1em 0.1em 0.1em #eee;
+}
+
+div.todo {
+	width: 40em;
+	border: 1px solid #eee;
+	margin: 0 auto;
+	padding: 1em;
+	padding-top: 0;
+	box-shadow: 0.5em 0.5em 0.5em #eee;
+	background-color: white;
+}
+
+div.todo h2 {
+	color: #c00;
+}
+
+#tarefa, .tarefa-edit {
+	font-size: 1.2em;
+}
+
+#tarefa {
+	width: 33em;
+}
+
+.tarefa-edit {
+	width: 31em;
+}
+
+#tarefa-list {
+	width: 40em;
+	margin-top: 1em;
+}
+
+.tarefa-item {
+	padding: 1em;
+	vertical-align: middle;
+}
+
+.tarefa-item:hover {
+	background-color: #eee;
+}
+
+.tarefa-id {
+	visibility: hidden;
+}
+
+.tarefa-texto {
+	display: block;
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+.tarefa-delete {
+	width: 16px;
+	height: 16px;
+
+	background-image: url("../img/delete.gif");
+	background-repeat: no-repeat;
+	
+	display: block;
+	float: right;
+
+	visibility: hidden;
+}
+
+.tarefa-item:hover .tarefa-delete {
+	visibility: visible;
+}
+
+.tarefa-item, .tarefa-texto, .tarefa-delete {
+	/* border: 1px solid black; */
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Zeca Urubu!</title>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min">
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+</head>
+<body>
+	<h1>Accordion</h1>
+	<div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
+		<h3 class="ui-accordion-header ui-state-default ui-accordion-icons ui-corner-all">Quem somos</h3>
+		<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
+			<p>Somos uma empresa que escreve aquelas coisas bonitas de visão e missão, mas fazemos diferente na vida real.</p>
+		</div>
+		<h3 class="ui-accordion-header ui-state-default ui-accordion-icons ui-corner-all">O que fazemos</h3>
+		<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
+			<p>Criamos produtos que são vendidos com um ano de garantia e quebram após um ano e meio de uso.</p>
+		</div>
+		<h3 class="ui-accordion-header ui-state-default ui-accordion-icons ui-corner-all">Trabalhe conosco</h3>
+		<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
+			<p>Se você é do tipo que venderia um gato morto para a própria avó, venha trabalhar conosco!</p>
+		</div>
+	</div>
+	<hr>
+
+	<h1>Auto-completando</h1>
+	<div class="ui-widget">
+		<label for="linguagens">Linguagem: </label>
+		<input id="linguagens" />
+	</div>
+	<hr>
+
+	<h1>Botões bonitões</h1>
+	<button class="chique">Um botão bonito</button>
+	<button>Um botão normal</button>
+	<br>
+	<input type="submit" class="chique" value="Um submit bonitão">
+	<input type="submit" value="Um submit normal">
+	<br>
+	<a href="#" class="chique">Um link em forma de botão</a>
+	<a href="#">Um link qualquer</a>
+	<br>
+
+	<hr>
+
+	<h1>Calendário</h1>
+	<!-- Tipo de input de calendário que funciona em alguns browsers
+	<label for="nascimento">Data de nascimento : </label>
+	<input id="nascimento" type="date" value="2010-02-08"/> 
+	-->
+	<div class="ui-widget">
+		<label for="nascimento">Data de nascimento:</label>
+		<input id="nascimento" type="text">
+	</div>
+	<hr>
+
+	<h1>Janelas dentro de janelas</h1>
+	<div id="dialog" title="Aviso do sistema">
+		<p>Você acha que esse é o melhor livro de JavaScript que já existiu?</p>
+	</div>
+	<hr>
+</body>
+<script type="text/javascript">
+	//Adiciona o efeito sanfona para a div
+	$("#accordion").accordion();
+
+	//Auto-Complete
+	//Dicionário de palavras
+	var linguagens = [
+	"Clojure",
+	"Common LISP",
+	"Erlang",
+	"F#",
+	"Haskell",
+	"JavaScript",
+	"OCaml",
+	"Scala",
+	"Scheme"
+	];
+	//Adciona o efeito de autocomplete no input
+	$("#linguagens").autocomplete({source: linguagens});
+
+	//Adiciona o efeito de botões do jquery UI
+	$(function() {
+		$(".chique").button();
+	});
+
+	//Configurações para o calendário do Jquery UI
+	$(function () {
+		$("#nascimento").datepicker({
+			showWeek: true,
+			firstDay: 0,
+			dateFormat: "dd/mm/yy",
+			dayNames: ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"],
+			dayNamesMin: ["D", "S", "T", "Q", "Q", "S", "S"],
+			monthNames: ["Janeiro",	"Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro",
+			"Outubro","Novembro","Dezembro"],
+			monthNamesShort: ["Jan","Fev","Mar","Abr","Mai","Jun","Jul",
+			"Ago","Set","Out","Nov","Dez"],
+			showButtonPanel: true,
+			currentText: "Hoje",
+			closeText: "Fechar",
+			weekHeader: "#"
+		});
+	});
+
+	//Dialogs
+	$(function(){
+		function onSimClick() {
+			alert("Uhu! Você escolheu 'Sim'!");
+			$(this).dialog("close");
+		};
+
+		function onClaroClick() {
+			alert("\\o/");
+			$(this).dialog("close");
+		}
+
+		//Botões que vão aparecer na janela de Dialog
+		var opcoes = {
+			buttons: {
+				"Sim": onSimClick,
+				"Claro!": onClaroClick
+			}
+		};
+
+		$("#dialog").dialog(opcoes);
+	});
+
+</script>
+</html>

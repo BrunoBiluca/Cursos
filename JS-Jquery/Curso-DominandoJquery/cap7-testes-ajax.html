@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<style type="text/css">
+		#sucesso{background-color: green; color: #FFF;}
+		#fail{background-color: red; color: #FFF;}
+		#cep{background-color: blue; color: #FFF;}
+	</style>
+</head>
+<body>
+
+	<h1 id="sucesso"></h1>
+
+	<h1 id="fail"></h1>
+
+	<hr>
+
+	<h1 id="cep"></h1>
+
+	<hr>
+
+	<input id="nome" type="text" name="nome">
+	<p id="nome-digitado">Nome digitado</p>
+
+	<script type="text/javascript">
+		var servico = "http://livro-capitulo07.herokuapp.com/hello";
+		var servicoErrado = "http://livro-capitulo07.herokuapp.com/error";
+		var parametros = {nome: "Caro Leitor"};
+
+		//Objeto para requisições AJAX, permite que callbacks sejam
+		//executadas dependendo de como a requisição foi tratada
+		var $xhr = $.get(servico, parametros);
+		var $xhr2 = $.get(servicoErrado);
+
+		$xhr.done(function(data){
+			$("#sucesso").text(data);
+		});
+
+		$xhr2.fail(function(data){
+			$("#fail").text(data.responseText);
+		});
+
+		/**********************************************************************
+		CEP
+		**********************************************************************/
+
+		var servicoCEP = "http://api.postmon.com.br/v1/cep/";
+		var cepValido = "04101-300";
+		var cepInvalido = "11111-111";
+
+		function onCepDone(data){
+			$("#cep").text("A casa do código fica na " + data.logradouro);
+		}
+
+		function onCepError(error) {
+			console.log("Erro: " + error.statusText);
+		}
+
+		$.getJSON(servicoCEP + cepValido).done(onCepDone).fail(onCepError);
+
+		/**********************************************************************
+		Exemplo de get AJAX no input da página
+		**********************************************************************/
+
+		$("#nome").blur(function(){
+			$("#nome-digitado").text($(this).val());
+		});
+
+	</script>
+
+</body>
+</html>

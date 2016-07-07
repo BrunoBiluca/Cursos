@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Plugins em Jquery</title>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<link href="stylesheets/default.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="stylesheets/validador.css" media="screen" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+	<fieldset>
+		<legend>Validador</legend>
+		<p>
+			<label for="cpf">CPF: </label><input type="text" id="cpf" maxlength="14" size="18">
+		</p>
+		<p>
+			<label for="obrigatorio">Obrigatório: </label><input type="text" id="obrigatorio">
+		</p>
+		<p>
+			<input type="submit" value="Enviar" class="button">
+		</p>
+	</fieldset>
+</body>
+
+<script type="text/javascript">
+	//Declaração do plugin no prototype do Jquery
+	;(function($) {
+		jQuery.fn.validador = function (options) {
+			//Configurações iniciais do plugin, evita que este plugin influa em outros
+			var init = function () {
+				var element = $(this);
+				var settings = $.extend({"function": validaCpf}, options);
+				//executa a função no parâmetro function
+				var isValid = function(text) {
+					return settings["function"](text);
+				};
+				//Função que executa a validação quando o elemento não é mais o foco
+				var onElementBlur = function() {
+					var text = element.val();
+					if(isValid(text)) {
+						element.removeClass("erro");
+						element.addClass("valido");
+					} else {
+						element.removeClass("valido");
+						element.addClass("erro");
+					}
+					
+				}	
+				element.on("blur.validador", onElementBlur);	
+			}
+			return this.each(init);
+		};
+
+		var validaCpf = function(text) {
+			text = text.replace(/\D/g, "");
+
+			//Verifica o número de dígitos do CPF
+			if(text.length !== 11){ console.log("Número de dígitos"); return false; }
+
+			//Converter um texto para um array de dígitos
+			//CPF é válido quando a expressão de cada dígito faz sentido
+			var digitos = [];
+			for (var pos = 0; pos < text.length; pos++) {
+				//Subtraimos 48 que é o código do dígito 0
+				digitos[pos] = text.charCodeAt(pos) - 48;
+			}
+			
+			//Primeira validação, soma dos dígitos
+			var soma = 0;
+			for(var pos = 0; pos < 9; pos++) {
+				soma += digitos[pos] * (10 - pos);
+			}
+			var primeiroDigito = 11 - (soma % 11);
+			if(primeiroDigito > 9) {
+				primeiroDigito = 0;
+			}
+			//CPF inválido pelo primeiro dígito
+			if(digitos[9] !== primeiroDigito) {
+				console.log("Primeiro Dígito");
+				return false;
+			}
+
+			//Segunda validação
+			soma = 0;
+			for(var pos = 0; pos < 10; pos++) {
+				soma += digitos[pos] * (11 - pos);
+			}
+			var segundoDigito = 11 - (soma % 11);
+			if(segundoDigito > 9) {
+				console.log("Segundo Dígito");
+				segundoDigito = 0;
+			}
+			return digitos[10] === segundoDigito;
+		}
+	})(jQuery);
+
+	function obrigatorio(text) {
+		return text.trim() !== "";
+	}
+
+	$(function() {
+		$("#cpf").validador();
+
+		$("#obrigatorio").validador({function: obrigatorio});
+	})
+</script>
+</html>

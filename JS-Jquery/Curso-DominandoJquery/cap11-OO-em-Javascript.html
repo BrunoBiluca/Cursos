@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Orientação a Objetos</title>
+</head>
+<body>
+<h1>Este exemplo é focado nas instruções no console, então aproveite!</h1>
+</body>
+<script type="text/javascript">
+//Podemos usar uma função como uma representação de uma class em JavaScript
+function OlaSimples(seuNome) {
+	this.nome = seuNome;
+
+	this.oi = function () {
+		console.log("Olá, " + this.nome + "!");
+	}
+}
+
+var simples = new OlaSimples("Bruno");
+
+/**************************************************/
+//Exemplo de uso de prototipação em JavaScript
+//Podemos definir novos comportamentos para objetos
+function Funcionario() {
+	//Perceba que nenhum atributo é determinado na declaração da função
+};
+
+var paulo = new Funcionario();
+Funcionario.prototype.nome = "Bruno";	//Adicionamos novo comportamento
+
+/**************************************************/
+//Exemplo de uso de herança em Javascript
+function Animal() {
+	this.comer = function () {
+		console.log("Eu como!");
+	}
+	this.respirar = function () {
+		console.log("Eu respiro!");
+	}
+}
+Mamifero.prototype = new Animal();	//Herança de Animal
+function Mamifero() {
+	this.mamar = function () {
+		console.log("Eu mamo!");
+	}
+}
+Gato.prototype = new Mamifero();	//Herança de mamífero que herda de animal
+function Gato() {
+	this.miar = function () {
+		console.log("Miau!");
+	}
+}
+Cachorro.prototype = new Mamifero();
+function Cachorro() {
+	this.latir = function () {
+		console.log("Au Au!");
+	}
+	this.comer = function () {
+		console.log("Eu como ração!");
+	}
+}
+var animal = new Animal();
+var mamifero = new Mamifero();
+var branquinha = new Cachorro();
+
+/**************************************************/
+//Exemplo de uso de herança múltipla em Javascript
+//Todos os objetos em JavaScript são instancias de Object
+//Função criada para incluir os objetos que desejamos herdar os comportamentos e propriedades
+Object.prototype.includes = function (constructor) {
+	var objeto = new constructor();
+
+	//É incluída cada propriedade do objeto que não é herdada de outro objeto
+	for (var propriedade in objeto) {
+		if (objeto.hasOwnProperty(propriedade)) {
+			this.prototype[propriedade] = objeto[propriedade];
+		}
+	}
+}
+
+Peixe.prototype = new Animal();
+Peixe.includes(Nadador);	//Incluímos outros construtores com o método includes do Objetc
+function Peixe() {
+	this.respirar = function () {
+		console.log("Eu respiro de baixo d'água!");
+	}
+}
+
+function Nadador() {
+	this.nadar = function () {
+		console.log("Eu nado!");
+	}
+}
+
+var nemo = new Peixe();
+
+
+
+</script>
+</html>

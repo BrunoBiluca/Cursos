@@ -85,3 +85,5 @@ ehthumbs.db
 # PDF Files    #
 # ============ #
 *.pdf
+/Web_Services/Rest-Construa-APIs-inteligentes/nbproject/private/
+/Web_Services/Rest-Construa-APIs-inteligentes/Curso-REST/nbproject/private/

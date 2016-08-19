@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CadeMeuMedico.Models.Medicos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Adicionar novo médico", "Adicionar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDCidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDEspecialidade)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cidades.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Especialidades.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = item.IDMedico }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id = item.IDMedico }, new { @class = "excluir" })
+        </td>
+    </tr>
+    }
+
+</table>

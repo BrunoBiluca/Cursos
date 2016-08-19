@@ -1,0 +1,44 @@
+﻿@{ Layout = null; } 
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cadê meu médico? - @ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+
+    <style>
+        body { padding-top: 60px; }
+    </style>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Cade meu medico?</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        @Html.ActionLink("Home", "Index", "TesteLayout")
+                    </li>
+                    <li id="menuMedicos">
+                        @Html.ActionLink("Médicos", "Index", "Medicos")
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <script src="@Url.Content("~/Scripts/jquery-3.1.0.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+
+    @RenderSection("script", required: false)
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="IntroApp" ng-controller="IntroController" ng-init="firstName='John'">
+ 	<p>Name: <input type="text" ng-model="name"></p>
+ 	<p ng-bind="name"></p> <!-- Inner Html -->
+	<p>{{name}}</p>        <!-- Pela variável -->
+	
+	<hr>
+	
+	<p>The name is <span ng-bind="firstName"></span></p>
+	
+	<hr>
+	<p>My first expression: {{ 5 + 5 }}</p>
+
+	<hr>
+	Primeiro nome: <input type="text" ng-model="primeiroNome"><br>
+	Segundo nome: <input type="text" ng-model="segundoNome"><br>
+	<br>
+	Full Name: {{ primeiroNome + " " + segundoNome }}
+	
+</div>
+
+<script>
+	var app = angular.module('IntroApp', []);
+	app.controller('IntroController', function($scope) {
+		$scope.primeiroNome= "John";
+		$scope.segundoNome= "Doe";
+	});
+</script>
+
+</body>
+</html>

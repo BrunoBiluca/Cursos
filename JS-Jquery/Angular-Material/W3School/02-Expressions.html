@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<meta charset="utf-8">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="" ng-init="myCol='lightblue';person={firstName:'John',lastName:'Doe'};points=[1,15,19,2,40]">
+	<input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}">
+	
+	<hr>
+	
+	<p>The name is <span ng-bind="person.firstName + ' ' + person.lastName"></span></p>
+	
+	<hr>
+	
+	<p>O terceiro resultado do array é: {{points[2]}}</p>
+	
+</div>
+
+<script></script>
+
+</body>
+</html>
+
+

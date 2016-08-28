@@ -1,0 +1,54 @@
+<html lang="pt">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+	</head>
+	<body ng-app="inputApp">
+		<div id="inputContainer" ng-controller="inputController as ctrl" ng-cloak>
+			<md-content layout-padding>
+				<form name="formProjeto">
+					<md-input-container class="md-block">
+					<label>Usuário</label>
+					<input required name="usuario" ng-model="project.usuario">
+					<div ng-messages="formProjeto.usuario.$error">
+						<div ng-message="required">Obrigatório.</div>
+					</div>
+					</md-input-container>
+					<md-input-container class="md-block">
+						<label>Email</label>
+						<input required type="email" name="emailUsuario" ng-model="project.emailUsuario"
+						minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+						<div ng-messages="formProjeto.emailUsuario.$error" role="alert">
+							<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+								Seu email deve conter entre 10 e 100 caracteres de tamanho e deve ser um endereço válido.
+							</div>
+						</div>
+					</md-input-container>
+					<md-input-container class="md-block">
+						<label>Comentários</label>
+						<input md-maxlength="300" required name="comentarios" ng-model="project.comentarios">
+						<div ng-messages="formProjeto.comentarios.$error">
+							<div ng-message="required">Obrigatório.</div>
+							<div ng-message="md-maxlength">Os comentários devem ter menos de 300 caracteres.</div>
+						</div>
+					</md-input-container>
+				</form>
+			</md-content>
+		</div>
+	</body>
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.js"></script>
+	<script src="node_modules/angular-aria/angular-aria.js"></script>
+	<script src="node_modules/angular-messages/angular-messages.js"></script>
+	<script src="node_modules/angular-material/angular-material.js"></script>
+	<script type="text/javascript">
+		angular.module('inputApp', ['ngMaterial', 'ngMessages'])
+			.controller('inputController', inputController);
+
+		function inputController($scope) {
+			$scope.project = {
+				comentarios: 'Comentários',
+			};
+		}
+	</script>
+</html>

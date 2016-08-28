@@ -1,0 +1,61 @@
+ <html lang="pt">
+  <head>
+      <meta charset="utf-8" />
+        <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+            <style>
+               .box {         
+                          color:white;
+                          padding:10px;
+                          text-align:center;
+                          border-style: inset;
+               }
+               .red {
+                   background:red;
+               }
+               .orange {
+                   background:orange;
+               }
+              </style>
+  </head>
+   
+  <body ng-app="firstApplication"> 
+    <div id="layoutContainer" ng-controller="layoutController as ctrl" layout="row" style="height:100px;" ng-cloak layout-wrap>
+             <div flex="30" class="red box">
+                        [flex="30"]
+             </div>
+             <div flex="45" class="orange box">
+                        [flex="45"]
+             </div>
+             <div flex="25" class="red box">
+                        [flex="25"]
+             </div>
+             <div flex="33" class="red box">
+                        [flex="33"]
+             </div>
+             <div flex="66" class="orange box">
+                        [flex="66"]
+             </div>
+             <div flex="50" class="orange box">
+                        [flex="50"]
+             </div>
+             <div flex class="red box">
+                        [flex]
+             </div>
+    </div>
+  </body>
+   
+     <script src="node_modules/angular/angular.js"></script>
+     <script src="node_modules/angular-animate/angular-animate.js"></script>
+     <script src="node_modules/angular-aria/angular-aria.js"></script>
+     <script src="node_modules/angular-messages/angular-messages.js"></script>
+     <script src="node_modules/angular-material/angular-material.js"></script>
+  <script type="text/javascript">
+      angular.module('firstApplication', ['ngMaterial'])
+				.controller('layoutController', layoutController);
+   
+   
+            function layoutController ($scope) {            
+            }
+  </script>
+   
+  </html>

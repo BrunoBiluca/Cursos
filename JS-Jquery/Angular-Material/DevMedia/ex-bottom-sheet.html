@@ -1,0 +1,35 @@
+﻿<html lang="pt">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+	</head>
+	<body ng-app="bottomSheetApp">
+		<div ng-controller="bottomSheetController as ctrl" layout="column">
+			<md-content class="md-padding">
+				<form ng-submit="$event.preventDefault()">
+					<md-button class="md-raised md-primary" ng-click="abrirBottomSheet()">
+						Abrir Bottom Sheet!
+					</md-button>
+				</form>
+			</md-content>
+		</div>
+	</body>
+	
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.js"></script>
+	<script src="node_modules/angular-aria/angular-aria.js"></script>
+	<script src="node_modules/angular-messages/angular-messages.js"></script>
+	<script src="node_modules/angular-material/angular-material.js"></script>
+	<script type="text/javascript">
+		angular.module('bottomSheetApp', ['ngMaterial'])
+			.controller('bottomSheetController', bottomSheetController);
+
+		function bottomSheetController ($scope, $mdBottomSheet) {
+			$scope.abrirBottomSheet = function() {
+				$mdBottomSheet.show({
+					template: '<md-bottom-sheet>Aprender <b>Angular Material</b>!!</md-bottom-sheet>'
+				});
+			};
+		}
+	</script>
+</html>

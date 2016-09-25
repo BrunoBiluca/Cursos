@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+<style>
+@keyframes myChange {
+    from {
+        height: 100px;
+    } to {
+        height: 0;
+    }
+}
+div {
+    height: 100px;
+    background-color: lightblue;
+}
+div.ng-hide {
+    animation: 0.5s myChange;
+}
+</style>
+	
+	<body ng-app="myApp" ng-controller="myCtrl">	
+
+		<h1>Hide the DIV: <input type="checkbox" ng-model="myCheck"></h1>
+		<div ng-hide="myCheck"></div>
+
+	
+		<div ng-app="myApp" ng-controller="myCtrl">
+		</div>
+		<script>
+			var app = angular.module("myApp", ['ngAnimate']);
+
+			app.controller('myCtrl', function($scope, $http){
+			})
+		</script>
+	
+	</body>
+</html>

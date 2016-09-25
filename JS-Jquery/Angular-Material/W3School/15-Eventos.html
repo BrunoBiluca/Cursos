@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<body ng-app="myApp" ng-controller="myCtrl" ng-init="mySwitch=true">	
+		
+		<div ng-app="myApp" ng-controller="myCtrl">
+		<h1 ng-mousemove="count1 = count1 + 1" 
+		ng-mouseover="count2 = count2 + 1" 
+		ng-mouseenter="count3 = count3 + 1" 
+		ng-mouseleave="count4 = count4 + 1">Mouse over me!</h1>
+
+		<h2>MouseMove: {{ count1 }}</h2>
+		<h2>MouseOver: {{ count2 }}</h2>
+		<h2>MouseEnter: {{ count3 }}</h2>
+		<h2>MouseLeave: {{ count4 }}</h2>
+		
+		<hr>
+		
+		<button ng-click="func()">Click Me!</button>
+		
+		<div ng-show="showMe">
+			<h1>Menu:</h1>
+			<div>Pizza</div>
+			<div>Pasta</div>
+			<div>Pesce</div>
+		</div>
+
+		<hr>
+		
+		<h1 ng-mousemove="funcEvent($event)">Click Me!</h1>
+		<p>{{x}}</p>
+		<p>{{y}}</p>
+
+
+		
+		<script>
+			var app = angular.module("myApp", []);
+
+			app.controller('myCtrl', function($scope){
+				$scope.count1 = 0;
+				$scope.count2 = 0;
+				$scope.count3 = 0;
+				$scope.count4 = 0;
+				
+				$scope.showMe = false;
+				$scope.func = function(){
+					$scope.showMe = !$scope.showMe;
+				}
+				
+				$scope.funcEvent = function ($event){
+					$scope.x = $event.clientX;
+					$scope.y = $event.clientY;
+				}
+				
+			})
+		</script>
+	
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<body ng-app="myApp" ng-controller="myCtrl" ng-init="mySwitch=true">	
+		
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<div ng-include="'myTable.htm'"></div>
+			asdfgafda
+		</div>
+		<script>
+			var app = angular.module("myApp", []);
+
+			app.controller('myCtrl', function($scope, $http){
+			
+				$scope.names = [{Name: "Bruno", Country: "Brasil"},
+								{Name: "Luxy", Country: "Canada"},
+								{Name: "Mara", Country: "Brasil"}]
+			
+			})
+		</script>
+	
+	</body>
+</html>

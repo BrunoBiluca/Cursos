@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<style>
+	<!-- Usando as próprias classes do angular para mudar o CSS dos elementos -->
+	input.ng-invalid {
+		background-color: pink;
+	}
+	input.ng-valid {
+		background-color: lightgreen;
+	}
+	</style>
+
+
+	<body ng-app="myApp" ng-controller="myCtrl" ng-init="mySwitch=true">	
+		
+		<div ng-app="myApp" ng-controller="myCtrl">
+
+		<form name="myForm">
+			<input name="nome" ng-model="nome" required>
+			<span ng-show="myForm.nome.$touched && myForm.nome.$invalid">The name is required.</span>
+		</form>
+
+		<p>The input's valid state is:</p>
+		<h1>{{myForm.nome.$valid}}</h1>
+		
+		<hr>
+		<form name="myForm2">
+			<input name="email" ng-model="email" type="email">
+		</form>
+
+		<p>The input's valid state is:</p>
+		<h1>{{myForm2.email.$valid}}</h1>
+		
+		<hr>
+		<form name="myForm3">
+			<input name="cpf" ng-model="cpf" required cpf>
+		</form>
+		<h1>{{myForm3.cpf.$valid}}</h1>
+		
+		<script>
+			var app = angular.module("myApp", []);
+
+			app.directive("cpf", function(){
+				return {
+					require: "ngModel",
+					link: function(scope, element, attr, mCtrl){
+						function validateCPF(value){
+														
+							// Elimina CPFs invalidos conhecidos    
+							if (value.length != 11){
+								mCtrl.$setValidity('ErrorCPF', false); 
+								return value;
+							}
+							
+							// Valida primeiro digito 
+							add = 0;    
+							for (i=0; i < 9; i ++){       
+								add += parseInt(value.charAt(i)) * (10 - i); 
+							}
+							primeiroDig = 11 - (add % 11);  
+							if (primeiroDig < 2) primeiroDig = 0; 
+							
+							
+							// Valida segundo digito 
+							add = 0;    
+							for (i = 0; i < 10; i ++){        
+								add += parseInt(value.charAt(i)) * (11 - i);  
+							}
+							segundoDig = 11 - (add % 11);  
+							if (segundoDig < 2) segundoDig = 0;    
+							
+							//Verificação
+							if (primeiroDig != parseInt(value.charAt(9)) || segundoDig != parseInt(value.charAt(10))){
+								mCtrl.$setValidity('ErrorCPF', false); 
+							}else{
+								mCtrl.$setValidity('ErrorCPF', true);    	
+							}
+							return value;
+						}
+						mCtrl.$parsers.push(validateCPF);
+					}
+				}
+			})
+			
+			app.controller('myCtrl', function($scope){
+			})
+		</script>
+	
+	</body>
+</html>

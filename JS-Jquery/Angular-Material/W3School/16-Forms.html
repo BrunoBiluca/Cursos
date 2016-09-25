@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<body ng-app="myApp" ng-controller="myCtrl" ng-init="mySwitch=true">	
+		
+		<div ng-app="myApp" ng-controller="myCtrl">
+
+		<form>
+		First Name: <input type="text" ng-model="firstname">
+		</form>
+		<h1>You entered: {{firstname}}</h1>
+
+		<hr>
+		
+		<form>
+			Check to show a header:
+			<input type="checkbox" ng-model="myVar">
+		</form>
+		<h1 ng-show="myVar">My Header</h1>
+		
+		<hr>
+		 <form>
+			Pick a topic:
+			<input type="radio" ng-model="myVar2" value="dogs">Dogs
+			<input type="radio" ng-model="myVar2" value="tuts">Tutorials
+			<input type="radio" ng-model="myVar2" value="cars">Cars
+		</form>
+		<h1>{{myVar2}}</h1>
+		
+		<hr>
+		<form>
+			Select a topic:
+			<select ng-model="myVar3">
+				<option value="">
+				<option value="dogs">Dogs
+				<option value="tuts">Tutorials
+				<option value="cars">Cars
+			</select>
+		</form>
+		<h1>{{myVar3}}</h1>
+		
+		<hr>
+		<form novalidate>
+		    First Name:<br>
+			<input type="text" ng-model="user.firstName"><br>
+			Last Name:<br>
+			<input type="text" ng-model="user.lastName">
+			<br><br>
+			<button ng-click="reset()">RESET</button>
+		</form>
+		<p>form = {{user}}</p>
+		<p>master = {{master}}</p>
+		
+		<script>
+			var app = angular.module("myApp", []);
+
+			app.controller('myCtrl', function($scope){
+			
+				$scope.master = {firstName: "Bruno", lastName: "Costa"};
+				$scope.reset = function(){
+					$scope.user = angular.copy($scope.master);
+				}
+				//Inicial
+				$scope.reset();
+			})
+		</script>
+	
+	</body>
+</html>

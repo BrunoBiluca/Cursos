@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<body ng-app="myApp" ng-controller="myCtrl" ng-init="mySwitch=true">	
+		
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<p>{{x}}</p>
+			<p>Lower Case: {{xl}}</p>
+			<p>Upper Case: {{xu}}</p>
+			<p>É uma string? {{xs}}</p>
+			<p>É um número? {{xn}}</p>
+		</div>
+		<script>
+			var app = angular.module("myApp", []);
+
+			app.controller('myCtrl', function($scope){
+				$scope.x = "Bruno";
+				$scope.xl = angular.lowercase($scope.x);
+				$scope.xu = angular.uppercase($scope.x);
+				$scope.xs = angular.isString($scope.x);
+				$scope.xn = angular.isNumber($scope.x);
+			})
+		</script>
+	
+	</body>
+</html>

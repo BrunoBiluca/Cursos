@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<body ng-app="myApp" ng-controller="myCtrl">
+
+		<p>{{myURL}}</p>
+	
+		<hr>
+		
+		<h1 ng-style="estilo">{{myWelcome}}</h1>
+	
+		<hr>
+		
+		<p>{{hex}}</p>
+	
+		<script>
+			var app = angular.module("myApp", []);
+
+			//Custom service
+			app.service('hexafy', function() {
+				this.convert16 = function (x) {
+					return x.toString(16);
+				}
+			});
+			
+			app.controller('myCtrl', function($scope, $location, $timeout, $interval, hexafy){
+				$scope.myURL = $location.absUrl();
+				
+				$timeout(function(){	//Gera um tempo para executar alguma coisa
+					$scope.myWelcome = "Hello World! atrasado";
+				}, 2000);
+				
+				var i = 0;
+				$interval(function(){
+				console.log(i);
+					if(i % 2 == 0)
+						$scope.estilo = {color:"green"};
+					else
+						$scope.estilo = {color:"red"};
+					i++;
+				}, 1000);
+				
+				$scope.hex = hexafy.convert16(255);
+			});
+		</script>
+	
+	</body>
+</html>

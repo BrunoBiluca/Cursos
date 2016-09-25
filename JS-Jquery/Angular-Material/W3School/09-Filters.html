@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<body ng-app="myApp" ng-controller="personCtrl">
+
+		<p>{{lastname | uppercase }}</p>
+		
+		<hr>
+		
+		<ul>
+		    <li ng-repeat="x in names | orderBy:'country'">
+				{{ x.name + ', ' + x.country }}
+  		    </li>
+		</ul>
+		
+		<hr>
+		
+		<h1>Price: {{ price | currency }}</h1>
+		
+		<hr>
+		
+		<table border="1" width="100%">
+			<tr>
+				<th ng-click="orderByMe('name')">Name</th>
+				<th ng-click="orderByMe('country')">Country</th>
+			</tr>
+			<tr ng-repeat="x in names | orderBy:myOrderBy">
+				<td>{{x.name | myFormat}}</td>
+				<td>{{x.country}}</td>
+			</tr>
+		</table>
+	
+		<script>
+			var app = angular.module("myApp", []);
+			
+			app.filter('myFormat', function() {
+				return function(x) {
+					var i, c, txt = "";
+					for (i = 0; i < x.length; i++) {
+						c = x[i];
+						if (i % 2 == 0) {
+							c = c.toUpperCase();
+						}
+						txt += c;
+					}
+					return txt;
+				};
+			});
+			
+			app.controller("personCtrl", function($scope){
+				$scope.lastname = "Costa";
+				
+				$scope.names = [{name: "João", country: "Brazil"}, 
+								{name: "John", country: "USA"},
+								{name: "Oleg", country: "Rússia"},
+								{name: "Gerald", country: "Polônia"},];
+								
+				$scope.price = 56;
+				
+				$scope.orderByMe = function(x){
+					$scope.myOrderBy = x;
+				}
+			});
+		</script>
+	
+	</body>
+</html>

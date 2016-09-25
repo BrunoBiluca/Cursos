@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<body>
+
+	<div ng-app="myApp" >
+		<test-directive></test-directive>
+		
+		<br>
+		<div test-directive></div>
+		
+		<br>
+		<div class="test-directive"></div>
+		
+		<br>
+		<!-- directive: test-directive -->
+	</div>
+
+	</body>
+	
+	<script>
+		var app = angular.module("myApp", []);
+		app.directive("testDirective", function(){
+			return {
+				restrict: "EACM", //Restrições para usar a diretiva
+				template: "<h1>Diretiva do Brunão</h1>"
+			};
+		})
+	</script>
+	
+</html>

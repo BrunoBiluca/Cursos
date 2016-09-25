@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<body ng-app="myApp" ng-controller="myCtrl">
+	
+		<p>Today's welcome message is:</p>
+		<h1>{{myWelcome}}</h1>
+	
+		<script>
+			var app = angular.module("myApp", []);
+
+			app.controller('myCtrl', function($scope, $http){
+
+			$http({
+					method : "GET",
+					url : "/welcome.htm"
+				}).then(function mySucces(response) {
+					$scope.myWelcome = response.data;
+				}, function myError(response) {
+					$scope.myWelcome = response.statusText;
+				});
+			})
+		</script>
+	
+	</body>
+</html>

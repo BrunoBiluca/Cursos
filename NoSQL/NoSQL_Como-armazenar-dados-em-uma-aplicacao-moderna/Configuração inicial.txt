@@ -1,0 +1,9 @@
+O mongodb é um banco de dados NoSQL, de alta performance orientado a documentos.
+Cada documento funciona como um arquivo JSON que pode ser editado, removido ou inserido a bel prazer.
+
+Para utilizar o mongodb no windows é necessário fazer a instalação. Criar a pasta 'data'.
+Esta pasta guarda todas as informações do banco de dados.
+
+Para utilizar o console do mongodb é necessário ir ao diretório onde foram instalados os arquivos
+do mongodb. Pelo terminal rodar o servidor do Mongo, arquivo "mongod.exe" e o console do Mongo, 
+arquivo "mongo.exe"

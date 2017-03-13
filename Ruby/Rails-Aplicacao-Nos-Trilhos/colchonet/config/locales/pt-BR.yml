@@ -1,0 +1,70 @@
+---
+pt-BR:
+  users:
+    confirmations:
+      success: Email confirmado com sucesso, obrigado!
+    new:
+      title: Cadastro
+    edit:
+      title: Editar perfil
+    show:
+      title: "Perfil: %{user_name}"
+      edit: 'Editar perfil'
+      location: "Localização: %{location}"
+      bio: "Bio: %{bio}"
+  rooms:
+    show:
+      title: Título
+      edit: Editar quarto
+      location: Localização
+      description: Descrição
+      text: Texto
+  layout:
+    rooms: Quartos
+    signup: Cadastro
+  signup_mailer:
+    confirm_email:
+      subject: 'Colcho.net - Confirme seu email'
+      title: 'Seja bem vindo ao Colcho.net!'
+      body: |
+        Seja bem vindo ao Colcho.net, %{full_name}.
+        O Colcho.net é o lugar ideal para você alugar aquele quarto
+        sobrando na sua casa e ainda conhecer gente do mundo inteiro.
+      confirm_link_html: 'Para você começar a usar o site, acesse o link: %{link}'
+      thanks_html: 'Obrigado por se cadastrar no %{link}.'  
+  links:
+    back: Voltar
+  user_sessions:
+    new:
+      title: 'Login'
+      sign_up: 'Cadastre-se'
+  general:
+    form_error: Há erros no formulário, por favor verifique
+  activerecord:
+    models:
+      room: Quarto
+      user: Usuário
+    attributes:
+      user:
+        bio: Biografia
+        email: Email
+        full_name: Nome completo
+        location: Localização
+        password: Senha
+        password_confirmation: Confirme sua senha
+      room:
+        description: Descrição
+        location: Localização
+        title: Título
+  activemodel:
+    attributes:
+      user_session:
+        email: Email
+        password: Senha
+    errors:
+      messages:
+        invalid_login: 'Usuário ou senha inválidos'
+  helpers:
+    submit:
+      user_session:
+        create: 'Entrar'

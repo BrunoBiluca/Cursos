@@ -1,0 +1,22 @@
+<p>
+  <strong><%= t '.title' %>:</strong>
+  <%= @room.title %>
+</p>
+
+<p>
+	<strong><%= t '.location' %>:</strong>
+  	<%= @room.location %>
+</p>
+
+<p>
+	<strong><%= t '.description' %>:</strong>
+	<%= @room.description %>
+</p>
+
+<p>
+	<strong><%= t '.text' %>:</strong>
+	<%= @room.text %>
+</p>
+
+<%= link_to t('.edit'), edit_room_path(@room) %> |
+<%= link_to t('links.back'), rooms_path %>

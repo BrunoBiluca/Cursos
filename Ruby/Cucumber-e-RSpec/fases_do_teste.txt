@@ -1,0 +1,14 @@
+1 - Setup
+	Configuração para a criação do teste. SUT(system under test)
+	Configuração para o ambiente a ser testado
+
+2 - Exercise
+	Interação com o SUT. Hora de interagir com o ambiente testado
+
+3 - Verify
+	Verifica o comportamento da fase Exercise. De acordo com a interação
+	anterior que saber o que esperar do teste
+
+4 - Teardown
+	Volta o ambiente de forma a ficar no estado anterior ao teste.
+	Por exemplo RollBack do DB, deletar um arquivo criado, liberar memória.

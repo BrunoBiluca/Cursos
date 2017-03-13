@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Colchonet</title>
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<%= stylesheet_link_tag "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<header>
+		<div id="header-wrap">
+			<h1><%= link_to "colcho.net", root_path %> </h1>
+			<nav>
+				<ul>
+					<li><%= link_to t("layout.rooms"), rooms_path %> </li>
+					<li><%= link_to t("layout.signup"), new_user_path %> </li>
+				</ul>
+			</nav>
+		</div>
+			</header>
+		<div id="content">
+			<% if notice.present? %>
+				<p id="notice"><%= notice %> </p>
+			<% end %>
+			<% if alert.present? %>
+				<p id="alert"><%= alert %> </p>
+			<% end %>
+			<%= yield %>
+		</div>
+	</body>
+</html>

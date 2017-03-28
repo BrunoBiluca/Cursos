@@ -14,8 +14,8 @@ Quando /^começo um novo jogo$/ do
 end
 
 Então /^o jogo termina com a seguinte mensagem na tela:$/ do |text|
-	steps %{
-		Then the stdout should pass with:
+	steps %Q{
+		Then it should pass with:
 		"""
 		#{text}
 		"""

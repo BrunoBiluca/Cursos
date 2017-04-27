@@ -1,0 +1,53 @@
+---- Tipos de usuarios são determinados por:
+        0 Administrador
+        1 Cliente
+        2 Medicos
+        3 Enfermeiro
+        4 Gerente
+
+---- Coisas para fazer
+        Geral:
+            + Cadastrar usuários                                - Feito o sistema - 
+            + Tela de login                                     - Feito o sistema -
+            + Fazer a página index mostrar 
+                notícias sobre o hospital
+            + Fazer cabeçalho para:                             - Feito o sistema -
+                = Index
+                = Páginas do usuário
+                = Cadastro
+
+        Página do administrador:
+            + Alocar médicos aos seus consultórios              - Feito o sistema - 
+            + Alocar horário dos enfermeiros                    - Feito o sistema -
+            + Cadastrar médicos                                 - Feito o sistema - 
+            + Cadastrar enfermeiros                             - Feito o sistema - 
+            + Cadastrar gerentes                                - Feito o sistema - 
+            + Cadastrar consultórios                            - Feito o sistema -
+            + Cadastrar salas de cirurgia                       - Feito o sistema -
+            + Cadastrar leitos                                  - Feito o sistema -
+            + Remover usuarios                                  - Feito o sistema -
+            + Remover Leitos                                    - Feito o sistema -
+            + Remover Consultorios                              - Feito o sistema -
+            + Remover Salas Cirurgicas                          - Feito o sistema -
+            
+        Página dos clientes:
+            + Marcar consulta                                   - Feito o sistema -
+            + Desmarcar consulta                                - Feito o sistema -
+            + Listar local e médico da consulta                 - Feito o sistema -
+
+        Página dos médicos:
+            + Listar os horários que foram alocados             - Feito o sistema - 
+            + Marcar cirurgia para cliente                      - Feito o sistema - 
+            + Marcar recuperacao para cliente                   - Feito o sistema -
+            + Dar alta para cliente                             - Feito o sistema -
+
+        Página dos enfermeiros:
+            + Listar os horários que foram alocados pelo Adn    - Feito o sistema -
+            + Listar horários das cirurgias                     - Feito o sistema -
+            + Listar horários de vigência de leitos             - Feito o sistema -
+
+        Página dos gerentes:
+            + Gerar relatório de funcionários ordenados         - Feito o sistema -
+            + Gerar relatório de patrimônios ordenados
+            + Quantas consultas foram marcadas
+            + Quais as especialidades mais procuradas

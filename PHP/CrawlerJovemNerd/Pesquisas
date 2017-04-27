@@ -1,0 +1,8 @@
+Pesquisas do observatório:
+    + Busca1 = Notícia mais comentada
+    + Busca2 = Procurar todas as notícias de uma data em específico
+    + Busca3 = Temas mais comentados
+    + Busca4 = Top 10 usuários que mais comentaram
+    + Busca5 = Procura por um tema e é retornado todas as notícias em ordem de repercução nas redes sociais
+    + Busca6 = Procura por uma palavra, esta palavra é buscada no título e nos comentários
+    

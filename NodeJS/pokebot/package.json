@@ -1,0 +1,19 @@
+{
+  "name": "poketobot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "botbuilder": "^3.6.0",
+    "fuzzy-matching": "^0.4.3",
+    "recastai": "^2.3.0",
+    "restify": "^4.3.0",
+    "superagent": "^3.4.1"
+  }
+}

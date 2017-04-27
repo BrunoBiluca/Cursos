@@ -1,0 +1,28 @@
+agenda_homepage:
+    path:     /home
+    defaults: { _controller: BrunoBundle:Agenda:index }
+
+agenda_painel:
+    path:     /painel/{listaEstilo}
+    defaults: { _controller: BrunoBundle:Painel:lista, listaEstilo: lista }
+    
+agenda_mes:
+    path:     /agenda/mes/{listaEstilo}
+    defaults: { _controller: BrunoBundle:Painel:listaMes, listaEstilo: lista}    
+    
+agenda_criar:
+    path:     /criar-evento
+    defaults: { _controller: BrunoBundle:Painel:criarEvento }
+    
+agenda_editar:
+    path:     /editar-evento/{eventoID}
+    defaults: { _controller: BrunoBundle:Painel:editarEvento }
+    
+agenda_remover:
+    path:     /remover-evento/{eventoID}
+    defaults: { _controller: BrunoBundle:Painel:removerEvento }
+    
+agenda_evento:
+    path:     /evento/{eventoName}
+    defaults: { _controller: BrunoBundle:PageEvento:mostrarEvento }
+

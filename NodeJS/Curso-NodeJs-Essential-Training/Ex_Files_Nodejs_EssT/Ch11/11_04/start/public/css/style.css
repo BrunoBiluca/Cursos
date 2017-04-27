@@ -1,0 +1,105 @@
+html,
+body {
+  height: 100%;
+}
+body,
+h1 {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+h1 {
+  margin: 10px 0;
+  color: navy;
+}
+body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+body dl {
+  border: double;
+  padding: 1em;
+  display: block;
+  width: 80%;
+}
+body dl + p {
+  display: none;
+}
+body dl:empty {
+  display: none;
+}
+body dl:empty + p {
+  color: red;
+  display: block;
+}
+body dl dt {
+  font-family: fantasy, sans-serif;
+  font-size: 1.5em;
+  color: darkslateblue;
+}
+body dl dt:hover {
+  color: red;
+  cursor: pointer;
+}
+body dl dd {
+  font-family: Verdana, sans-serif;
+  margin: 0 0 10px 55px;
+  font-size: 1em;
+}
+body form {
+  background-color: darkslateblue;
+  color: white;
+  padding: 1em;
+  width: 80%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+body form input,
+body form button {
+  margin: 0 1em;
+  padding: .5em;
+}
+body form input:first-of-type {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+body form input:last-of-type {
+  -webkit-box-flex: 4;
+  -webkit-flex-grow: 4;
+      -ms-flex-positive: 4;
+          flex-grow: 4;
+}
+body form button {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: transparent;
+  outline: none;
+  border: solid 1px;
+  color: white;
+}
+body form button:hover {
+  color: yellow;
+}

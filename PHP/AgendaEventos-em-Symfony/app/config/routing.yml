@@ -1,0 +1,4 @@
+bruno:
+    resource: "@BrunoBundle/Resources/config/routing.yml"
+    prefix:   /
+

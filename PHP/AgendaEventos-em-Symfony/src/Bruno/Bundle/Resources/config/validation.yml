@@ -1,0 +1,6 @@
+BrunoBundle\Entity\Evento:
+    properties:
+        file:
+            - File:
+                maxSize: 6000000
+                mimeTypes: [image/jpg, image/jpeg, image/pjpeg, image/png, image/x-png]

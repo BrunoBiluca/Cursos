@@ -1,0 +1,11 @@
+
+queryFql = "https://graph.facebook.com/fql?q=SELECT%20share_count,%20like_count,%20comment_count,total_count%20FROM%20link_stat%20WHERE%20url='"
+# resultado = queryFql + url + "'"
+
+queryTwitter = "http://cdn.syndication.twitter.com/widgets/tweetbutton/count.json?url="
+# resultado = queryTwitter + url
+
+queryGoogle = "https://plus.google.com/ripple/details?url="
+padraoGoogle = re.compile('([0-9]+) compartilhamentos públicos.')
+# resultado = queryGoogle + url
+# e fazer uma busca usando o padraoGoogle

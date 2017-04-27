@@ -1,0 +1,240 @@
+/* 
+    Document   : admin css
+    Author     : UPINSIDE TREINAMENTO
+    Description:
+        Formata o painel admin do projeto do curso de PHP OO da UPINSIDE.
+*/
+body{font-family: 'Open Sans', sans-serif;}
+body.login{background: #09f;}
+body.painel{background: url(../images/header_bg.png) repeat-x #fbfbfb;}
+
+/*BOTÕES*/
+.btn{padding: 7px 22px; border: 3px solid #eee; background: #fbfbfb; text-transform: uppercase; font-weight: bold;}
+.btn{cursor: pointer; font-size: 0.8em; color: #fff;}
+.blue{background: #069; border-color: #053a8a}
+.blue:hover{background: #09f; border-color: #069;}
+.green{background: #33752c; border-color: #1f471a}
+.green:hover{background: #4aaa40; border-color: #398431;}
+
+/*FLOATS*/
+.right{float: right !important;}
+.left{float: left !important;}
+.center{text-align: center !important;}
+
+/*MENSAGENS DO SISTEM*/
+.trigger{padding: 15px 15px 15px 40px; background: #eee; font-size: 14px; margin-bottom: 15px;}
+.trigger a{font-weight: 600; font-size: 12px; text-transform: uppercase; padding: 5px 15px; background: #069; color: #fff;}
+.trigger a:hover{background: #09f; color: #fff;}
+
+.accept{background: #71ca73 url(../icons/accept.png) center left 10px no-repeat}
+.infor{background:  #c8dbfd url(../icons/infor.png) center left 10px no-repeat}
+.alert{background:  #faf7b7 url(../icons/alert.png) center left 10px no-repeat}
+.error{background:  #ffafaf url(../icons/error.png) center left 10px no-repeat}
+
+/*CAIXAS DE IMAGEM*/
+.thumb_small{width: 120px; height: 70px; background: #00254A url(../images/header_logo.png) center center no-repeat; background-size: 70%}
+.thumb_emp{width: 120px; height: 60px; background: #00254A url(../images/header_logo.png) center center no-repeat; background-size: 70%}
+.thumb_medium{width: 200px; height: 116px; background: #00254A url(../images/header_logo.png) center center no-repeat; background-size: 70%}
+
+/*APENAS TELA DE LOGIN*/
+#login{width: 100%;}
+#login .boxin{position: absolute; width: 322px; min-height: 300px; background: #eee; left: 50%; top: 50%;}
+#login .boxin{padding: 20px 20px 10px; margin-left: -181px; margin-top: -170px;}
+#login .boxin h1{font-size: 30px; text-transform: uppercase; font-weight: 600; color: #09f; border-bottom: 5px solid #09f;}
+#login .boxin h1{margin-bottom: 15px; padding-bottom: 5px; text-align: center;}
+#login form label{display: block; margin-bottom: 15px;}
+#login form label span{display: block; margin-bottom: 5px;}
+#login form label input{width: 300px; padding: 10px; font-size: 18px; border: none;}
+#login form .btn{margin-top: 10px;}
+
+/*PAINEL ADMIN*/
+#navadmin{width: 100%; height: 147px; position: relative; margin-bottom: 50px;} 
+#navadmin .content{width: 968px; display: block; margin: 0 auto;}
+#navadmin .logomarca{float: left; font-size: 0; width: 200px; height: 60px; margin-top: 20px; background: url(../images/header_logo.png) left center no-repeat;}
+
+/*NAV SYSTEM*/
+#navadmin .systema_nav{float: right; padding: 20px 5px 10px; background: #006699; position: relative; top: -10px}
+#navadmin .systema_nav li{float: left;}
+#navadmin .systema_nav li a{float: left; margin: 0 15px; width: 30px; height: 30px; font-size: 0;}
+#navadmin .systema_nav li a:hover{background-color: #09f;}
+#navadmin .systema_nav li .profile{background: url(../icons/profile.png) center center no-repeat;}
+#navadmin .systema_nav li .users{background: url(../icons/users.png) center center no-repeat;}
+#navadmin .systema_nav li .logout{background: url(../icons/logout.png) center center no-repeat;}
+#navadmin .systema_nav li .icon{background-size: 80%;}
+#navadmin .systema_nav .username{margin: 5px 15px; float: left; font-variant: small-caps; color: #fff;}
+
+/*MENU CENTRAL*/
+#navadmin nav{width: 968px; display: block; float: left; position: absolute; bottom: 0px;}
+#navadmin nav h1{float: left; font-size: 18px; background: #F2F2F2; margin-right: 15px; border-bottom: 1px solid #F2F2F2;}
+#navadmin nav h1 a{color: #09f; padding: 11px 26px 11px 26px; float: left;}
+#navadmin nav h1 a:hover{background: #09f; color: #fff;}
+#navadmin nav ul{float: left; margin-top: 6px;}
+#navadmin nav ul .li{float: left; margin-right: 5px; position: relative;}
+#navadmin nav ul li:hover .opensub{background: #F2F2F2; color: #333}
+#navadmin nav ul .li:last-child{margin: 0;}
+#navadmin nav ul .li .opensub{float: left; padding: 10px 20px; color: #fff; background: #005875; font-size: 14px; font-weight: 600; border-bottom: 1px solid #777777;}
+#navadmin nav ul .li .opensub:hover{background: #F2F2F2;}
+#navadmin nav ul li:hover .sub{display: block;}
+#navadmin nav ul .li .sub{position: absolute; top: 33px; width: 960px;}
+#navadmin nav ul .li .sub li{float: left; font-size: 12px; text-transform: uppercase; margin-right: 20px;}
+#navadmin nav ul .li .sub li a{float: left; font-weight: bold; color: #999; padding: 17px 10px;}
+#navadmin nav ul .li .sub li a:hover{color: #333;}
+#navadmin nav ul .li .sub{display: none;}
+#navadmin nav ul .active .opensub{background-color: #F2F2F2 !important; color: #333 !important;}
+
+/*GERAL CONTENT*/
+#painel{width: 100%; padding: 30px 0 30px;}
+#painel .content{width: 968px; margin: 0 auto;}
+#painel .notfound{min-height: 320px;}
+
+/*BOX GERAL*/
+.boxtitle{font-size: 24px; color: #888; font-weight: 400; border-bottom: 5px solid #888; margin-bottom: 15px; padding-bottom: 5px;}
+.boxsubtitle{font-size: 16px; color: #444; font-weight: 400; margin-bottom: 10px;}
+.boxaside{width: 298px; padding: 10px; background: #eee; margin-bottom: 20px;}
+.boxaside:last-child{margin: 0;}
+
+/*HOME PAINEL*/
+/*Estatísticas*/
+.home aside{float: left; width: 318px;}
+.home aside .sitecontent ul{float: left; width: 298px; font-size: 12px;}
+.home aside .sitecontent ul li{float:left; width:258px; background: white; padding: 15px 0 15px 40px; margin-bottom: 10px;}
+.home aside .sitecontent ul li:last-child{margin: 0;}
+.home aside .sitecontent ul .line{padding: 1px 20px; background: #ccc;}
+.home aside .sitecontent ul .view{background: #fff url(../icons/e_view.png) left 10px center no-repeat;}
+.home aside .sitecontent ul .user{background: #fff url(../icons/e_user.png) left 10px center no-repeat;}
+.home aside .sitecontent ul .page{background: #fff url(../icons/e_page.png) left 10px center no-repeat;}
+.home aside .sitecontent ul .post{background: #fff url(../icons/e_post.png) left 10px center no-repeat;}
+.home aside .sitecontent ul .emp{background: #fff url(../icons/e_emp.png) left 10px center no-repeat;}
+.home aside .sitecontent ul .comm{background: #fff url(../icons/e_comm.png) left 10px center no-repeat;}
+
+/*Navegadores*/
+.home aside .useragent ul{float: left; width: 258px; font-size: 12px; padding: 20px; background: #fff;}
+.home aside .useragent ul li{float:left; width:258px; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dotted #333;}
+.home aside .useragent ul li:last-child{margin: 0; padding: 0; border: none;}
+.home aside .useragent ul li strong{font-size: 16px;}
+.home aside .useragent ul li span{background: #09f; display: block; padding: 10px 0; margin: 5px 0;}
+
+/*Conteúdo*/
+.home .content_statistics{float: right; width: 620px;}
+.home .content_statistics section{padding: 20px; background: #fff; margin-bottom: 20px; float: left; width: 580px;}
+.home .content_statistics section:last-child{margin: 0;}
+.home .content_statistics section .boxsubtitle{border-bottom: 3px solid #eee; margin-bottom: 20px; padding-bottom: 5px;}
+.home .content_statistics section article{margin-bottom: 18px; padding-bottom: 18px; float: left; width: 580px; border-bottom: 1px dotted #eee;}
+.home .content_statistics section article:last-child{margin: 0; padding: 0; border: none;}
+.home .content_statistics section article .img{float: left; margin-right: 15px;}
+.home .content_statistics section article h1{font-size: 14px; margin-bottom: 10px;}
+.home .content_statistics section article h1 a{font-weight: 600; color: #005875}
+.home .content_statistics section article h1 a:hover{text-decoration: underline;}
+
+/*POSTS*/
+.post_actions{float: left; width: 298px; font-size: 12px;}
+.post_actions li{float: left; margin-right: 6px;}
+.post_actions li:first-child{margin-right: 32px; margin-top: 4px;}
+.post_actions li:last-child{margin: 0;}
+.post_actions li a{background: #ccc; text-transform: uppercase; font-size: 10px; color: #333; width: 25px; height: 25px; float: left; font-size: 0;}
+.post_actions li a:hover{background-color: #09f; color: #fff;}
+.post_actions li .act_view{background: #eee url(../icons/act_view.png) center center no-repeat;}
+.post_actions li .act_edit{background: #eee url(../icons/act_edit.png) center center no-repeat;}
+.post_actions li .act_ative{background: #eee url(../icons/act_ative.png) center center no-repeat;}
+.post_actions li .act_inative{background: #eee url(../icons/act_inative.png) center center no-repeat;}
+.post_actions li .act_delete{background: #eee url(../icons/act_delete.png) center center no-repeat;}
+
+/*FORM CADASTRO*/
+.form_create .trigger{margin: 20px 0 25px 0;}
+.form_create article form{padding: 20px; background: #fff; margin-top: 10px;}
+.form_create article form .label{display: block; margin-bottom: 15px;}
+.form_create article form .field{display: block; margin-bottom: 5px; font-weight: 600;}
+.form_create article form label input,
+.form_create article form label select,
+.form_create article form label textarea{padding: 10px; border: 5px solid #ccc; width: 900px; font-size: 18px; font-family: 'Trebuchet MS', sans-serif; font-weight: initial; color: #333;}
+.form_create article form .label_line{float: left; width: 930px;  margin-bottom: 15px;}
+
+.form_create article form .label_small{float: left; width: 280px;}
+.form_create article form .label_small:last-child{float: right;}
+.form_create article form .label_small:first-child{float: left; margin-right: 44px;}
+.form_create article form .label_small input{width: 250px;}
+.form_create article form .label_small select{width: 280px; padding: 9px 10px}
+
+.form_create article form .label_medium{float: left; width: 442px; float: left; margin-right: 44px;}
+.form_create article form .label_medium:last-child{float: right; margin-right: 0;}
+.form_create article form .label_medium input{width: 412px;}
+.form_create article form .label_medium select{width: 442px; padding: 9px 10px}
+
+.form_create article form .btn{margin-top: 5px; margin-right: 15px;}
+
+/*GALERIA*/
+.form_create article form .gbform{padding: 20px 20px 5px; margin: 10px 0 20px; background: #fbfbfb; float: left; width: 890px}
+.form_create article form .gbform input{width: 860px;}
+.form_create article form .gbform .thumb_small{width: 146px; height: 100px}
+.form_create article form .gbform .right{margin-right: 0;}
+.form_create article form .gallery{width: 890px; float: left;}
+.form_create article form .gallery li{float:left; padding: 10px; margin: 0 15px 15px 0; background: #fff; position: relative;}
+.form_create article form .gallery li .del{position: absolute; background: #900; right: 10px; bottom: 10px; width: 20px; height: 20px;}
+.form_create article form .gallery li .del{text-transform: uppercase; color: #fff; font-size: 0; background: url(../icons/logout.png) center center no-repeat; background-size: 80%;}
+.form_create article form .gallery li .del:hover{background-color: red}
+
+/*LISTA CONTENT*/
+.list_content h1{margin-bottom: 10px;}
+.list_content article{padding: 20px; background: #fff; margin-bottom: 20px; float: left; width: 434px; min-height: 76px;}
+.list_content article .img{float: left; margin-right: 15px;}
+.list_content article h1{font-size: 14px;}
+.list_content article h1 a{color: #069;}
+.list_content article h1 a:hover{text-decoration: underline;}
+
+/*LISTA CATEGORIAS*/
+.cat_list h1{margin-bottom: 10px;}
+.cat_list section section{padding: 20px 20px 0; margin-bottom: 30px; background: #fff; float: left; width: 928px; border-bottom: 10px solid #ccc}
+.cat_list section:last-child{margin: 0;}
+.cat_list section section header{display: block; float: left; width: 928px}
+.cat_list section section header h1{font-size: 20px; margin: 0 !important; font-weight: bold; text-transform: uppercase; color: #333}
+.cat_list section section header .tagline{font-size: 16px; margin: 15px 0; color: #666;}
+.cat_list section section header .info{padding: 10px; margin-bottom: 20px; background: #fbfbfb; display: block; width: 908px;}
+
+.cat_list section section h2{font-size: 18px; margin: 15px 0 !important; font-weight: 600; color: #999}
+.cat_list section section article{float: left; width: 256px; padding: 20px; background: #eee; margin: 0 20px 20px 0;}
+.cat_list section section .right{margin-right: 0;}
+.cat_list section section article h1{font-size: 14px}
+.cat_list section section article .info{width: 256px;}
+.cat_list section section article .info li:first-child{margin-right: 21px;}
+
+/*EMPRESAS*/
+.list_emp article h1{margin: 0;}
+.list_emp article h2{margin: 0; font-size: 12px; text-transform: uppercase; margin-bottom: 3px;}
+.list_emp article h2 a{color: #666; font-weight: bold;}
+.list_emp article h2 a:hover{text-decoration: underline;}
+
+/*PAGINATOR*/
+.paginator{padding: 10px; background: #fff; text-align: center}
+.paginator li{display: inline;}
+.paginator a, .paginator span{margin: 0 5px; padding: 3px 8px; font-size: 14px; color: #333; font-weight: 600}
+.paginator a:hover{background: #09f; color: #fff;}
+.paginator .active{background: #333; color: #fff;}
+
+/*USUÁRIOS*/
+.user_cad{float: right; background: #bee2b0; padding: 8px 20px; font-size: 14px; text-transform: uppercase; color: #fff;}
+.user_cad:hover{background: #80e258}
+.ultable{width: 968px; display: block; margin: 20px auto; overflow: hidden; background: #eee; list-style: none; padding: 0;}
+.ultable .t_title{background: #333; color: #fff; border-color: #333; width: 968px;}
+.ultable .t_title span{border-color: #fff;}
+.ultable li{float: left; display: block; border: 1px solid #333; border-top: none; width: 968px; font-size: 14px;}
+.ultable li span{float: left; padding: 15px; border-right: 1px solid #ccc; min-height: 22px}
+.ultable li .center{text-align: center;}
+.ultable li .ui{width: 20px;}
+.ultable li .un{width: 210px;}
+.ultable li .ue{width: 200px;}
+.ultable li .ur{width: 80px;}
+.ultable li .ua{width: 150px;}
+.ultable li .ul{width: 40px;}
+.ultable li .ed{width: 50px; border-right-color: #333;}
+.ultable li .ed a{background: #069;}
+.ultable li .ed a:hover{background-color: #09f;}
+.ultable li .ed a:last-child{background-color: #efc3c2;}
+.ultable li .ed a:last-child:hover{background-color: red;}
+.ultable li .ed .action{width: 25px; height: 22px; display: block; font-size: 0; float: left;}
+.ultable li .ed .user_edit{background: #ccc url(../icons/act_edit.png) center center no-repeat; background-size: 70%}
+.ultable li .ed .user_dele{background: #ccc url(../icons/act_delete.png) center center no-repeat; background-size: 70%}
+
+/*FOOTER GERAL*/
+.main_footer{background: #00254A; width: 100%; padding: 30px 0; text-align: center; border-top: 2px solid #444;}
+.main_footer a{font-size: 14px; color: #fff; font-variant: small-caps;}
+.main_footer a:hover{text-decoration: underline;}

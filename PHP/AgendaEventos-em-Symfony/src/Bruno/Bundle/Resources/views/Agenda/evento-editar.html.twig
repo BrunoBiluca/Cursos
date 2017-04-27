@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row texto-inicio">
+        <h1>Olá {{usuarioNome}}! Atualize seu evento! </h1>
+        <p>Nesta aplicação você pode marcar eventos, atualizá-los e deletar eventos.</p>
+        <p>Esta aplicação foi desenvolvida utilizando o framework de PHP Symfony 3.10, para o front-end
+            foi utilizado Boostrap v3.3.6, como IDE para auxiliar na programação foi utilizado NetBeans 8.1,
+            como servidor foi utilizando o APache v2.4.17, como banco de dados foi utilizando MySQL v5.7.9.</p>
+        <p>Desenvolvido por <a href="https://github.com/BrunoBiluca">BrunoBiluca</a></p>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-3">
+            <h1 class="titulo-lista">Ações:</h1><br>
+            <a href="{{ path('agenda_painel') }}"><button class="btn btn-primary btn-lg">Painel</button></a><hr>
+            <a href="{{ path('agenda_criar') }}"><button class="btn btn-primary btn-lg">Criar novo evento!</button></a>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <h1 class="titulo-lista">Atualizar Evento:</h1><br>
+            <div class="row">
+                {% form_theme form 'bootstrap_3_layout.html.twig' %}
+                <div class="row">
+                    {{error}}
+                </div>
+
+                <div class="row form-login">
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    <div class="form-group">
+                        {{form_label(form.titulo, "Título do Evento:")}}
+                        {{form_widget(form.titulo, {'attr' : {'class': 'form-control input-lg'}})}}
+                    </div>
+                    <div class="form-group">
+                        {{form_label(form.descricao, 'Descrição do Evento: ')}}
+                        {{form_widget(form.descricao, {'attr' : {'class': 'form-control input-lg'}})}}
+                    </div>
+                    <div class="form-group">
+                        {{form_label(form.data, 'Data do Evento: ')}}
+                        {{form_widget(form.data, {'attr' : {'class': ''}})}}
+                    </div>
+                    <div class="form-group">
+                        {{form_label(form.file, 'Capa do Evento: ')}}
+                        {{form_widget(form.file, {'attr' : {'class': ''}})}}
+                    </div>
+                    <div class="form-group botao-form">
+                        {{form_widget(form.save, {'label': 'Atualizar evento!','attr' : {'class': 'btn btn-primary btn-lg'}})}}
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

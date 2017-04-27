@@ -1,0 +1,25 @@
+Bruno\Bundle\Entity\Evento:
+    type: entity
+    table: ae_eventos
+    repositoryClass: Bruno\Bundle\Repository\EventoRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        titulo:
+            type: string
+            length: 100
+        descricao:
+            type: string
+            length: 1000
+        data:
+            type: datetime
+        criador:
+            type: integer
+        name:
+            type: string
+            length: 100
+        image:
+            type: string
+            length: 255

@@ -1,0 +1,115 @@
+<?php
+
+namespace Bruno\Bundle\Entity;
+
+class Evento{
+    
+    /**
+     * @var string 
+     */
+    private $titulo;
+
+    /**
+     * @var string 
+     */
+    private $descricao;
+    
+    /**
+     * @var DateTime 
+     */
+    private $data;
+    
+    /**
+     * @var integer
+     */
+    private $criador;
+    
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * Get id
+     * @return integer
+     */
+    public function getId(){
+        return $this->id;
+    }
+
+    /**
+     * Set titulo
+     * @param string $titulo
+     * @return Evento
+     */
+    public function setTitulo($titulo){
+        $this->titulo = $titulo;
+
+        return $this;
+    }
+
+    /**
+     * Get titulo
+     * @return string
+     */
+    public function getTitulo(){
+        return $this->titulo;
+    }
+
+    /**
+     * Set descricao
+     * @param string $descricao
+     * @return Evento
+     */
+    public function setDescricao($descricao){
+        $this->descricao = $descricao;
+
+        return $this;
+    }
+
+    /**
+     * Get descricao
+     * @return string
+     */
+    public function getDescricao(){
+        return $this->descricao;
+    }
+
+    /**
+     * Set data
+     * @param \DateTime $data
+     * @return Evento
+     */
+    public function setData(\DateTime $data){
+        $this->data = $data;
+
+        return $this;
+    }
+
+    /**
+     * Get data
+     * @return \DateTime
+     */
+    public function getData(){
+        return $this->data;
+    }
+
+    /**
+     * Set criador
+     * @param integer $criador
+     * @return Evento
+     */
+    public function setCriador($criador){
+        $this->criador = $criador;
+
+        return $this;
+    }
+
+    /**
+     * Get criador
+     * @return integer
+     */
+    public function getCriador(){
+        return $this->criador;
+    }
+}

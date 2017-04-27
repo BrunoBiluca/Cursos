@@ -1,0 +1,21 @@
+{
+  "name": "mocha-testing",
+  "version": "1.0.0",
+  "description": "Learn to write Unit Tests with Mocha Chai",
+  "author": "Alex Banks",
+  "license": "MIT",
+  "keywords": [
+    "Unit",
+    "Testing",
+    "Mocha",
+    "Chai",
+    "Rewire",
+    "Sinon",
+    "Supertest",
+    "Cheerio"
+  ],
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "nock": "^2.17.0"
+  }
+}

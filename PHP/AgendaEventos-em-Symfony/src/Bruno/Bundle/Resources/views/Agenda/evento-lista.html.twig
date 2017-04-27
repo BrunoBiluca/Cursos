@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row texto-inicio">
+        <h1>Olá {{usuarioNome}}! Como você está? </h1>
+        <p>Nesta aplicação você pode marcar eventos, atualizá-los e deletar eventos.</p>
+        <p>Esta aplicação foi desenvolvida utilizando o framework de PHP Symfony 3.10, para o front-end
+            foi utilizado Boostrap v3.3.6, como IDE para auxiliar na programação foi utilizado NetBeans 8.1,
+            como servidor foi utilizando o APache v2.4.17, como banco de dados foi utilizando MySQL v5.7.9.</p>
+        <p>Desenvolvido por <a href="https://github.com/BrunoBiluca">BrunoBiluca</a></p>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-3">
+            <h1 class="titulo-lista">Ações:</h1><br>
+            <a href="{{ path('agenda_painel') }}"><button class="btn btn-primary btn-lg">Painel</button></a><hr>
+            <a href="{{ path('agenda_criar') }}"><button class="btn btn-primary btn-lg">Criar novo evento!</button></a><hr>
+            <a href="{{ path('agenda_mes') }}"><button class="btn btn-primary btn-lg">Listar eventos do mês!</button></a>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <h1 class="titulo-lista">Lista de eventos:</h1><br>
+            <a href="{{ path('agenda_painel', {'listaEstilo': 'lista'}) }}"><button class="btn btn-primary btn-lg">Lista</button></a>
+            <a href="{{ path('agenda_painel', {'listaEstilo': 'grid'}) }}"><button class="btn btn-primary btn-lg">Grid</button></a><hr>
+
+            <div class="row">
+            {% for evento in eventos %}
+                {% block lista %}
+                    {% if listaEstilo == 'lista' %}
+                    {{ include('BrunoBundle:Listas:lista.html.twig', { 'evento': evento }) }}
+                    {% elseif listaEstilo == 'grid' %}
+                    {{ include('BrunoBundle:Listas:grid.html.twig', { 'evento': evento }) }}
+                    {% endif %}
+                {% endblock %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

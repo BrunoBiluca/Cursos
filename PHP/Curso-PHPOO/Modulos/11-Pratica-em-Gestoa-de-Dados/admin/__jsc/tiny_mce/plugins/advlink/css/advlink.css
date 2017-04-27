@@ -1,0 +1,8 @@
+.mceLinkList, .mceAnchorList, #targetlist, .rell{width:428px; padding:5px;}
+.mceActionPanel {margin-top:7px;}
+.panel_wrapper div.current {height:320px;}
+#classlist, #title{width:418px; padding:5px;}
+#popupurl, #popupname {width:418px;}
+#popupwidth, #popupheight, #popupleft, #popuptop {width:30px;vertical-align:middle;text-align:center;}
+#id, #style, #classes, #target, #dir, #hreflang, #lang, #charset, #type, #rel, #rev, #tabindex, #accesskey {width:428px; padding:5px;}
+#events_panel input {width:418px;}

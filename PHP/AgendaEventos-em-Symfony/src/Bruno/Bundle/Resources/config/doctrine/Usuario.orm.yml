@@ -1,0 +1,24 @@
+Bruno\Bundle\Entity\Usuario:
+    type: entity
+    table: ae_usuarios
+    repositoryClass: Bruno\Bundle\Repository\UsuarioRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nome:
+            type: string
+            length: '50'
+            column: Nome
+        nickName:
+            type: string
+            length: '20'
+            column: NickName
+        password:
+            type: string
+            length: 255
+            column: Password
+    lifecycleCallbacks: {  }

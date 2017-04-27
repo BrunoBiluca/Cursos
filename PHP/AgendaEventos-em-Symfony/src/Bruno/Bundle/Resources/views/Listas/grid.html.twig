@@ -1,0 +1,15 @@
+{% block lista %}
+    <div class="col-md-3 grid-evento">
+        <div class="grid-imagem">
+        <img src="{{asset(evento.getWebPath())}}"  height="150px" width="220px">
+            </div>
+        
+        <hr>
+        <a href="{{ path('agenda_evento', {'eventoName': evento.name}) }}"><h2>{{ evento.titulo }}</h2></a>
+        <ul class="post_actions">
+            <li><p>{{ evento.data|date('Y-m-d H:i:s') }}</p></li>
+            <li><a class="act_edit" title="Atualizar" href="{{ path('agenda_editar', { 'eventoID': evento.id}) }}">Atualizar</a></li>
+            <li><a class="act_delete" title="Remover" href="{{ path('agenda_remover', { 'eventoID': evento.id}) }}">Remover</a></li>
+        </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02/06/2016, 16:11:32
+    Author     : Bruno
+*/
+
+.form-login{}
+.form-login input{}
+.botao-login{text-align: center;}
+
+.titulo-lista{border-bottom: gray solid 5px;}
+.img-evento{width: 80%;}
+.texto-img{text-align: center;}
+
+.post_actions{width: 298px; font-size: 12px;}
+.post_actions li{float: left; margin-right: 6px; list-style: none;}
+.post_actions li:first-child{margin-right: 32px; margin-top: 4px;}
+.post_actions li:last-child{margin: 0;}
+.post_actions li a:hover{background-color: #09f; color: #fff;}
+.post_actions li a{background: #ccc; text-transform: uppercase; font-size: 10px; color: #333; width: 25px; height: 25px; float: left; font-size: 0;}
+.post_actions li .act_edit{background: #eee url(../icons/act_edit.png) center center no-repeat;}
+.post_actions li .act_delete{background: #eee url(../icons/act_delete.png) center center no-repeat;}
+
+.botao-form{text-align: right;}
+.btn{width: 240px;}
+
+.form-mes #form_data #form_data_day{display: none;}
+.form-mes #form_data #form_data_year{display: none;}
+
+.grid-evento{border: gray solid 1px; padding: 10px; margin: 10px; width: 250px;}
+.grid-imagem{text-align: center;}

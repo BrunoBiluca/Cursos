@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Javascript Awesome Drum Kit</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="keys">
+            <!-- Podemos ligar dados entre as tags HTML utilizando o prefixo 'data' seguido da chave que será compartilhada -->
+            <div data-key="65" class="key">
+                <kbd>A</kbd>
+                <span class="sound">calp</span>
+            </div>
+            <div data-key="83" class="key">
+                <kbd>S</kbd>
+                <span class="sound">boom</span>
+            </div>
+            <div data-key="68" class="key">
+                <kbd>D</kbd>
+                <span class="sound">hihat</span>
+            </div>
+            <div data-key="70" class="key">
+                <kbd>F</kbd>
+                <span class="sound">kick</span>
+            </div>
+            <div data-key="71" class="key">
+                <kbd>G</kbd>
+                <span class="sound">openhat</span>
+            </div>
+            <div data-key="72" class="key">
+                <kbd>H</kbd>
+                <span class="sound">ride</span>
+            </div>
+            <div data-key="74" class="key">
+                <kbd>J</kbd>
+                <span class="sound">snare</span>
+            </div>
+            <div data-key="75" class="key">
+                <kbd>K</kbd>
+                <span class="sound">tink</span>
+            </div>
+            <div data-key="76" class="key">
+                <kbd>L</kbd>
+                <span class="sound">tom</span>
+            </div>
+        </div>
+
+        <audio data-key="65" src="sounds/clap.wav"></audio>
+        <audio data-key="83" src="sounds/boom.wav"></audio>
+        <audio data-key="68" src="sounds/hihat.wav"></audio>
+        <audio data-key="70" src="sounds/kick.wav"></audio>
+        <audio data-key="71" src="sounds/openhat.wav"></audio>
+        <audio data-key="72" src="sounds/ride.wav"></audio>
+        <audio data-key="74" src="sounds/snare.wav"></audio>
+        <audio data-key="75" src="sounds/tink.wav"></audio>
+        <audio data-key="76" src="sounds/tom.wav"></audio>
+
+        <script>
+            window.addEventListener('keydown', function(e){
+                const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+                const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+                
+                // Não existe audio para ser tocado pela tecla
+                if(!audio) return;
+
+                audio.currentTime = 0;
+                audio.play();
+
+                key.classList.add("playing");
+            });
+
+            // Para cada css que é feito na transition como cada borda que é alterada essa função é chamada
+            // Assim é necessário pegar o evento que demora mais para acontecer e focar nele
+            function removeTransition(e){
+                // Propriedade do css que mais demora a acontecer
+                if(e.propertyName !== "transform") return;
+
+                this.classList.remove("playing");
+            }
+
+            var keys = document.querySelectorAll(`.key`);
+            // Visualização dos eventos iniciados pelo transitionend
+            //keys.forEach(k => k.addEventListener("transitionend", function(e){console.log(e)}));
+            keys.forEach(k => k.addEventListener("transitionend", removeTransition));
+        </script>
+    </body>
+</html>

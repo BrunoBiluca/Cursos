@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
+<script>
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+const cities = [];
+
+// Utilizando fecth para buscar os dados de um endpoint com todas as cidades
+// Todo fecth retorna uma promise
+// Podemos inserir os dados em um array utilizando a notação ...<variavel>
+fetch(endpoint)
+  .then(prom => prom.json())
+  .then(data => cities.push(...data));
+
+// Função que buscas as informaçoes do array pela cidade ou pela estado
+function findMacthes(wordToMacth){
+  // Filter retorna todas as entradas de um array dada uma condição de retorno ser verdadeira
+  return cities.filter(place => {
+    var reg = new RegExp(wordToMacth, 'gi');
+    return place.city.match(reg) || place.state.match(reg);
+  })
+}
+
+function numberWithCommas(x){
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
+
+// Função responsável por montar o HTML que será incorporado
+// a página com as sugestões de cidades e estados
+function displayMatches(){
+  const wordToMacth = this.value;
+  var places = findMacthes(this.value);
+  console.log(places);
+  var html = places.map(p => {
+    var reg = new RegExp(wordToMacth, 'gi');
+    cityName = p.city.replace(reg, `<span class='hl'>${wordToMacth}</span>`);
+    stateName = p.state.replace(reg, `<span class='hl'>${wordToMacth}</span>`);
+    return `<li>
+              <span class="name">${cityName}, ${stateName}</span>
+              <span class="population">${numberWithCommas(p.population)}</span>
+            </li>`;
+  }).join('');
+  suggestions.innerHTML = html;
+}
+
+const search = document.querySelector(".search");
+const suggestions = document.querySelector(".suggestions");
+
+search.addEventListener('change', displayMatches);
+search.addEventListener('keyup', displayMatches);
+
+</script>
+  </body>
+</html>

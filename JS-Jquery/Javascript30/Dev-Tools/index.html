@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+	console.log("Hello World!");
+
+    // Interpolated
+	console.log("Can I sleep? %s", "😴")
+	
+    // Styled
+	console.log("%c No, I need to stay awake", "border: 1px solid #000")
+
+    // warning!
+	console.warn("Ok!");
+
+    // Error :|
+	console.error("NOOOOOOO!");
+
+    // Info
+	console.info("See that building in New York!");
+
+    // Testing
+	const p = document.querySelector('p');
+	console.assert(p, "That is wrong!")
+
+    // clearing
+	console.clear();
+
+    // Viewing DOM Elements
+	console.log(p);
+	console.dir(p);
+
+    // Grouping together
+	dogs.forEach(d => {
+		console.groupCollapsed(`${d.name}`)
+		console.log(`${d.name}`);
+		console.log(`${d.age} years`);
+		console.log(`${d.age * 7} has dog years`);
+		console.groupEnd(`${d.name}`)
+	});
+
+    // counting
+	console.count("Bruno");
+	console.count("Bruno");
+	console.count("Bruno");
+	console.count("Lince");
+	console.count("Bruno");
+	console.count("Bruno");
+	console.count("Lince");
+	console.count("Bruno");
+	
+    // timing
+	const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+	console.time("Fecthing Data");
+	fetch(endpoint)
+		.then(data => data.json())
+		.then(data => {
+			console.timeEnd("Fecthing Data");
+			console.log(data);
+		});
+
+  </script>
+</body>
+</html>

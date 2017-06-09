@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hold Shift to Check Multiple Checkboxes</title>
+</head>
+<body>
+  <style>
+
+    html {
+      font-family: sans-serif;
+      background:#ffc600;
+    }
+
+    .inbox {
+      max-width:400px;
+      margin:50px auto;
+      background:white;
+      border-radius:5px;
+      box-shadow:10px 10px 0 rgba(0,0,0,0.1);
+    }
+
+    .item {
+      display:flex;
+      align-items:center;
+      border-bottom: 1px solid #F1F1F1;
+    }
+
+    .item:last-child {
+      border-bottom:0;
+    }
+
+
+    input:checked + p {
+      background:#F9F9F9;
+      text-decoration: line-through;
+    }
+
+    input[type="checkbox"] {
+      margin:20px;
+    }
+
+    p {
+      margin:0;
+      padding:20px;
+      transition:background 0.2s;
+      flex:1;
+      font-family:'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+      border-left: 1px solid #D1E2FF;
+    }
+
+
+  </style>
+   <!--
+   The following is a common layout you would see in an email client.
+
+   When a user clicks a checkbox, holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
+
+  -->
+  <div class="inbox">
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an inbox layout.</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check one item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Hold down your Shift key</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check a lower item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Everything inbetween should also be set to checked</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Try do it with out any libraries</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Just regular JavaScript</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Good Luck!</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Don't forget to tweet your result!</p>
+    </div>
+  </div>
+
+<script>
+
+  const checkboxes = document.querySelectorAll("input[type='checkbox']");
+  const checkboxesArray = [...checkboxes];
+  var multiple = false;
+
+  function toogleCheckbox(event){
+    var checkbox = this;
+    if(multiple){
+      const idx = checkboxesArray.findIndex((inp) => {
+        return inp == checkbox
+      });
+      console.log("Index: " + idx);
+
+      var idxProx = findProxChecked(idx);
+      console.log("Index Próximo: " + idxProx);
+
+      var direction = 1;
+      if(idx < idxProx) direction = -1;
+      if(idx > idxProx) direction = 1;
+
+      while(idx != idxProx){
+        console.log("Iterate: " + idxProx);
+        checkboxes.item(idxProx).checked = true;
+
+        idxProx += direction;
+      };
+
+      checkboxesArray.forEach((inp) => {
+        inp.checkbox;
+      })
+    }
+    event.checked = !event.checked;
+  };
+
+  function findProxChecked(idx){
+    var idxProx = -1;
+    var distancia = Number.MAX_VALUE;
+    checkboxesArray.forEach((elem, pos) => {
+      const dist = Math.abs(idx - pos); // Distância do marcado para a posição
+      if(elem.checked && dist > 0 && dist < distancia){
+        distancia = dist;
+        idxProx = pos;
+      }
+    });    
+    return idxProx;
+  }
+
+  window.addEventListener('keydown', function(e){
+    if(e.keyCode == 16) multiple = true;
+  });
+
+  window.addEventListener('keyup', function(e){
+    if(e.keyCode == 16) multiple = false;
+  });
+
+  checkboxes.forEach(c => c.addEventListener('change', toogleCheckbox));
+
+
+  //console.log(checkboxesArray);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BankRupt_OO {
+    class PlayerCauteloso : Player {
+        public PlayerCauteloso(string nome, int coins) : base(nome, coins) { }
+
+        /// <summary>
+        /// Método resposável por tomar a ação
+        /// O jogador cauteloso compra qualquer propriedade desde que ele 
+        /// tenha uma reserva de 80 ​coins sobrando ​depois de realizada a compra. 
+        /// </summary>
+        /// <param name="casa"></param>
+        public override void Acao(Casa casa) {
+            if (casa.ValorCompra > Coins) return;
+
+            int simulaCompra = Coins - casa.ValorCompra;
+            if(simulaCompra >= 80) { 
+                Coins -= casa.ValorCompra;
+                casa.Proprietario = this;
+            }
+        }
+    }
+}

@@ -1,0 +1,5 @@
+Tutorial de introdu��o ao desenvovimento de Node.JS
+
+https://blog.risingstack.com/node-hero-tutorial-getting-started-with-node-js/
+
+https://blog.risingstack.com/your-first-node-js-http-server/

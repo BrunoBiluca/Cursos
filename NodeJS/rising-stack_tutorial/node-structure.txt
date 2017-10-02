@@ -1,0 +1,72 @@
+** Regra 1: Organize seus arquivos em volta das Funcionalidades (Features) e não pelas funções (Roles).
+
+// DON'T (MVC)
+.
+├── controllers
+|   ├── product.js
+|   └── user.js
+├── models
+|   ├── product.js
+|   └── user.js
+├── views
+|   ├── product.hbs
+|   └── user.hbs
+
+// DO (Page)
+.
+├── product
+|   ├── index.js
+|   ├── product.js
+|   └── product.hbs
+├── user
+|   ├── index.js
+|   ├── user.js
+|   └── user.hbs
+
+** Regra 2: Não coloque a lógica no arquivo index.js, utilize ele para exportar outras funcionalidades
+
+// product/index.js
+var product = require('./product')
+
+module.exports = {  
+  create: product.create
+}
+
+** Regra 3: Coloque seus arquivos de teste perto da implementação
+
+.
+├── test
+|   └── setup.spec.js
+├── product
+|   ├── index.js
+|   ├── product.js
+|   ├── product.spec.js
+|   └── product.hbs
+├── user
+|   ├── index.js
+|   ├── user.js
+|   ├── user.spec.js
+|   └── user.hbs
+
+** Regra 4: Use um diretório "Config" para deixar os arquivos de configuraçao
+
+.
+├── config
+|   ├── index.js
+|   └── server.js
+├── product
+|   ├── index.js
+|   ├── product.js
+|   ├── product.spec.js
+|   └── product.hbs
+
+** Regra 5: Coloque seus scripts npm em um diretório "Scripts".
+
+├── scripts
+|   ├── syncDb.sh
+|   └── provision.sh
+├── product
+|   ├── index.js
+|   ├── product.js
+|   ├── product.spec.js
+|   └── product.hbs

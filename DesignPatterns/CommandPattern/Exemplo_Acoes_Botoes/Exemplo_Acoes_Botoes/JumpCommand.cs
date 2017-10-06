@@ -7,5 +7,9 @@ namespace Exemplo_Acoes_Botoes {
         public virtual void Execute(string ator) {
             Console.WriteLine($"{ator}: Voar Voar Subir Subir!");
         }
+
+        public bool IsNull() {
+            return false;
+        }
     }
 }

@@ -9,13 +9,15 @@ namespace Exemplo_Acoes_Botoes {
     /// </summary>
     public enum BUTTONS {
         BUTTON_X,
-        BUTTON_SQUARE
+        BUTTON_SQUARE,
+        BUTTON_CIRCLE
     };
 
     public static class InputHandler {
-        
+
         private static ICommand button_x = new JumpCommand();
         private static ICommand button_square = new FireCommand();
+        private static ICommand button_circle = new NullCommand();
 
         /// <summary>
         /// Indentifica o botão que foi pressionado e retorna o comando correspondente
@@ -25,6 +27,7 @@ namespace Exemplo_Acoes_Botoes {
         public static ICommand HandleInput(BUTTONS pressedButton) {
             if (pressedButton.Equals(BUTTONS.BUTTON_X)) return button_x;
             else if (pressedButton.Equals(BUTTONS.BUTTON_SQUARE)) return button_square;
+            else if (pressedButton.Equals(BUTTONS.BUTTON_CIRCLE)) return button_circle;
 
             return null;
         }
@@ -42,6 +45,9 @@ namespace Exemplo_Acoes_Botoes {
                 case BUTTONS.BUTTON_SQUARE:
                     button_square = command;
                     break;
+                case BUTTONS.BUTTON_CIRCLE:
+                    button_circle = command;
+                    break;
             }
         }
 
@@ -49,6 +55,7 @@ namespace Exemplo_Acoes_Botoes {
             switch (button) {
                 case BUTTONS.BUTTON_X:
                 case BUTTONS.BUTTON_SQUARE:
+                case BUTTONS.BUTTON_CIRCLE:
                     return true;
             }
 

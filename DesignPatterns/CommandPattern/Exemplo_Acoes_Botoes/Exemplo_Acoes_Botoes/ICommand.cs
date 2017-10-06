@@ -8,5 +8,6 @@ namespace Exemplo_Acoes_Botoes {
     /// </summary>
     public interface ICommand {
         void Execute(string ator);
+        bool IsNull();
     }
 }

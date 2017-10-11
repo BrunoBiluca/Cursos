@@ -28,9 +28,9 @@ namespace Assets {
                 Alien newAlien = new Alien();
 
                 //Without flyweight
-                newAlien.EyePositions = GetBodyPartPositions();
-                newAlien.ArmPositions = GetBodyPartPositions();
-                newAlien.LegPositions = GetBodyPartPositions();
+                //newAlien.EyePositions = GetBodyPartPositions();
+                //newAlien.ArmPositions = GetBodyPartPositions();
+                //newAlien.LegPositions = GetBodyPartPositions();
 
                 //With flyweight
                 newAlien.EyePositions = EyePositions;

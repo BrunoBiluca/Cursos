@@ -9,7 +9,7 @@ namespace ObserverPattern {
     /// Interface responsável por definir as funções para os observadores.
     /// Define um função Update que recebe o estado novo do sujeito.
     /// </summary>
-    interface Observer {
+    interface IObserver {
         void Update(float temp, float humidity, float pressure);
     }
 }

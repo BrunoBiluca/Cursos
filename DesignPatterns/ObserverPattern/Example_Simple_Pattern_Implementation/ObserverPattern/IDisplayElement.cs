@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ObserverPattern {
-    interface DisplayElement {
+    interface IDisplayElement {
         void Display();
     }
 }

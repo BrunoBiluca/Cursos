@@ -8,7 +8,7 @@ namespace ObserverPattern {
     // Classe responsável por prover os dados para a estação meteorológica.
     /* Como esta classe implementa o Subject todos os seus observadores devem 
      * ser notificados assim que o seu estado for alterado. */
-    class WeatherData : Subject {
+    class WeatherData : ISubject {
         private List<Observer> observers; // Lista de observadores que seram avisados quando o estado mudar
 
         // Estados da classe WeatherData

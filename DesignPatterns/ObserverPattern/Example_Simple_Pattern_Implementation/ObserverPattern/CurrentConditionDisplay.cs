@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ObserverPattern {
     /* Classe responsável por mostrar os dados atuais disponibilizados
      * pela classe WeatherData */
-    class CurrentConditionDisplay : Observer, DisplayElement {
+    class CurrentConditionDisplay : IObserver, IDisplayElement {
         
         // EStados providos pela classe WeatherData
         private float temperature;

@@ -1,44 +1,32 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
 
-public abstract class Enemy {
+namespace Assets {
+    public abstract class Enemy{
 
-    protected Transform EnemyObj;
+        public Transform EnemyObj { get; private set; }
 
-    protected enum EnemyFSM {
-        Attack,
-        Flee,
-        Stroll,
-        MoveTowardsPlayer
-    }
+        public IEnemyState State { get; protected set; }
 
-    public abstract void Update(Transform playerObj);
+        public float Health { get; protected set; }
+        public float StrollSpeed { get; protected set; }
+        public float FleeSpeed { get; protected set; }
+        public float MoveTowardsSpeed { get; protected set; }
 
-    protected void DoAction(Transform playerObj, EnemyFSM enemyMode) {
-        float fleeSpeed = 10f;
-        float strollSpeed = 1f;
-        float attackSpeed = 5f;
+        public Enemy(Transform enemyObj) {
+            EnemyObj = enemyObj;
+        }
 
-        switch(enemyMode) {
-            case EnemyFSM.Attack:
-                break;
-            case EnemyFSM.Flee:
-                EnemyObj.rotation = Quaternion.LookRotation(EnemyObj.position - playerObj.position);
-                EnemyObj.Translate(EnemyObj.forward * fleeSpeed * Time.deltaTime);
-                break;
-            case EnemyFSM.Stroll:
-                Vector3 randomPos = new Vector3(Random.Range(0, 10), 0f, Random.Range(0, 10));
-                EnemyObj.rotation = Quaternion.LookRotation(EnemyObj.position - randomPos);
-                EnemyObj.Translate(randomPos * strollSpeed * Time.deltaTime);
-                break;
-            case EnemyFSM.MoveTowardsPlayer:
-                EnemyObj.rotation = Quaternion.LookRotation(playerObj.position - EnemyObj.position);
-                EnemyObj.Translate(EnemyObj.forward * attackSpeed * Time.deltaTime);
-                break;
-            default:
-                break;
+        public virtual void Handle(Transform playerObj) {
+            State = State.Handle(this, playerObj);
+            Update(playerObj);
+        }
+
+        public virtual void Update(Transform playerObj) {
+            State.Update(this, playerObj);
         }
     }
-
 }

@@ -5,13 +5,24 @@ using System.Text;
 using UnityEngine;
 
 namespace Assets {
-    class MoveTowardsState : IEnemyState {
-        public void DoAction(Transform playerObj) {
-            throw new NotImplementedException();
+    public class MoveTowardsState : IEnemyState {
+        public IEnemyState Handle(Enemy enemy, Transform playerObj) {
+            var distance = (enemy.EnemyObj.position - playerObj.position).magnitude;
+
+            if(distance < 5f) {
+                return new AttackState();
+            }
+
+            if(distance > 15f) {
+                return new StrollState();
+            }
+
+            return this;
         }
 
-        public IEnemyState Update(Transform playerObj) {
-            throw new NotImplementedException();
+        public void Update(Enemy enemy, Transform playerObj) {
+            enemy.EnemyObj.rotation = Quaternion.LookRotation(playerObj.position - enemy.EnemyObj.position);
+            enemy.EnemyObj.Translate(enemy.EnemyObj.forward * enemy.MoveTowardsSpeed * Time.deltaTime);
         }
     }
 }

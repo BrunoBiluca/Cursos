@@ -5,8 +5,8 @@ using System.Text;
 using UnityEngine;
 
 namespace Assets {
-    interface IEnemyState {
-        IEnemyState Update(Transform playerObj);
-        void DoAction(Transform playerObj);
+    public interface IEnemyState {
+        IEnemyState Handle(Enemy enemy, Transform playerObj);
+        void Update(Enemy enemy, Transform playerObj);
     }
 }

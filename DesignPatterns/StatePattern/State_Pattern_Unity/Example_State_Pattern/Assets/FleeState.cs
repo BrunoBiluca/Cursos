@@ -5,13 +5,18 @@ using System.Text;
 using UnityEngine;
 
 namespace Assets {
-    class FleeState : IEnemyState {
-        public void DoAction(Transform playerObj) {
-            throw new NotImplementedException();
+    public class FleeState : IEnemyState {
+        public IEnemyState Handle(Enemy enemy, Transform playerObj) {
+            if(enemy.Health > 60f) {
+                return new StrollState();
+            }
+
+            return this;
         }
 
-        public IEnemyState Update(Transform playerObj) {
-            throw new NotImplementedException();
+        public void Update(Enemy enemy, Transform playerObj) {
+            enemy.EnemyObj.rotation = Quaternion.LookRotation(enemy.EnemyObj.position - playerObj.position);
+            enemy.EnemyObj.Translate(enemy.EnemyObj.forward * enemy.FleeSpeed * Time.deltaTime);
         }
     }
 }

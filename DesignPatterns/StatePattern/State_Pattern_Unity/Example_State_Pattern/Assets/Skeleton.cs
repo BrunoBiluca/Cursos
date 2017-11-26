@@ -1,39 +1,22 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
 
-public class Skeleton : Enemy {
-
-    EnemyFSM SkeletonMode = EnemyFSM.Stroll;
-
-    float Health = 100f;
-
-    public Skeleton(Transform skeletonObj) {
-        base.EnemyObj = skeletonObj;
-    }
-
-    public override void Update(Transform playerObj) {
-        float playerDistance = (base.EnemyObj.position - playerObj.position).magnitude;
-
-        switch(SkeletonMode) {
-            case EnemyFSM.Attack:
-                if(Health < 20f) SkeletonMode = EnemyFSM.Flee;
-                else if(playerDistance > 6f) SkeletonMode = EnemyFSM.MoveTowardsPlayer;
-                break;
-            case EnemyFSM.Flee:
-                if(Health > 60f) SkeletonMode = EnemyFSM.Stroll;
-                break;
-            case EnemyFSM.Stroll:
-                if(playerDistance > 10f) SkeletonMode = EnemyFSM.MoveTowardsPlayer;
-                break;
-            case EnemyFSM.MoveTowardsPlayer:
-                if(playerDistance < 5f) SkeletonMode = EnemyFSM.Attack;
-                else if(playerDistance > 15) SkeletonMode = EnemyFSM.Stroll;
-                break;
-            default:
-                break;
+namespace Assets {
+    class Skeleton : Enemy {
+        public Skeleton(Transform enemyObj) : base(enemyObj) {
+            State = new StrollState();
+            Health = 100;
+            StrollSpeed = 2f;
+            FleeSpeed = 7f;
+            MoveTowardsSpeed = 5f;
         }
 
-        DoAction(playerObj, SkeletonMode);
+        public override void Handle(Transform playerObj) {
+            State = State.Handle(this, playerObj);
+            Update(playerObj);
+        }
     }
 }

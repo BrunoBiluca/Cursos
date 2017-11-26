@@ -225,8 +225,10 @@
     <Compile Include="Assets\Creeper.cs" />
     <Compile Include="Assets\Enemy.cs" />
     <Compile Include="Assets\FleeState.cs" />
-    <Compile Include="Assets\GameController.cs" />
+    <Compile Include="Assets\ICrepperState.cs" />
     <Compile Include="Assets\IEnemyState.cs" />
+    <Compile Include="Assets\GameController.cs" />
+    <Compile Include="Assets\ISkeletonState.cs" />
     <Compile Include="Assets\MoveTowardsState.cs" />
     <Compile Include="Assets\Skeleton.cs" />
     <Compile Include="Assets\StrollState.cs" />

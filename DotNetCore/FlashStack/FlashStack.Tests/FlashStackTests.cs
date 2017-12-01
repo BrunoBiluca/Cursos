@@ -116,5 +116,22 @@ namespace FlashStack.Tests {
             Assert.AreEqual(-3, stack.Min());
         }
 
+        [TestMethod]
+        public void SameMinimumValueTest() {
+            var stack = new FlashStack();
+            stack.Push(-1);
+            stack.Push(-2);
+            stack.Push(-2);
+
+            Assert.AreEqual(-2, stack.Min());
+
+            stack.Pop();
+
+            Assert.AreEqual(-2, stack.Min());
+
+            stack.Pop();
+            Assert.AreEqual(-1, stack.Min());
+        }
+
     }
 }

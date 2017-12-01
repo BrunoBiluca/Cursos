@@ -5,7 +5,7 @@ namespace FlashStack.Tests {
     public class TheTwoStacksTests {
         [TestMethod]
         public void PushAndPopOneItemTest() {
-            var stack = new FlashStack();
+            var stack = new TheTwoStacks();
             stack.Push(3);
             var value = stack.Pop();
 
@@ -13,7 +13,7 @@ namespace FlashStack.Tests {
         }
         [TestMethod]
         public void PushTwoAndPopOneItemTest() {
-            var stack = new FlashStack();
+            var stack = new TheTwoStacks();
             stack.Push(3);
             stack.Push(5);
             var value = stack.Pop();
@@ -22,7 +22,7 @@ namespace FlashStack.Tests {
         }
         [TestMethod]
         public void MinimumValueFirstInsertedItemTest() {
-            var stack = new FlashStack();
+            var stack = new TheTwoStacks();
             stack.Push(3);
             stack.Push(5);
             stack.Push(12);
@@ -34,7 +34,7 @@ namespace FlashStack.Tests {
 
         [TestMethod]
         public void MinimumValueChangedThreeTimesTest() {
-            var stack = new FlashStack();
+            var stack = new TheTwoStacks();
             stack.Push(5);
             Assert.AreEqual(5, stack.Min());
             stack.Push(3);
@@ -45,7 +45,7 @@ namespace FlashStack.Tests {
 
         [TestMethod]
         public void MinimumValueNegativeNumberTest() {
-            var stack = new FlashStack();
+            var stack = new TheTwoStacks();
             stack.Push(3);
             Assert.AreEqual(3, stack.Min());
             stack.Push(5);
@@ -56,7 +56,7 @@ namespace FlashStack.Tests {
 
         [TestMethod]
         public void MinimumValuePopedTest() {
-            var stack = new FlashStack();
+            var stack = new TheTwoStacks();
             stack.Push(3);
             Assert.AreEqual(3, stack.Min());
             stack.Push(5);
@@ -70,7 +70,7 @@ namespace FlashStack.Tests {
 
         [TestMethod]
         public void MinimumValueNegativePopedTest() {
-            var stack = new FlashStack();
+            var stack = new TheTwoStacks();
             stack.Push(3);
             Assert.AreEqual(3, stack.Min());
             stack.Push(5);
@@ -84,7 +84,7 @@ namespace FlashStack.Tests {
 
         [TestMethod]
         public void OnlyPositivesTest() {
-            var stack = new FlashStack();
+            var stack = new TheTwoStacks();
             stack.Push(30);
             stack.Push(5);
             stack.Push(200);
@@ -101,7 +101,7 @@ namespace FlashStack.Tests {
 
         [TestMethod]
         public void OnlyNegativeTest() {
-            var stack = new FlashStack();
+            var stack = new TheTwoStacks();
             stack.Push(-3);
             stack.Push(-5);
             stack.Push(-2);

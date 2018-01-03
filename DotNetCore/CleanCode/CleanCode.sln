@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanCode", "CleanCode\CleanCode.csproj", "{160687E6-3541-4856-8182-35844B88AC4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanCode.UnitTests", "CleanCode.UnitTests\CleanCode.UnitTests.csproj", "{3D6DADB8-CB03-4995-8AB6-B75263C7A63E}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://moshfegh.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CleanCode\\CleanCode.csproj
+		SccProjectName1 = CleanCode
+		SccLocalPath1 = CleanCode
+		SccProjectUniqueName2 = CleanCode.UnitTests\\CleanCode.UnitTests.csproj
+		SccProjectName2 = CleanCode.UnitTests
+		SccLocalPath2 = CleanCode.UnitTests
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{160687E6-3541-4856-8182-35844B88AC4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160687E6-3541-4856-8182-35844B88AC4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160687E6-3541-4856-8182-35844B88AC4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160687E6-3541-4856-8182-35844B88AC4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D6DADB8-CB03-4995-8AB6-B75263C7A63E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D6DADB8-CB03-4995-8AB6-B75263C7A63E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D6DADB8-CB03-4995-8AB6-B75263C7A63E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D6DADB8-CB03-4995-8AB6-B75263C7A63E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

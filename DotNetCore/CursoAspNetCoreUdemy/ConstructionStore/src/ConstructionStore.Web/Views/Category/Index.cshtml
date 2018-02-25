@@ -1,0 +1,33 @@
+﻿@model object
+
+@{
+	ViewBag.Title = "title";
+	Layout = "_Layout";
+}
+
+<h2>Category List</h2>
+
+@Html.ActionLink("New Category", "Create","Category")
+
+<ul>
+	<li>
+		<input type="hidden" name="Id" value="1" />
+		Categoria 1
+	</li>
+	<li>
+		<input type="hidden" name="Id" value="2" />
+		Categoria 2
+	</li>
+	<li>
+		<input type="hidden" name="Id" value="3" />
+		Categoria 3
+	</li>
+	<li>
+		<input type="hidden" name="Id" value="4" />
+		Categoria 4
+	</li>
+	<li>
+		<input type="hidden" name="Id" value="5" />
+		Categoria 5
+	</li>
+</ul>

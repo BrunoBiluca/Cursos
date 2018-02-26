@@ -34,4 +34,4 @@ var mappingName = new FileFormat(filePath).MappingName();
 
 ## Licença
 
-[Apache 2.0](https://github.com/manojkulkarni30/GravatarHelper.NetStandard/blob/master/License.txt)
+[Apache 2.0](https://github.com/BrunoBiluca/Cursos/blob/master/DotNetCore/FileFormatLibrary/src/FileFormat/license.txt)

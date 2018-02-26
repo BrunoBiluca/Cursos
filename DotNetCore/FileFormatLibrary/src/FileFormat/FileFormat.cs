@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using FileFormat.Formats;
+using FileFormat.Mappings;
 
 namespace FileFormat
 {
@@ -11,7 +11,7 @@ namespace FileFormat
     ///     Contains all methods for determining mapping options given a file
     /// </summary>
     public class FileFormat {
-        private const string RegexExtension = @"^\S+.[a-zA-Z]+$";
+        private const string RegexExtension = @"^\S+.[a-zA-Z]+[0-9]*$";
         private readonly string _fileExtension;
 
         public FileFormat(string filePath) {
@@ -32,12 +32,7 @@ namespace FileFormat
         /// <returns>Nome do mapeamento</returns>
         public string MappingName() {
 
-            var formatsNamespace = typeof(IFormat).Namespace;
-            var type = Type.GetType($"{formatsNamespace}.{_fileExtension.ToUpper()}");
-            FileFormatException.When(type == null, "File is not supported");
-
-            var format = (IFormat)Activator.CreateInstance(type);
-            
+            var format = MappingFactory.GetMapping(_fileExtension);
             return format?.GetMappingType();
         }
     }

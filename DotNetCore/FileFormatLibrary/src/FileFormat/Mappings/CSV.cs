@@ -1,6 +1,6 @@
-namespace FileFormat.Formats
+namespace FileFormat.Mappings
 {
-    public class CSV : IFormat {
+    public class CSV : IMapping {
         public string GetMappingType() {
             return GetType().Name;
         }

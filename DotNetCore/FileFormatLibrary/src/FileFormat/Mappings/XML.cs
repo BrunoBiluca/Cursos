@@ -1,6 +1,6 @@
-namespace FileFormat.Formats
+namespace FileFormat.Mappings
 {
-    public class XML : IFormat {
+    public class XML : IMapping {
         public string GetMappingType() {
             return typeof(XML).Name;
         }

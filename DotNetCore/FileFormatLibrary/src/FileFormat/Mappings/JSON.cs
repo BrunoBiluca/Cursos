@@ -1,7 +1,5 @@
-using FileFormat.Formats;
-
-namespace FileFormat.Formats {
-    public class JSON : IFormat {
+namespace FileFormat.Mappings {
+    public class JSON : IMapping {
         public string GetMappingType() {
             return typeof(JSON).Name;
         }

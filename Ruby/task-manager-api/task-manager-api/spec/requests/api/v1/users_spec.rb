@@ -51,7 +51,7 @@ RSpec.describe 'User API', type: :request do
             end
 
             it 'returns json data form created user' do
-                expect(json_body[:email]).to eq user_params[:email]
+                expect(json_body[:email]).to eq(user_params[:email])
             end
             
         end

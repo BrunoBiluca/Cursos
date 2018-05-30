@@ -15,7 +15,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\css\" />
-    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConstructionStore.DI\ConstructionStore.DI.csproj" />
   </ItemGroup>
 
 </Project>

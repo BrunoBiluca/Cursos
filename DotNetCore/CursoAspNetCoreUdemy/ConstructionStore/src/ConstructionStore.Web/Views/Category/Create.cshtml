@@ -1,4 +1,4 @@
-﻿@model object
+﻿@model ConstructionStore.Web.ViewModels.CategoryViewModel
 
 @{
 	ViewBag.Title = "title";
@@ -6,3 +6,16 @@
 }
 
 <h2>title</h2>
+
+<form method="post" asp-action="Create" asp-controller="Category" 
+	  data-ajax="true" data-ajax-method="POST" data-ajax-failure="formOnFail" data-ajax-success="window.location='/category'">
+	<input type="text" name="Name" value="" />
+	<span asp-validation-for="Name" class="text-danger" id="msg-error"></span>
+	<button class="btn btn-default">Save</button>
+</form>
+
+@section Scripts {
+	<script src="~/js/jquery.validate.min.js"></script>
+	<script src="~/js/jquery.validate.unobtrusive.js"></script>
+	<script src="~/js/jquery.unobtrusive-ajax.min.js"></script>
+}

@@ -1,25 +1,22 @@
 using ConstructionStore.Domain.DTOs;
 
-namespace ConstructionStore.Domain.Product
-{
+namespace ConstructionStore.Domain.Product {
     // Classe responsável por implementar a lógica de persistência dos dados de Category
-    public class CategoryStorer
-    {
+    public class CategoryStorer {
         private readonly IRepository<Category> _categoryRepository;
 
-        public CategoryStorer(IRepository<Category> categoryRepository){
+        public CategoryStorer(IRepository<Category> categoryRepository) {
             _categoryRepository = categoryRepository;
         }
 
-        public void Store(CategoryDto dto){
-            var category = _categoryRepository.GetById(dto.Id);
+        public void Store(int id, string name) {
+            var category = _categoryRepository.GetById(id);
 
-            if(category == null){
-                category = new Category(dto.Name);
+            if(category == null) {
+                category = new Category(name);
                 _categoryRepository.Save(category);
-            }
-            else
-                category.Update(dto.Name);
+            } else
+                category.Update(name);
         }
     }
 }

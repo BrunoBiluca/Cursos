@@ -2,11 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ConstructionStore.Domain.DTOs;
+using ConstructionStore.Domain.Product;
+using ConstructionStore.Web.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConstructionStore.Web.Controllers {
     public class CategoryController : Controller {
+        private readonly CategoryStorer _categoryStorer;
+
+        public CategoryController(CategoryStorer categoryStorer) {
+            _categoryStorer = categoryStorer;
+        }
+
         // GET: Category
         public ActionResult Index() {
             return View();
@@ -25,14 +34,9 @@ namespace ConstructionStore.Web.Controllers {
         // POST: Category/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection) {
-            try {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            } catch {
-                return View();
-            }
+        public ActionResult Create(CategoryViewModel category) {
+            _categoryStorer.Store(category.Id, category.Name);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Category/Edit/5

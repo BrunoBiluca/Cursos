@@ -1,0 +1,36 @@
+version: '3'
+
+volumes:
+  data:
+
+networks: 
+  db:
+  web:
+
+services:
+  serverless:
+    image: node:8.10
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    command: bash ./app.sh
+    environment:
+      POSTGRES_PASSWORD: hadouken
+    networks: 
+      - db
+      - web
+    depends_on: 
+      - database
+
+  database:
+    image: postgres:11
+    volumes:
+      - data:/var/lib/postgresql/data
+      - ./postgres:/postgres
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: hadouken
+    networks:
+      - db

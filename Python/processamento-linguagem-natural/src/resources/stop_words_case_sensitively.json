@@ -1,0 +1,11 @@
+{
+    "wordSet": {
+        "initArgs": {"ignoreCase": false},
+        "managedList": [
+            "A",
+            "O",
+            "Que",
+            "Me"
+        ]
+    }
+}

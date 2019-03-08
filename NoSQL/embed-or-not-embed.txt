@@ -1,0 +1,23 @@
+Guideline para definir se uma estrutura deve ser embutida em outra ou não:
+
+1 - Os dados embutidos são sempre requeridos pela entidade principal?
+  + Se sim é melhor embutir já que os dados sempre serão consultados
+
+2 - Os dados embutidos são necessários sem a necessidade da entidade principal?
+  + Se os dados embutidos são muito utilizados sem a entidade principal então eles podem ser
+    separados em uma entidade separada.
+
+3 - Os dados embutidos são um conjunto limitado?
+  + Se os dados embutidos crescem muito a medida que a aplicação é utilizada então eles
+    podem ser separados em uma entidade separada, já que quando a entidade principal for
+    carregada ela será muito maior que o necessário
+
+4 - A entidade principal continua sendo pequena mesmo com os dados embutidos?
+  + No MongoDB um documento não pode ser maior que 16mb então os dados embutidos não podem
+    aumentar muito o tamanho da entidade principal
+
+5 - Qual a variedade das queries?
+  + Se os dados embutidos são utilizados em várias queries em diferentes locais da aplicação,
+    então eles pode ser separados em uma collection diferente; Se a complexidade dessas queries
+    em relação aos dados embutidos é pequena então eles é melhor continuar de forma embutida.
+

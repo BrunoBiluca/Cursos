@@ -1,0 +1,5 @@
+# Principais funcionalidades
+
+## [Implementado] Contar o número de genres
+
+## [Implementado] Média de runtimeMinutes por genres

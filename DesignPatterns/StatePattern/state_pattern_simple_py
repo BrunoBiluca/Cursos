@@ -1,0 +1,38 @@
+class TurnState:
+  def __init__(self):
+    self.caracter = 'O'
+
+  def execute(self):
+    pass
+
+class X_State(TurnState):
+  def execute(self, context):
+    index = 1
+    print('X')
+    return context[index+1 if index+1 < len(context) else 0]
+
+class O_State(TurnState):
+  def execute(self, context):
+    index = 0
+    print('O')
+    return context[index+1 if index+1 < len(context) else 0]
+
+class H_State(TurnState):
+  def execute(self, context):
+    index = 2
+    print('H')
+    return context[index+1 if index+1 < len(context) else 0]
+
+class TurnManager:
+  states = [O_State(), X_State(), H_State()]
+
+  def __init__(self):
+    self.state = O_State()
+
+  def execute(self):
+    self.state = self.state.execute(self.states)
+
+turn = TurnManager()
+turn.execute()
+turn.execute()
+turn.execute()

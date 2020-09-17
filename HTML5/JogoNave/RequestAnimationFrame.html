@@ -1,0 +1,39 @@
+<html>
+<head><title>Request Animation Frame</title></head>
+<body></body>
+
+	<canvas id="meu_canvas" width="1000" height="300"> 
+		Seu navegador não suporta html5</br>
+	</canvas>
+
+	<script>
+	var canvas = document.getElementById('meu_canvas');
+	var context = canvas.getContext('2d');
+
+	var x = 20;
+	var y = 100;
+	var raio = 5;
+
+	var velocidade = 20;
+
+	var anterior = new Date().getTime();
+
+	requestAnimationFrame(mexerBola);
+
+	function mexerBola(){
+		context.clearRect(0,0, canvas.width, canvas.height);
+
+		var agora = new Date().getTime();
+		var decorrido = agora - anterior;
+		context.beginPath();
+		context.arc(x ,y, raio, 0, Math.PI*2);
+		context.fill();
+		x += velocidade*decorrido / 100;
+
+		anterior = agora;
+		requestAnimationFrame(mexerBola);
+	}
+
+	</script>
+
+</html>

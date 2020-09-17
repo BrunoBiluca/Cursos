@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Historico.java&apos; to &apos;tp2/src/tp2&apos;&#x0D;&#x0A;- Original project: &apos;tp2_test&apos;&#x0D;&#x0A;- Destination element: &apos;tp2/src/tp2&apos;&#x0D;&#x0A;- Original element: &apos;tp2_test.Historico.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=tp2/src&lt;tp2" element1="/src&lt;tp2_test{Historico.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1387391288336" units="1" version="1.0"/>
+</session>

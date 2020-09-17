@@ -1,0 +1,21 @@
+Atlético-MG	Belo Horizonte
+Atlético-PR	Coritiba
+Bahia	Salvador
+Botafogo	Rio de Janeiro
+Corinthians	São Paulo
+Coritiba	Coritiba
+Criciúma	Criciúma
+Cruzeiro	Belo Horizonte
+Flamengo	Rio de Janeiro
+Fluminense	Rio de Janeiro
+Goiás	Goiânia
+Grêmio	Porto Alegre
+Internacional	Porto Alegre
+Náutico	Recife
+Ponte Preta	Campinas
+Portuguesa	São Paulo
+Santos	Santos
+São Paulo	São Paulo
+Vasco da Gama	Rio de Janeiro
+Vitória	Salvador
+

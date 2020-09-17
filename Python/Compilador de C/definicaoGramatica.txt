@@ -1,0 +1,120 @@
+%token ID LITERAL NUMI NUMF 
+%token ADD SUB MUL DIV ASSIGN REFF 
+%token OR AND LOWER LE GREATER GE EQUAL DIFF
+
+%token CHAR INT FLOAT VOID
+%token IF ELSE RETURN FOR CONTINUE BREAK PRINT READ SCAN
+
+%token SEMI OPEN_BRACE_C CLOSE_BRACE_C COMA EXCLAMATION OPEN_PAR CLOSE_PAR
+%token OPEN_BRACE_P CLOSE_BRACE_P QUOTATION APOST
+
+comando
+	:condicional comando
+	|atribuicao SEMI comando
+	|declaracao SEMI comando
+	|repeticao comando
+	|RETURN tipo_retorno SEMI comando
+	|CONTINUE SEMI comando
+	|BREAK SEMI comando
+	|PRINT OPEN_PAR LITERAL printAux CLOSE_PAR SEMI comando
+	|E
+
+repeticao
+	:FOR OPEN_PAR atribuicao SEMI exprlogica SEMI atribuicao CLOSE_PAR repeticaoAux
+
+repeticaoAux
+	:OPEN_BRACE_C comando CLOSE_BRACE_C
+
+declaracao
+	:tipo atribuicao
+
+tipo
+	:INT
+	|FLOAT
+	|CHAR
+
+atribuicao
+	:ID atribuicaoAux
+
+atribuicaoAux
+	:ASSIGN expresao 
+	|E
+	
+condicional
+	:IF OPEN_PAR exprlogica CLOSE_PAR condicionalaux
+
+condicionalaux
+	:OPEN_BRACE_C comando condicionalaux2
+	|comando condicionalaux2
+
+condicionalaux2
+	:CLOSE_BRACE_C
+	|CLOSE_BRACE_C ELSE condicionalaux3
+
+condicionalaux3
+	:OPEN_BRACE_C comando CLOSE_BRACE_C
+
+exprlogica
+	: ID exprLogicaAux
+	
+exprLogicaAux
+	: exprLogicaAux2 exprLogicaAux3
+	|E
+	
+exprLogicaAux2
+	: opComparacao operando2
+	|E
+
+exprLogicaAux3
+	: conector ID exprLogicaAux
+	|E
+	
+opComparacao
+	: LOWER
+	| LE
+	| GREATER
+	| GE
+	| EQUAL
+	| DIFF
+	
+operando2
+	: ID
+	| NUMI
+	| NUMF
+	
+conector
+	: AND
+	| OR	
+		
+exprMat
+	:termo exprAux
+
+termo
+	:fator termoAux
+
+termoAux
+	:MUL fator termoAux
+	:DIV fator termoAux
+	|E
+
+fator
+	:OPEN_PAR exprMat CLOSE_PAR
+	|ID
+	|NUMF
+	|NUMI
+
+exprAux
+	:ADD termo exprAux
+	|SUB termo exprAux
+	|E
+
+expresao
+	:exprMat
+	|LITERAL
+
+Main
+	:VOID ID OPEN_PAR CLOSE_PAR OPEN_BRACE_C
+	|analisadorSintatico CLOSE_BRACE_C
+
+analisadorSintatico
+	: INT ID OPEN_PAR CLOSE_PAR OPEN_BRACE_C comando CLOSE_BRACE_C

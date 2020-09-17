@@ -1,0 +1,118 @@
+package Funcionarios;
+
+abstract class Funcionario{
+	protected String nome,entBanco,RG;
+	protected double salario;
+	protected boolean status;
+	
+	public Funcionario(){
+		
+	}
+	
+	public Funcionario(String nome){
+		this.nome = nome;
+	}
+	
+	abstract double bonifica();
+	
+	public void demite(){
+		this.salario = 0;
+		this.status = false;
+	}
+	
+	public void mostra(){
+		System.out.println(this.nome);
+		System.out.println(this.entBanco);
+		System.out.println(this.RG);
+		System.out.println(this.salario);
+		System.out.println(this.status);		
+	}
+	
+	public void setSalario(double salario){
+		this.salario = salario;
+	}
+	
+	void MudaNome(String name){
+		this.nome = name;
+	}
+	
+	void GetNome(){
+		System.out.println(this.nome);
+	}
+	
+	public double getSalario(){
+		return this.salario;
+	}
+}
+
+class Gerente extends Funcionario{
+	private int senha;
+	int numDeFunc;
+	
+	public boolean Autentifica(int senha){
+		if(this.senha == senha){
+			System.out.println("Acesso permitido");
+			return true;
+		}else{
+			System.out.println("Acesso não permitido");
+			return false;
+		}
+	}
+	
+	public void setSenha(int senha){
+		this.senha = senha;
+	}
+	
+	public double bonifica(){
+		return this.salario*1.4f + 100;
+	}
+	
+}
+
+class Diretor extends Gerente{
+
+}
+
+class Presidente extends Funcionario{
+
+	double bonifica() {
+		return this.salario*2f;
+	}
+	
+}
+
+class ControleBonificacoes{
+	private double totaldeBonificacoes = 0;
+	
+	public void registra(Funcionario funcionario){
+		System.out.println("Adicionando bonificação para "+ funcionario);
+		this.totaldeBonificacoes += funcionario.bonifica(); 
+	}
+	
+	public double getTotaldeBonificacoes(){
+		return this.totaldeBonificacoes;
+	}
+}
+
+public class teste {
+
+	public static void main(String[] args) {
+		
+		ControleBonificacoes controle = new ControleBonificacoes();
+
+		Gerente funcionario1 = new Gerente();
+		
+		//gerente.MudaNome("Bruno");
+		
+		//gerente.setSenha(1234);
+		
+		funcionario1.setSalario(5000);
+		//System.out.println(gerente.bonifica());
+		
+		controle.registra(funcionario1);
+		
+		System.out.println(controle.getTotaldeBonificacoes());
+		
+	}
+
+}

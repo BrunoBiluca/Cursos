@@ -1,0 +1,69 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+#define maxTam 19
+
+typedef int Indice;
+
+typedef struct {
+	int chave;	
+}TipoItem;
+
+typedef struct {
+	TipoItem item[maxTam];
+}Vetor;
+
+void selecao(Vetor a, Indice *n);
+
+int main(){
+
+	Vetor dados; 
+
+	Indice n;
+	Indice i;
+
+	FILE *fp;
+	FILE *fp2;
+
+	fp = fopen("Entrada.txt","r");
+	fp2 = fopen("Saida.txt","w");
+	
+	n = 0;
+	while (!feof(fp)){
+		fscanf(fp, "%d\n", &dados.item[n].chave);
+/*		printf("%d\n", dados.item[n].chave); */
+		n++;
+	}
+
+	selecao(dados, &n);
+
+	for(i=0; i <= n; i++){
+/*		printf("%d\n", dados.item[n].chave);  */
+		fprintf(fp2, "%d\n", dados.item[i].chave);	
+	}
+
+	close(fp);
+	close(fp2);
+
+}
+
+
+void selecao(Vetor a, Indice *n) {
+	Indice i, j, min;
+	Indice coisa = *n;
+	TipoItem x;
+	for (i = 1; i <= coisa ; i++) {
+		printf("%d\n", coisa);
+		min = i;
+		for (j = i + 1; j <= *n; j++) {
+			printf("%d\n", j);
+			if (a.item[j].chave < a.item[min].chave) {
+				min = j;
+			}
+		}
+		x = a.item[min];
+		a.item[min] = a.item[i];
+		a.item[i] = x;
+		coisa = *n - 1;
+	}
+}

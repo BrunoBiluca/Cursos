@@ -1,0 +1,5 @@
+1387392687558	Convert local variable 'input' to field
+1387392764826	Encapsulate field 'saida'
+1387392775211	Encapsulate field 'entrada'
+1387557754180	Rename compilation unit 'Historico.java'
+1387559234644	Rename type 'ApStandart'

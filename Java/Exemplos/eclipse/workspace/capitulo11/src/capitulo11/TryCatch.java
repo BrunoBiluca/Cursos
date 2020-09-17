@@ -1,0 +1,74 @@
+package capitulo11;
+
+public class TryCatch {
+	public static void main(String[] args) throws SaldoInsuficienteException {
+	System.out.println("inicio do main");
+	metodo1();
+	
+/*	try {
+		saca(100);
+	} catch (IllegalArgumentException e) {
+		System.out.println(e.getMessage());
+	}*/
+	
+	try{
+		deposita(-100);
+	}catch(IllegalArgumentException e){
+		System.out.println(e.getMessage());
+	}
+	
+	System.out.println("fim do main");
+}
+	
+static void metodo1() {
+	System.out.println("inicio do metodo1");
+	metodo2();
+	System.out.println("fim do metodo1");
+}
+
+static void metodo2() {
+	System.out.println("inicio do metodo2");
+	int[] array = new int[10];
+	for (int i = 0; i <= 15; i++) {
+		try {
+			array[i] = i;
+			System.out.println(i);
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("erro: " + e);
+		}
+	}
+	System.out.println("fim do metodo2");
+}
+
+static void saca(double valor) throws SaldoInsuficienteException{
+	double saldo = 20;
+	if (saldo < valor){
+		throw new SaldoInsuficienteException("Saldo insuficiente, tente um valor menor");
+	} else {
+		saldo-=valor;
+	}
+}
+
+static void deposita(double valor){
+	double saldo = 0;
+	if(valor <= 0){
+		throw new IllegalArgumentException("Safado");
+	}else{
+		saldo += valor;
+	}
+}
+
+}
+//Não é necessário checar a exception
+/*class SaldoInsuficienteException extends RuntimeException{
+	SaldoInsuficienteException(String message){
+		super(message);
+	}
+}*/
+//É obrigatório checar a Exception
+@SuppressWarnings("serial")
+class SaldoInsuficienteException extends Exception{
+	SaldoInsuficienteException(String message){
+		super(message);
+	}
+}

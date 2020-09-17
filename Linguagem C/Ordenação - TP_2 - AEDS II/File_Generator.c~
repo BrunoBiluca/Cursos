@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+	
+	int i,n, l, c;
+	
+	n = 19;
+	
+	srand(time(NULL));
+	
+	FILE *File;
+	
+	File=fopen("Entrada_n20g.txt","w");
+	
+	for(i=0; i<=n; i++){    
+		fprintf(File,"\n%d\n",rand()%100); 
+		for(l = 0; l<=50; l++){
+			for (c = 0; c<=50; c++){
+				fprintf(File, "%d ", rand()%100);
+			}
+		}  
+	}
+	
+	fclose(File);
+	return(0);
+}

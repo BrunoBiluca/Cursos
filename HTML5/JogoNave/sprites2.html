@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>Testando a classe Spritesheet</title>
+	<script src="spritesheet.js"></script>
+</head>
+<body>
+	<canvas id="canvas_spritesheet_1" width="500" height="500"></canvas>
+	<script>
+		var context = document.getElementById('canvas_spritesheet_1').getContext('2d');
+		var imgSonic = new Image();
+		imgSonic.src = 'img/spritesheet.png';
+
+		var sheet = new SpriteSheet(context, imgSonic, 3, 8);
+		sheet.intervalo = 60
+		sheet.linha = 1;
+
+		imgSonic.onload = gameLoop;
+
+		function gameLoop(){
+			context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+			sheet.proximoQuadro();
+			sheet.desenhar(100, 100);
+			requestAnimationFrame(gameLoop);
+		}
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>Movimentacao da nave</title>
+	<script type="text/javascript" src="teclado.js"></script>
+	<script type="text/javascript" src="animacao.js"></script>
+	<script type="text/javascript" src="nave.js"></script>
+	<script type="text/javascript" src="tiro.js"></script>
+	<script src="fundo.js"></script>
+</head>
+<body>
+	<canvas id="canvas_nave" width="500" height="500"></canvas>
+	<script>
+		var imgNave = new Image();
+		imgNave.src = 'img/nave.png';
+
+		var imgEspaco = new Image();
+		imgEspaco.src = 'img/fundo-espaco.png';
+
+		var imgEstrelas = new Image();
+		imgEstrelas.src = 'img/fundo-estrelas.png';
+
+		var imgNuvens = new Image();
+		imgNuvens.src = 'img/fundo-nuvens.png';
+
+		var carregadas = 0;
+		var total = 4;
+		imgEspaco.onload = carregando;
+		imgEstrelas.onload = carregando;
+		imgNuvens.onload = carregando;
+		imgNave.onload = carregando;
+
+		function carregando(){
+			carregadas++;
+			if(carregadas == total) iniciar();
+		}
+
+		function iniciar(){
+			var canvas = document.getElementById('canvas_nave');
+			var context = canvas.getContext('2d');
+
+			var fundoEspaco = new Fundo(context, imgEspaco);
+			var fundoEstrelas = new Fundo(context, imgEstrelas);
+			var fundoNuvens = new Fundo(context, imgNuvens);
+
+			fundoEspaco.velocidade = 3;
+			fundoEstrelas.velocidade = 7;
+			fundoNuvens.velocidade = 10;
+
+			var teclado = new Teclado(document);
+			var animacao = new Animacao(context);
+
+			var nave = new Nave(context, teclado, imgNave);
+			nave.x = canvas.width/2 - imgNave.width/2;
+			nave.y = canvas.height/2 - imgNave.height/2;
+			nave.velocidade = 5;
+
+			teclado.disparou(ESPACO, function(){
+				nave.atirar();
+			});
+
+			animacao.novoSprite(fundoEspaco);
+			animacao.novoSprite(fundoEstrelas);
+			animacao.novoSprite(fundoNuvens);
+			animacao.novoSprite(nave);
+			animacao.ligar();
+		}
+	</script>
+</body>
+</html>

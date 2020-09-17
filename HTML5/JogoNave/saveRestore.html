@@ -1,0 +1,25 @@
+<html>
+<head><title>Save e Restore</title></head>
+<body></body>
+
+	<canvas id="meu_canvas" width="1000" height="500"> 
+		Seu navegador não suporta html5</br>
+	</canvas>
+
+	<script>
+	var canvas = document.getElementById('meu_canvas');
+	var context = canvas.getContext('2d');
+
+	context.fillStyle = 'green';
+	context.fillRect(50,50,25,25);
+	context.save();
+
+	context.fillStyle = 'purple';
+	context.fillRect(100,50,25,25);
+
+	context.restore();
+	context.fillRect(150, 50, 25, 25);
+
+	</script>
+
+</html>

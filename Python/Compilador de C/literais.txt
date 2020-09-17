@@ -1,0 +1,5 @@
+0	"Digite um número: "	20	11	9
+1	"%d"	4	13	8
+2	"Série de Fibonacci:\n"	23	14	9
+3	"%d\n"	6	15	9
+3	"%d\n"	6	22	11

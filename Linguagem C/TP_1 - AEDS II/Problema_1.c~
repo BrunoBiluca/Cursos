@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(){
+
+	int array[79999];
+	int i,j,n;
+	int par=0;
+
+	FILE *fp;
+	FILE *fp2;
+
+	fp = fopen("Entrada.txt","r");
+	fp2 = fopen("Saida.txt","w");
+
+	n=0;
+	while (!feof(fp)){
+		fscanf(fp, "%d\n", &array[n]);
+		printf("%d\n",array[n]);
+		n++;
+	}
+	
+	for(i=1;i<n; i++) {
+		for(j=i;j<=n;j++){
+			if(array[i]>2*array[j]){
+				par++;
+			} 
+		}
+	}	
+
+	fprintf(fp2,"%d\n", par);
+
+	fclose(fp);
+	fclose(fp2);
+
+	return 0;
+}
+
+
+
+
+
+
+
+

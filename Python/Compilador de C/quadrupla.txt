@@ -1,0 +1,10 @@
+=    0    #    a
+LABEL0
+<    10    a    c0
+JF    c0    #    LABEL1
++    1    a    t0
+=    t0    #    a
+print    "%d"    #    #
+J    #    #    LABEL0
+LABEL1
+return    0    #    #

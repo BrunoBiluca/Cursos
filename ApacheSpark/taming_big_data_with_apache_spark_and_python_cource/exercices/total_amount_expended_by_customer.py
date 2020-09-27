@@ -13,10 +13,27 @@ def parse_line(row):
     amount_spent = float(values[2])
     return customer_id, amount_spent
 
-result = lines.map(parse_line).reduceByKey(add).collect()
+# sorted by value
+# result = lines \
+#     .map(parse_line) \
+#     .reduceByKey(add) \
+#     .sortBy(lambda r: r[1], ascending=False) \
+#     .collect()
+
+# sorted by key
+result = lines \
+    .map(parse_line) \
+    .reduceByKey(lambda x, y: x + y) \
+    .map(lambda xy: (xy[1], xy[0])) \
+    .sortByKey(ascending=False) \
+    .collect()
 
 for r in result:
     print(r)
+
+
+# sorted by value: took 1,710830 s
+# sorted by key: took 1,647090 s
 
 # Sample result
 # (44, 4756.8899999999985)

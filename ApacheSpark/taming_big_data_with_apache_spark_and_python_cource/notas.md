@@ -80,3 +80,13 @@ Podemos utilizar o Spark Console como fonte de informações sobre os jobs que e
 O gerenciamento de dependencia é melhor feito no Bootstrap do cluster, assim nesse momento é possível instalar todas as depedencias para garantir que o script seja executado com todas as suas dependencias instaladas.
 
 # Spark.ML - Machine Learning
+
+A biblioteca ML do Spark utiliza Dataframes.
+
+## Using para propor recomendações de filmes
+
+Uma necessidade da biblioteca ML é construir o Dataframe manualmente antes de utilizá-lo no processamento dos dados.
+
+Podemos utilizar vários algoritmos de Machine Learn que já estão implementados no Spark.
+
+Uma dica que ele dá no curso é não confiar muito nesses algoritmos e fazer a validação dos dados sempre.

@@ -1,3 +1,8 @@
+# Ideias para adicionar ao jogo
+
+- _ Criar inimigos com vidas diferentes, a vida de cada inimigo será randomizada em 3, inimigos amerelos, laranjas e vermelhos
+- _ Criar um tiro concentrado que atinge vários inimigos
+
 # Project Setup
 
 ## Tarefas
@@ -64,19 +69,64 @@ Revisão de como que funciona a UR4
 # Build Character Class
 
 ## Tarefas
-- _ Criar uma classe C++ Character, BaseCharacter
-- _ Serar o ambiente do VS como Development
-- _ Ler o documento que vem no tutorial com o código C++
+- &check; Criar uma classe C++ Character, BaseCharacter
+- &check; Serar o ambiente do VS como Development
+- &check; Ler o documento que vem no tutorial com o código C++
 
+# Build the Hero Character
 
+SprintArm é um componente que garante a distantes em objetos, para eles sempre manterem a mesma distância, será utilizado entre o personagem principal e a câmera.
 
+## Tarefas
 
+- &check; Criar blueprint HeroCharacter que estende de BaseCharacter
+- &check; Adicionar o mesh component como o manneguin
+- &check; Garantir que o personagem está de frente para a direção correta
+- &check; Adicionar o componente SprintgArm
+- &check; Adicionar uma câmera
+- &check; Criar um objeto de PlayerStart
+- &check; Criar classe GameMode, TwinStickMode e adicionar o player como default
+- v Alterar Default Maps para adicionar a Arena
 
+# Player Mobility
 
+Para controlar os character implementamos os eventos Input Axis, e precisamos garantir que os eixos estão corretos
 
+Podemos criar boxes de comentários em nosso código para garantir claresa no código.
 
+Podemos clicar duas vezes na mesma linha para criar um ReRoute point, um ponto para juntar várias linhas.
 
+Cada nó no blueprint podemos clicar para expandir todas as suas funcionalidades.
 
+## Tarefas
+
+- &check; InputAxis MoveUp, MoveRight
+   - Add MovementInput
+- &check; InputAxis LookUp, MoveRight
+- &check; GetController, SetControllerRotation, RotationFromXVector
+
+# Building the Enemy Character
+
+Para alterar a cor abrimos o Skeleton mesh para alterar o material que o boneco é feito.
+
+Podemos promover valores para uma variável
+
+## Tarefas
+
+- &check; Criar EnemyCharacter
+- &check; Alterar cor para os inimigos
+- &check; Construction Script
+   - Create Dynamic Material Instance
+   - Set Vector Paramter Value
+- &check; Criar um Blueprint para a AI Controller do Enemy
+- Criar evento customizado TrackPlayer
+   - AI Move To
+   - Get Controlled Pawn
+   - Get Player Character
+   - Event BeginPlay >> SetTimer, TrackPlayer de 1 em 1 segundo
+- Alterar o Controller AI nas referencias da classe
+- Adicionar NavMesh
+- Alterar Walk Speed para 200
 
 
 

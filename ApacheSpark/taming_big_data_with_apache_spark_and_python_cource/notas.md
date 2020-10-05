@@ -90,3 +90,28 @@ Uma necessidade da biblioteca ML é construir o Dataframe manualmente antes de u
 Podemos utilizar vários algoritmos de Machine Learn que já estão implementados no Spark.
 
 Uma dica que ele dá no curso é não confiar muito nesses algoritmos e fazer a validação dos dados sempre.
+
+## Linear Regression
+
+Usa o algoritmo "Least Squares".
+
+Spark Streaming usa uma técnica mais complexa chamada SGD, Stochastic Gradient Descent.
+
+No spark podemos utilizar Linear Regression em mais de uma dimensão, melhorando nosso modelo.
+
+SGD não resolve bem problemas de escala, então é necessário garantir a escala em cada eixo de forma manual para isso funcionar direito.
+
+Esse técnica foi utilizada pela Amazon para prever o gasto dos usuários no site em relação ao carregamento das páginas do site.
+
+# Spark Streaming
+
+Analiza dados que continuam sendo criados.
+
+Fontes de dados: Amazon Kinesis, HDFS, KAFKA, Flume.
+
+**Checkpointing** o estado de tempos em tempos para garantir tolerância a falha.
+
+Podemos utilizar Spark Streaming como **Dstream (deprected)**, que cria vários micro batches que são processados em um intervalo de tempo definido.
+
+A forma mais atual de utilizar Streaming no Spark é com Structured Streaming. A ideia é que vc tem uma tabela q é preenchida com dados e a medidata que estes dados vão chegando eles são analizados.
+

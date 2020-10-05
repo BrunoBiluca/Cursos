@@ -113,5 +113,15 @@ Fontes de dados: Amazon Kinesis, HDFS, KAFKA, Flume.
 
 Podemos utilizar Spark Streaming como **Dstream (deprected)**, que cria vários micro batches que são processados em um intervalo de tempo definido.
 
-A forma mais atual de utilizar Streaming no Spark é com Structured Streaming. A ideia é que vc tem uma tabela q é preenchida com dados e a medidata que estes dados vão chegando eles são analizados.
+A forma mais atual de utilizar Streaming no Spark é com Structured Streaming. A ideia é que vc tem uma tabela q é preenchida com dados e a medidata que estes dados vão chegando eles são analizados. 
+
+**Windowed** operação que olho para trás numa janela de tempo.
+
+# GraphX
+
+Suportado apenas para Scala, e é utilizado para o pocessamento de grafos utilizando Spark.
+
+Utilizado mais para situações específicas principalmente quando precisamos de processar dados baseados em mais propriedades de um grafo.
+
+
 

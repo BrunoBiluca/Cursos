@@ -128,6 +128,34 @@ Podemos promover valores para uma variável
 - Adicionar NavMesh
 - Alterar Walk Speed para 200
 
+# Projectile
+
+Para o projétil vamos fazer um shader que apenas emite luz e nunca recebe nenhuma, para isso atualizamos o Shader Model para **Unlit**.
+
+Para definir os eventos para instanciar os projéteis, iremos criar 3 eventos:
+
+- PullTrigger: PullTrigger chama Fire
+- ReleaseTrigger
+- Fire: instancia o tiro
+  - SpawnActor: Projectile
+
+## Tarefas
+
+- _ Criar um blueprint para o Projectile
+  - Sphere collision
+  - Ajustar o tamanho do raio da sphere
+  - Adicionar mesh, No collision
+  - Adicionar um projectile movement
+ 
+- _ Criar o material de laser
+  - Sharding model Unlit
+  - GlowIntensity
+- _ Criar um blueprint para a arma
+  - Adicionar um skeleton mesh
+  - Adicionar um arrow para definir o local que se  instancia os projéties
+  - Criar o script para instanciar o projétil
+- Adicionar a arma ao personagem
+  - BeginPlay > Sequence > SpawnActor Weapon
 
 
 

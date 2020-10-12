@@ -1,0 +1,1 @@
+Todas as ilustrações foram retiradas do video [link](https://www.youtube.com/watch?v=DPfxjQ6sqrc&list=PLK9v9ebk627fEHJOVLR0xku-iYenE8m8X&index=11), a fim de facilitar as minhas anotações sobre o assunto.

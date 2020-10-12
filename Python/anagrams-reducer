@@ -1,0 +1,76 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+#
+# Complete the 'funWithAnagrams' function below.
+#
+# The function is expected to return a STRING_ARRAY.
+# The function accepts STRING_ARRAY text as parameter.
+#
+comparison_table = {}
+
+def update_comparison_table(string):
+    string_size = len(string)
+    
+    if string_size not in comparison_table:
+        comparison_table[string_size] = {}
+        
+    size_comparison = comparison_table[string_size]
+
+    characters_count = {}
+    for c in string:
+        if c in size_comparison:
+            size_comparison[c].append(string.count(c))
+        else:
+            size_comparison[c] = [string.count(c)]
+
+            
+def funWithAnagrams(text):
+    result_text_list = []
+    for string in text:
+        string_size = len(string)
+        
+        if string_size in comparison_table:
+            size_comparison = comparison_table[string_size]
+            for c in string:               
+                if c not in size_comparison:
+                    result_text_list.append(string)
+                    update_comparison_table(string)
+                    break
+                
+                c_count = string.count(c)
+                if c_count not in size_comparison[c]:
+                    result_text_list.append(string)
+                    update_comparison_table(string)
+                    break
+                
+        else:
+            result_text_list.append(string)
+            update_comparison_table(string)
+        
+    return sorted(result_text_list)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    text_count = int(input().strip())
+
+    text = []
+
+    for _ in range(text_count):
+        text_item = input()
+        text.append(text_item)
+
+    result = funWithAnagrams(text)
+
+    fptr.write('\n'.join(result))
+    fptr.write('\n')
+
+    fptr.close()

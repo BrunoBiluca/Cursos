@@ -1,6 +1,18 @@
-Matemática aplicada para jogos
+# Matemática aplicada para jogos
 
-## Pythagoras' Theorem (Teorema de pitágoras)
+Matématica é uma ferramenta muito importante quando estamos pensando em criar jogos, todas as interações, manipulação do espaço seja ele em 2D ou 3D, animação, é controlador por várias funções matemáticas.
+
+Basicamente no desenvolvimento de software conseguimos fazer grande parte das funcionalidades aplicando alguns conceitos simples:
+ - Ângulos
+ - Vetores
+ - Movimento (Interpolação)
+ - Matrizes
+
+![resumo](images/math-subjects.png)
+
+Essa imagem retrata bem a relação entre todos esse conceitos e a ideia por trás esses conceitos serão amplamente utilizados.
+
+# Pythagoras' Theorem (Teorema de pitágoras)
 
 Teorema de pitágoras relaciona os lados de um triângulo retângulo. Utilizando o teorema de pitágoras, podemos definir as distâncias entre objetos em uma cena.
 
@@ -29,7 +41,7 @@ Pela definição e aplicando ao problema da distância do inimigo, temos:
 c = sqrt((Px2 - Px1)^2 + (Py2 - Py1)^2)
 ```
 
-## Vectors
+# Vectors
 
 Vetores são importantes porque eles determinam tamanho (maginetude), direção e sentido.
 
@@ -45,7 +57,7 @@ Os vetores unitários são muito utilizados principalmente para simplificar as o
 
 ![unit vectors](images/vectors-2.png)
 
-## Angles (Ângulos)
+# Angles (Ângulos)
 
 ![angles](images/angles.png)
 
@@ -99,4 +111,22 @@ Uma forma de utilizar o produto escalar pode ser na representação da velocidad
 
 ![dot product exemplo](images/dot-product-example.png)
 
+# Linear Interpolation
+
+Dados dois valores, pontos no espaço 2D ou 3D, vetores, vetores multidimensionais, podemos calcular qualquer valor entre esses dois valores.
+
+![interpolação linear](images/linear-interpolation.png)
+
+Assim para uma função linear temos a seguinte definição de interpolação:
+
+```
+N_t = N_start + (N_end - N_start) * t
+```
+onde,
+ - N_t é um valor intermediário
+ - N_start o valor inicial
+ - N_end o valor final
+ - t a proporção entre os pontos finais e iniciais calculados
+
+A interpolação linear é muito utilizada quando precisamos aproximar um comportamento de uma função complexa que não tem uma definição direta. Assim utilizamos interpolação linear para aproximar pedaços dessa função complexa em partes lineares.
 

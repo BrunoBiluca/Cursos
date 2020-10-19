@@ -15,7 +15,7 @@ namespace Challenges.Tests {
             Console.SetOut(streamWritter);
 
             // Test action
-            using var stream = new StreamReader("./resources/input/input00.txt");
+            using var stream = new StreamReader("./resources/05_loops/input/input00.txt");
             var n = int.Parse(stream.ReadToEnd());
                      
             LoopsChallenge.WriteFirst10Multipliers(n);
@@ -25,7 +25,7 @@ namespace Challenges.Tests {
             using var myOutput = new StreamReader(outputFile);
 
             // Test assertion
-            using var resultFile = new StreamReader("./resources/output/output00.txt");
+            using var resultFile = new StreamReader("./resources/05_loops/output/output00.txt");
             var resultOutput = resultFile.ReadToEnd();
 
             Assert.AreEqual(resultOutput, myOutput.ReadToEnd());

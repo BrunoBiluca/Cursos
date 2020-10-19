@@ -18,13 +18,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="resources\in.txt">
+    <None Update="resources\05_loops\input\input00.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="resources\input\input00.txt">
+    <None Update="resources\05_loops\output\output00.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="resources\output\output00.txt">
+    <None Update="resources\06_lets_review\input\input00.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="resources\06_lets_review\output\output00.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

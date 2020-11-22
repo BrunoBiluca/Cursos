@@ -1,0 +1,5 @@
+- &check; Criar docker compose com mongo e node
+- &check; Criar banco de dados Mongo
+- &check; Iniciar a aplicação (npm init -y)
+- &check; Instalar Apollo server
+- _ Hello World do Apollo Server

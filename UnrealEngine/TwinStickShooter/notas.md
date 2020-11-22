@@ -157,8 +157,49 @@ Para definir os eventos para instanciar os projéteis, iremos criar 3 eventos:
 - Adicionar a arma ao personagem
   - BeginPlay > Sequence > SpawnActor Weapon
 
+# Damage the enemy
+
+Comunicação entre os blueprints de Enemy e de Projectile, utilizando CalculateHealth function.
+
+Para essa comunicação iremos criar uma interface chamada IDamageable, que declara AffectHealth, inputs adicionar um Delta.
+
+No EnemyCharacter adicionar a interface no Class Settings.
+
+No Projectile usar o begin overlap (only Pawns) para chamar o AffectHealth (Does implement).
+
+Garantir que o projectile não atinge o Player. Para isso podemos controlar essas condições por Tags (Class Defaults >> Actor).
+
+# Damaging the hero
+
+O Herói tem que implementar a Interface IDamageable.
+
+Criar uma box colision, nos pés do Hero, essa caixa será o hit box do player.
+
+O enemy irá causar dano ao Player a 2 vezes por segundo, até o Actor End Overlap. Usar um evento para quando começar o Overlap, que chamará o evento de DamageTheHero e quando o evento ActorEndOverlap for acionado, ClearTimer de DamageTheHero. 
+
+Garantir que tudo no Hero será destruido, a Arma também.
 
 
+# Respawn player
 
+Precisamos de uma referência do jogo para conseguir instanciar o player.
 
+TwinStickMode é o blueprint para adicionar o códiog de spawnactor. Assim que o player for instanciado, precisamos dessa referencia (Possess).
 
+Agora no HeroCharacter, precisamos de avisar ao game mode o tranforme do player. E quando o player for destruído adicionar a lógica para acionar o Respawn.
+
+**OBS:** um dos primeiros objetos que são instanciados no jogo em UE4 é o game mode, assim para atualizar a posição do player precisamos avisar ao game mode quando o player for instanciado.
+
+# Respawn enemies
+
+Criar um EnemySpawner, que é um Box Collision que ficará na arena e randomicamente instanciará um inimigo.
+
+SpawnEnemy >> Spawn AI From class
+
+SpawnVolume >> Get Scaled Box Extent >> Random Point in bounding Box
+
+Controlar o Respawn dos inimigos pelo Twin Stick Game Mode.
+
+BeginPlay >> Get All Actor of Class (Enemy Spawner) >> set timer (Spawn Enemy)
+
+Garantir um limite para o número de inimigos instanciados.

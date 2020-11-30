@@ -26,3 +26,5 @@ GraphQL é separada em 3 tipos de requisições:
 A principal vantagem do GraphQL é o controle sobre a quantidade de dados que serão trafegados. Já que o controle do que será retornado pelo backend será explicitado pelo front-end.
 
 Utilizando o **Apolo**, temos uma documentação/sandbox para os desenvolvedores front-end conhecerem o formato dos dados da sua api.
+
+# Configuração do Mongo DB

@@ -12,8 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/mongoose": "^5.10.1",
     "apollo-server": "^2.19.0",
-    "graphql": "^15.4.0"
+    "graphql": "^15.4.0",
+    "mongoose": "^5.10.19"
   },
   "devDependencies": {
     "ts-node-dev": "^1.0.0",

@@ -6,10 +6,10 @@ Se você jogou comenta ai a sua pontuação e muito obrigado.
 
 # Imagens
 
-![Animation Blend](project_dev_images/animation_blend.png)
+![Animation Blend](projectdevimages/animationblend.png)
 
-![Animation Blend](project_dev_images/red_horde.png)
+![Animation Blend](projectdevimages/redhorde.png)
 
-![Animation Blend](project_dev_images/player_blueprint.png)
+![Animation Blend](projectdevimages/playerblueprint.png)
 
-![Animation Blend](project_dev_images/project_finished_editor.png)
+![Animation Blend](projectdevimages/projectfinishededitor.png)

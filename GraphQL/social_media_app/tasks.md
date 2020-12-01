@@ -12,3 +12,20 @@
 - &check; Criar schema de post
 - &check; Criar query para buscar todos os posts do banco de dados
 - &check; Criar collection (posts)
+
+- &check; Separar os typeDefs do graphql
+- &check; Separar os resolvers (index.ts arquivo que agrega todos os resolvers)
+
+- &check; Criar a mutation para register um usuário
+- &check; Criar um input para o formulário de criação de usuário
+- &check; Criar um tipo User para retornar o usuário
+
+- _ Implementar a mutation de registro de usuário (salvar no banco)
+- _ Validar os dados de usuários
+- _ Garantir que o usuário não existe
+- _ Hash password e criar o auth token (bcryptjs jsonwebtoken)
+- _ Criar um secret key no config file para garantir o token de autenticação (expriresIn: '1h')
+
+# Outras tarefas
+
+- _ Separar os typeDefs, assim podemos flexibilizar a criação da api

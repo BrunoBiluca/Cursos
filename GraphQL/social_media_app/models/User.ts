@@ -1,4 +1,5 @@
-import { model, Schema } from 'mongoose'
+import { Document, model, Schema } from 'mongoose'
+
 
 const userSchema = new Schema({
     username: String,
@@ -7,4 +8,11 @@ const userSchema = new Schema({
     createdAt: String
 })
 
-export default model('User', userSchema)
+interface UserModel extends Document {
+    username: String,
+    password: String,
+    email: String,
+    createdAt: String
+}
+
+export default model<UserModel>('User', userSchema)

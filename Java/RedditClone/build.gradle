@@ -1,0 +1,59 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.1'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'br.biluca'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '15'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+	// https://mvnrepository.com/artifact/javax.validation/validation-api
+	compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+
+	// Email Build
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.4.1'
+
+	// Security
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
+	compile group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.10.2'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl
+	runtime group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson
+	runtime group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
+
+	// Exibir data de quanto tempo passou nos posts
+	// https://mvnrepository.com/artifact/com.github.marlonlom/timeago
+	compile group: 'com.github.marlonlom', name: 'timeago', version: '4.0.0'
+	// https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib-jdk8
+	compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk8', version: '1.4.21'
+	// https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-test
+	compile group: 'org.jetbrains.kotlin', name: 'kotlin-test', version: '1.4.21'
+
+}
+
+test {
+	useJUnitPlatform()
+}

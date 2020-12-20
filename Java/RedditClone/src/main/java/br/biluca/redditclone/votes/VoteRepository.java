@@ -1,8 +1,7 @@
-package br.biluca.redditclone.repositories;
+package br.biluca.redditclone.votes;
 
 import br.biluca.redditclone.posts.models.Post;
 import br.biluca.redditclone.auth.models.User;
-import br.biluca.redditclone.models.Vote;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

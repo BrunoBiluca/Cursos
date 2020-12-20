@@ -1,6 +1,6 @@
-package br.biluca.redditclone.repositories;
+package br.biluca.redditclone.auth.repositories;
 
-import br.biluca.redditclone.models.VerificationToken;
+import br.biluca.redditclone.auth.models.VerificationToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

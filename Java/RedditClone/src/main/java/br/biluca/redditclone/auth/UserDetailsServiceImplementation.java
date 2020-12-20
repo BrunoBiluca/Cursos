@@ -1,6 +1,6 @@
 package br.biluca.redditclone.auth;
 
-import br.biluca.redditclone.repositories.UserRepository;
+import br.biluca.redditclone.auth.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,7 +22,7 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) {
         var user = userRepository.findByUsername(username)
             .orElseThrow(() -> new UsernameNotFoundException("No user found with username: " + username));
 

@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +20,7 @@ public class SubredditService {
         return subredditRepository
             .findAll()
             .stream()
-            .map(this::mapToSubredditDTO)
+            .map(SubredditMapper::toSubredditDTO)
             .collect(Collectors.toList());
     }
 
@@ -30,29 +29,13 @@ public class SubredditService {
         Subreddit subreddit = subredditRepository.findById(id)
             .orElseThrow(() -> new SubredditNotFoundException(id));
 
-        return mapToSubredditDTO(subreddit);
+        return SubredditMapper.toSubredditDTO(subreddit);
     }
 
     public SubredditDTO save(SubredditDTO subredditDTO) {
-        var subreddit = subredditRepository.save(mapToSubreddit(subredditDTO));
-        return mapToSubredditDTO(subreddit);
-    }
-
-    private SubredditDTO mapToSubredditDTO(Subreddit subreddit){
-        return SubredditDTO.builder()
-            .id(subreddit.getId())
-            .name(subreddit.getName())
-            .description(subreddit.getDescription())
-            .postCount(subreddit.getPosts().size())
-            .build();
-    }
-
-    private Subreddit mapToSubreddit(SubredditDTO subredditDTO){
-        return Subreddit.builder()
-            .name("/r/" + subredditDTO.getName())
-            .description(subredditDTO.getDescription())
-            .createdDate(Instant.now())
-            .user(authService.getCurrentUser())
-            .build();
+        var subreddit = subredditRepository.save(
+            SubredditMapper.toSubreddit(subredditDTO, authService.getCurrentUser())
+        );
+        return SubredditMapper.toSubredditDTO(subreddit);
     }
 }

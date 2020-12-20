@@ -1,4 +1,4 @@
-package br.biluca.redditclone.models;
+package br.biluca.redditclone.auth.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

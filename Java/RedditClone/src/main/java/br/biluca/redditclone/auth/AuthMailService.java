@@ -3,7 +3,7 @@ package br.biluca.redditclone.auth;
 import br.biluca.foundation.mail.MailContentBuilder;
 import br.biluca.foundation.mail.MailService;
 import br.biluca.foundation.mail.NotificationEmail;
-import br.biluca.redditclone.models.User;
+import br.biluca.redditclone.auth.models.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

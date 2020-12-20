@@ -1,5 +1,6 @@
-package br.biluca.redditclone.models;
+package br.biluca.redditclone.posts.models;
 
+import br.biluca.redditclone.auth.models.User;
 import br.biluca.redditclone.subreddit.Subreddit;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

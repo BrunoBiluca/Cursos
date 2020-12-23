@@ -22,18 +22,19 @@ public class PostService {
     private final PostRepository postRepository;
     private final SubredditRepository subredditRepository;
     private final UserRepository userRepository;
+    private final PostMapper postMapper;
 
     public List<PostResponse> getAll() {
         return postRepository
             .findAll()
             .stream()
-            .map(PostMapper::toPostResponse)
+            .map(postMapper::toPostResponse)
             .collect(Collectors.toList());
     }
 
     public PostResponse get(Long id) {
         return postRepository.findById(id)
-            .map(PostMapper::toPostResponse)
+            .map(postMapper::toPostResponse)
             .orElseThrow(() -> new PostNotFoundException(id));
     }
 
@@ -43,12 +44,12 @@ public class PostService {
             .orElseThrow(() -> new SubredditNotFoundException(subredditName));
 
         var post = postRepository.save(
-            PostMapper.toPost(postRequest, subreddit, authService.getCurrentUser())
+            postMapper.toPost(postRequest, subreddit, authService.getCurrentUser())
         );
 
         post.setUrl("http://localhost:8080/api/posts/" + post.getPostId());
         postRepository.save(post);
-        return PostMapper.toPostResponse(post);
+        return postMapper.toPostResponse(post);
     }
 
     public List<PostResponse> getBySubredditId(Long subredditId) {
@@ -57,7 +58,7 @@ public class PostService {
 
         return postRepository.findAllBySubreddit(subreddit)
             .stream()
-            .map(PostMapper::toPostResponse)
+            .map(postMapper::toPostResponse)
             .collect(Collectors.toList());
     }
 
@@ -67,7 +68,7 @@ public class PostService {
 
         return postRepository.findByUser(user)
             .stream()
-            .map(PostMapper::toPostResponse)
+            .map(postMapper::toPostResponse)
             .collect(Collectors.toList());
     }
 }

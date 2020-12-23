@@ -4,16 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
+
+import javax.validation.constraints.NotBlank;
 
 @Data
-@Accessors(chain = true)
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class AuthenticationResponse {
-    private String authenticationToken;
-    private String username;
-    private Long expiresAt;
+@NoArgsConstructor
+public class RefreshTokenRequest {
+    @NotBlank
     private String refreshToken;
+    private String username;
 }

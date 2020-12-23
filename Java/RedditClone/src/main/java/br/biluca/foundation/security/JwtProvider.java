@@ -2,6 +2,8 @@ package br.biluca.foundation.security;
 
 import br.biluca.foundation.exceptions.SpringRedditException;
 import io.jsonwebtoken.Jwts;
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
@@ -10,13 +12,19 @@ import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.security.*;
 import java.security.cert.CertificateException;
+import java.time.Instant;
 
 import static io.jsonwebtoken.Jwts.parser;
+import static java.util.Date.from;
 
 @Service
 public class JwtProvider {
 
     private KeyStore keyStore;
+
+    @Getter
+    @Value("${jwt.expiration.time}")
+    private Long jwtExpirationTimeInMillis;
 
     @PostConstruct
     public void init(){
@@ -31,9 +39,15 @@ public class JwtProvider {
 
     public String generateToken(Authentication authentication) {
         var principal = (User) authentication.getPrincipal();
+        return generateToken(principal.getUsername());
+    }
+
+    public String generateToken(String username) {
         return Jwts.builder()
-            .setSubject(principal.getUsername())
+            .setSubject(username)
+            .setIssuedAt(from(Instant.now()))
             .signWith(getPrivateKey())
+            .setExpiration(from(Instant.now().plusMillis(jwtExpirationTimeInMillis)))
             .compact();
     }
 

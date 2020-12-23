@@ -4,6 +4,7 @@ import br.biluca.foundation.exceptions.SpringRedditException;
 import br.biluca.foundation.security.JwtProvider;
 import br.biluca.redditclone.auth.dto.AuthenticationResponse;
 import br.biluca.redditclone.auth.dto.LoginRequest;
+import br.biluca.redditclone.auth.dto.RefreshTokenRequest;
 import br.biluca.redditclone.auth.dto.RegisterRequest;
 import br.biluca.redditclone.auth.repositories.UserRepository;
 import br.biluca.redditclone.auth.repositories.VerificationTokenRepository;
@@ -32,6 +33,7 @@ public class AuthService {
     private final AuthMailService authMailService;
     private final JwtProvider jwtProvider;
     private final PasswordEncoder passwordEncoder;
+    private final RefreshTokenService refreshTokenService;
     private final UserRepository userRepository;
     private final VerificationTokenRepository verificationTokenRepository;
 
@@ -80,10 +82,23 @@ public class AuthService {
             ));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new AuthenticationResponse(
-            jwtProvider.generateToken(authentication),
-            request.getUsername()
-        );
+        return AuthenticationResponse.builder()
+            .authenticationToken(jwtProvider.generateToken(authentication))
+            .refreshToken(refreshTokenService.generateRefreshToken().getToken())
+            .expiresAt(jwtProvider.getJwtExpirationTimeInMillis())
+            .username(request.getUsername())
+            .build();
+    }
+
+    public AuthenticationResponse refreshToken(RefreshTokenRequest refreshToken){
+        refreshTokenService.validateRefreshToken(refreshToken);
+        var token = jwtProvider.generateToken(refreshToken.getUsername());
+        return AuthenticationResponse.builder()
+            .authenticationToken(token)
+            .refreshToken(refreshTokenService.generateRefreshToken().getToken())
+            .expiresAt(jwtProvider.getJwtExpirationTimeInMillis())
+            .username(refreshToken.getUsername())
+            .build();
     }
 
     @Transactional(readOnly = true)

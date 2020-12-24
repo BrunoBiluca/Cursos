@@ -52,6 +52,10 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-test
 	compile group: 'org.jetbrains.kotlin', name: 'kotlin-test', version: '1.4.21'
 
+	// https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter
+	compile group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
+
+
 }
 
 test {

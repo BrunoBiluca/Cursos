@@ -10,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 @EnableAsync
 @ComponentScan({"br.biluca.foundation", "br.biluca.redditclone"})
-@Import(SwaggerConfiguration.class)
+@Import({SwaggerConfiguration.class})
 public class RedditCloneApplication {
 
 	public static void main(String[] args) {

@@ -11,7 +11,7 @@ import { LoginResponse } from '../login/login-response.payload';
   providedIn: 'root'
 })
 export class AuthService {
-
+  
   constructor(
     private http: HttpClient,
     private localStorage: LocalStorageService
@@ -31,4 +31,21 @@ export class AuthService {
         return true;
       }))
   }
+
+  getJwtToken() {
+    return this.localStorage.retrieve('authenticationToken');
+  }
+
+  getRefreshToken() {
+    return this.localStorage.retrieve('refreshToken');
+  }
+
+  getUserName() {
+    return this.localStorage.retrieve('username');
+  }
+
+  getExpirationTime() {
+    return this.localStorage.retrieve('expiresAt');
+  }
+
 }

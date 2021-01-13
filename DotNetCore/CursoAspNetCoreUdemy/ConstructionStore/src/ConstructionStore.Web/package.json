@@ -10,7 +10,7 @@
     "gulp-cssmin": "^0.2.0",
     "gulp-uncss": "^1.0.6",
     "jquery": "^3.3.1",
-    "jquery-validation": "^1.17.0",
+    "jquery-validation": "^1.19.3",
     "jquery-validation-unobtrusive": "^3.2.6"
   },
   "devDependencies": {

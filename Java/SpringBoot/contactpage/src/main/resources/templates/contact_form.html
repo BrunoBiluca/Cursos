@@ -1,0 +1,15 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Form</h1>
+<form th:action="@{/}" th:object="${contactForm}" method="post">
+    <p>Name: <input type="text" th:field="*{name}"/></p>
+    <p>Email: <input type="text" th:field="*{email}"/></p>
+    <p>Message: <input type="text" th:field="*{message}"/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+</body>
+</html>

@@ -1,3 +1,16 @@
+# Reddit Clone
+
+Esse projeto constrói uma aplicação web clonando as funcionalidades do Reddit.
+
+Tecnologias
+
+- Spring Boot 2.4.1
+- Gradle
+- Java JDK 15
+- Angular 11
+
+Faltam algumas coisas para serem implementadas no frontend, porém a api já está com todas as funcionalidades implementadas.
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.

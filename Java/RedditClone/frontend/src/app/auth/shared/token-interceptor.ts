@@ -23,15 +23,14 @@ export class TokenInterceptor implements HttpInterceptor {
         const jwtToken = this.authService.getJwtToken();
         if (jwtToken) {
             return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {
-                if (error instanceof HttpErrorResponse
-                    && error.status === 403) {
+                if (error instanceof HttpErrorResponse && error.status === 403) {
                     return this.handleAuthErrors(req, next);
                 } else {
                     return throwError(error);
                 }
             }));
         }
-        
+
         return next.handle(req);
     }
 
@@ -43,10 +42,8 @@ export class TokenInterceptor implements HttpInterceptor {
             return this.authService.getRefreshToken().pipe(
                 switchMap((refreshTokenResponse: LoginResponse) => {
                     this.isTokenRefreshing = false;
-                    this.refreshTokenSubject
-                        .next(refreshTokenResponse.authenticationToken);
-                    return next.handle(this.addToken(req,
-                        refreshTokenResponse.authenticationToken));
+                    this.refreshTokenSubject.next(refreshTokenResponse.authenticationToken);
+                    return next.handle(this.addToken(req, refreshTokenResponse.authenticationToken));
                 })
             )
         }
@@ -60,10 +57,11 @@ export class TokenInterceptor implements HttpInterceptor {
         );
     }
 
-    private addToken(req: HttpRequest<any>, jwtToken: string) {
-        return req.clone({
-            headers: req.headers.set('Authorization', 'Bearer ' + jwtToken)
-        });
+    private addToken(req: HttpRequest<any>, jwtToken: string): HttpRequest<any> {
+        let authHeaders = req.headers
+            .set('Authorization', 'Bearer ' + jwtToken)
+            .set("Content-Type", "application/json");
+        return req.clone({headers: authHeaders});
     }
 
 }

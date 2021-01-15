@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Forms</title>
+</head>
+<body>
+<table>
+    <tr th:each="contactForm: ${contactForms}">
+        <td th:text="${contactForm.id}"/>
+        <td th:text="${contactForm.name}"/>
+        <td th:text="${contactForm.email}"/>
+        <td th:text="${contactForm.message}"/>
+        <td th:text="${contactForm.createdAt}"/>
+    </tr>
+</table>
+</body>
+</html>

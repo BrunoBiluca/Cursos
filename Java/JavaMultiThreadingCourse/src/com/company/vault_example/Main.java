@@ -2,14 +2,21 @@ package com.company.vault_example;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Logger;
 
 public class Main {
 
     public static final int MAX_PASSWORD = 9999;
 
+    private static final Logger logger = Logger.getLogger("abc");
+
     public static void main(String[] args){
-        var randomPassword = new Random();
-        var vault = new Vault(randomPassword.nextInt());
+        var randomPassword = new Random().nextInt(MAX_PASSWORD);
+
+        String msg = "Password is " + randomPassword;
+        logger.info(msg);
+
+        var vault = new Vault(randomPassword);
 
         var threads = new ArrayList<Thread>();
         threads.add(new AscendingHackerThread(vault));
@@ -32,13 +39,13 @@ public class Main {
             try {
                 Thread.sleep(5);
             } catch (InterruptedException ignored){
-                // empty block
+                Thread.currentThread().interrupt();
             }
             return guess == this.password;
         }
     }
 
-    private static abstract class HackerThread extends Thread {
+    private abstract static class HackerThread extends Thread {
         protected Vault vault;
 
         public HackerThread(Vault vault) {
@@ -49,9 +56,12 @@ public class Main {
 
         @Override
         public synchronized void start() {
-            System.out.println("Starting thread " + this.getName());
+            logger.info("Starting thread " + this.getName());
             super.start();
         }
+
+        @Override
+        public abstract void run();
     }
 
     private static class AscendingHackerThread extends HackerThread {
@@ -63,7 +73,8 @@ public class Main {
         public void run() {
             for(var guess = 0; guess < MAX_PASSWORD; guess++){
                 if(this.vault.isCorrectPassword(guess)){
-                    System.out.println(this.getName() + " guessed the password " + guess);
+                    String msg = this.getName() + " guessed the password " + guess;
+                    logger.info(msg);
                     System.exit(0);
                 }
             }
@@ -79,7 +90,8 @@ public class Main {
         public void run() {
             for(var guess = MAX_PASSWORD; guess >= 0; guess--){
                 if(this.vault.isCorrectPassword(guess)){
-                    System.out.println(this.getName() + " guessed the password " + guess);
+                    String msg = this.getName() + " guessed the password " + guess;
+                    logger.info(msg);
                     System.exit(0);
                 }
             }
@@ -92,12 +104,13 @@ public class Main {
             for(var i = 10; i > 0; i--){
                 try {
                     Thread.sleep(1000);
+                    String msg = String.valueOf(i);
+                    logger.info(msg);
                 } catch (InterruptedException e) {
-                    // empty block
+                    Thread.currentThread().interrupt();
                 }
-                System.out.println(i);
             }
-            System.out.println("Game over for you hackers");
+            logger.info("Game over for you hackers");
         }
     }
 

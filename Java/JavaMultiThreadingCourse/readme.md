@@ -1,5 +1,9 @@
 # Java MultiThreading Concurrency and Optimize Performance
 
+Notas relacionadas ao curso de processamento concorrente apresentado por Michael Pogrebinsky.
+
+[Link para o curso](https://www.udemy.com/course/java-multithreading-concurrency-performance-optimization)
+
 # Vault Example
 
 Exemplo demonstrando múltiplas threads trabalhando em concorrência
@@ -101,6 +105,49 @@ public class Example {
    }
 }  
 ````
+
+# Critical Section & Synchronization
+
+Poblema quando executamos operações que não são atômicas, nesse caso 
+podemos acabar com um resultado diferente do esperado, por culpa da concorrência aos dados entre as threads.
+
+Soluções:
+
+Sincronização é sempre executada a nível de objeto não de classe, 
+assim threads que executam métodos de diferentes objetos não são bloqueadas.
+
+- Synchronized
+  - **Monitor:** métodos que serão thread safe, apenas um thread pode executar um método de código por vez
+  - **Lock:**  apenas uma thread pode executar um pedaço de código por vez
+  
+## Atomic operations
+
+- Getters and Setters
+- Atribuições para valores primitivos
+  - exceto **long** values, podemos declarar assim então a palavra reservada **volatile**, para garantir a atomicidade
+- java.util.concurrent.atomic
+  - Outras estruturas que o Java disponibiliza para garantir atomicidade
+
+
+## Locking strategies
+
+- Coarse-Grained Locking
+  - um único lock (objeto) que gerencia a entrada de thread em código crítico
+  - não permite o código ser melhor otimizado já que mesmo regiões que não são dependentes estão
+    sendo sincronizadas pelo mesmo lock
+- Fine-Grained Locking
+  - todos os blocos são sincronizados por objetos diferentes
+  - essa estratégia pode levar a um Deadlock
+    - quando uma thread bloqueia o acesso a um código de outra thread e vice versa
+    - evitar circular dependencia entre os locks do código sincronizado
+
+# Advanced Locking
+
+ReentrantLock: explicitamente utilizar um objeto que implementa lock para garantir acesso.
+
+- TryLock()
+  - nunca trava a thread, utilizado em sistemas que precisam de responsividade
+
 
 
 

@@ -143,13 +143,65 @@ assim threads que executam métodos de diferentes objetos não são bloqueadas.
 
 # Advanced Locking
 
+## ReentrantLock
+
 ReentrantLock: explicitamente utilizar um objeto que implementa lock para garantir acesso.
 
 - TryLock()
   - nunca trava a thread, utilizado em sistemas que precisam de responsividade
 
+ReentrantReadWriteLock
+- Os principais problemas com multi threading estão onde vários 
+  controladores consomem um resource e pelo menos um modifica
+- Em casos onde temos mais leitura que escrita em um sistema, 
+  podemos utilizar ReentrantReadWrite, assim, em caso de consultas as threads não serão bloqueadas do recurso
+  
+## Semaphore
 
+Pode ser utilizado para restringir o número de usuário a um recurso.
 
+- Semáforo não tem noção do significado de possuir um thread (owner thread)
+- Várias threads podem adquirir uma permissão (permit)
+- É uma opção principalmente para o caso de Produtor Consumidor
+  - Mesmo quando o Consumidor é mais rápido que o Produtor, o Consumidor passará a maior parte do tempo no modo idle
+  - Podemos utilizar também uma Fila para garantir o consumo dos valores produzidos
+  
+## Inter Thread Communication
+
+Podemos utilizar uma condição para saber se a thread está no momento de mudar de estado ou não.
+
+Exemplo: Producer Consumer
+- User Interface Thread
+- Busca no banco de dados Thread
+  - Demora para ser concluída
+
+## wait(), notify(), notifyAll()
+
+A própria classe Object tem implementados esses métodos. 
+
+Uma coisa que precisamos prestar atenção é quando os Produtores são mais rápidos que os consumidores, 
+isso pode levar ao crash inesperado do sistema em caso da memória consumida ultrapassar o limite de memória disponível,
+para resolver esse problema podemos implementar uma técnica de back pressure onde limitamos o número de 
+elementos produzidos pelos produtores e acordamos as threads consumidoras 
+para já começar a resolver os elementos na fila.
+
+# Lock-free Algorithms, Data-Structures & Techniques
+
+Locks podem trazer vários problemas para a aplicação como:
+   
+- Deadlocks
+- Slow Critical Sections
+- Priority Inversion
+  - Duas threads compartilhando um lock
+- Thread not Releasing a lock
+- Perfomance
+  - Utilizar multiplas threads consome mais recursos que não utilizar
+  
+Lock Free Techniques
+- Utilizar operações que são atômicas de preferência
+- Utilizar operações mais próximas do hardware para garantir a atomicidade dessas instruções
+
+AtomicX biblioteca Java para a utilização de operações atômicas.
 
 
 

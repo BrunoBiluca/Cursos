@@ -1,0 +1,27 @@
+
+I
+src/com/company/Main.java,4\a\4a831b10439099d44774d0ccc387e808deffaeab
+8
+Java.iml,4\b\4b030f50e362de75a10637fd31c94a08dfb492a7
+c
+3src/com/company/thread_join/ComplexCalculation.java,8\4\84ba17bff1476bf4b462a4a088b3e143b927fc25
+r
+Bsrc/com/company/optimizing_for_latency/ImageProcessingExample.java,f\3\f3ab29aca878d5ff09e9726477ec6a8d555483b6
+K
+resources/war_and_peace.txt,3\0\300ed2ba7c3df9c579fcfde0751461ca57f3867b
+J
+resources/search_words.csv,f\8\f89e9372cc216b1002881c9cf38ff6252a4af827
+j
+:src/com/company/optimizing_for_throughput/WordHandler.java,e\d\eddab43b357f84be1577d2a0125ac522dd4f9d3f
+p
+@src/com/company/optimizing_for_throughput/HttpServerExample.java,3\b\3ba1e0b1bb28dda0c938dec14a4988edd94950c8
+W
+'src/com/company/vault_example/Main.java,a\7\a7e4a6c231eb513aab306df9c31c7c3527c54444
+a
+1src/com/company/synchorization/MinMaxMetrics.java,0\c\0cf385e2f2132249fda795c0a7a1ef96a2f11633
+9
+	readme.md,2\7\275d783e298228506068436512433d343feb52aa
+k
+;src/com/company/read_write_locks/ProductReviewsService.java,0\a\0a5d78234183a7d3a58057f1a34fb21d6f2deee5
+_
+/src/com/company/semaphore/SemaphoreExample.java,7\4\7451a9c56d07c7e781326f23f70ede928295987f

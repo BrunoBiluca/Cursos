@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Assets.Foundation.SceneFader;
-using Assets.Scripts.CameraScripts;
+using Assets.UnityFoundation.SceneFader;
+using Assets.UnityFoundation.CameraScripts;
 
 namespace Assets.Scripts {
     public class MenuController : MonoBehaviour {
@@ -45,10 +45,10 @@ namespace Assets.Scripts {
                 bird.SetActive(false);
             }
 
-            if(isGreenBirdUnlock && GameController.Instance.getSelectedBird() == 1) {
+            if(isGreenBirdUnlock && GameController.Instance.getSelectedBird() == 0) {
                 GameController.Instance.setSelectedBird(1);
                 SelectBird();
-            } else if(isRedBirdUnlock && GameController.Instance.getSelectedBird() == 2) {
+            } else if(isRedBirdUnlock && GameController.Instance.getSelectedBird() == 1) {
                 GameController.Instance.setSelectedBird(2);
                 SelectBird();
             } else {

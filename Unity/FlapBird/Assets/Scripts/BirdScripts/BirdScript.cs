@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using Assets.Scripts;
-using Assets.Scripts.CameraScripts;
+using Assets.UnityFoundation.CameraScripts;
 
 public class BirdScript : MonoBehaviour, IFollowable {
 

@@ -15,10 +15,10 @@ namespace Assets.Scripts {
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            isTheGameStartedForTheFirstTime();
+            IsTheGameStartedForTheFirstTime();
         }
 
-        void isTheGameStartedForTheFirstTime() {
+        public void IsTheGameStartedForTheFirstTime() {
             if(!PlayerPrefs.HasKey("isTheGameStartedForTheFirstTime")) {
                 PlayerPrefs.SetInt(HIGH_SCORE, 0);
                 PlayerPrefs.SetInt(SELECTED_BIRD, 0);
@@ -26,6 +26,14 @@ namespace Assets.Scripts {
                 PlayerPrefs.SetInt(RED_BIRD, 0);
                 PlayerPrefs.SetInt("isTheGameStartedForTheFirstTime", 0);
             }
+        }
+
+        public void UnlockAllRewards() {
+            PlayerPrefs.SetInt(HIGH_SCORE, 0);
+            PlayerPrefs.SetInt(SELECTED_BIRD, 1);
+            PlayerPrefs.SetInt(GREEN_BIRD, 1);
+            PlayerPrefs.SetInt(RED_BIRD, 1);
+            PlayerPrefs.SetInt("isTheGameStartedForTheFirstTime", 0);
         }
 
         public void setHighScore(int score) {

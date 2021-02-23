@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using Assets.Foundation.SceneFader;
-using Assets.Scripts.CameraScripts;
+using Assets.UnityFoundation.SceneFader;
+using Assets.UnityFoundation.CameraScripts;
 
 namespace Assets.Scripts {
     public class GameplayController : MonoBehaviour {

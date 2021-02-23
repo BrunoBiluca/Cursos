@@ -1,0 +1,3 @@
+[submodule "Unity/FlapBird/Assets/UnityFoundation"]
+	path = Unity/FlapBird/Assets/UnityFoundation
+	url = https://github.com/BrunoBiluca/UnityFoundation.git

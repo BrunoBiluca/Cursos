@@ -25,3 +25,5 @@ k
 ;src/com/company/read_write_locks/ProductReviewsService.java,0\a\0a5d78234183a7d3a58057f1a34fb21d6f2deee5
 _
 /src/com/company/semaphore/SemaphoreExample.java,7\4\7451a9c56d07c7e781326f23f70ede928295987f
+Z
+*src/com/company/atomic_reference/Main.java,9\5\95f777a6645d45822418e4ce18d89e700eb56346

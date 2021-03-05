@@ -1,0 +1,170 @@
+{
+    "_shards": {
+        "failed": 0,
+        "skipped": 0,
+        "successful": 1,
+        "total": 1
+    },
+    "aggregations": {
+        "categories": {
+            "buckets": [
+                {
+                    "doc_count": 211069,
+                    "key": "J"
+                },
+                {
+                    "doc_count": 211022,
+                    "key": "D"
+                },
+                {
+                    "doc_count": 210971,
+                    "key": "Q"
+                },
+                {
+                    "doc_count": 210944,
+                    "key": "R"
+                },
+                {
+                    "doc_count": 210887,
+                    "key": "P"
+                },
+                {
+                    "doc_count": 210837,
+                    "key": "F"
+                },
+                {
+                    "doc_count": 210812,
+                    "key": "K"
+                },
+                {
+                    "doc_count": 210799,
+                    "key": "X"
+                },
+                {
+                    "doc_count": 210789,
+                    "key": "5"
+                },
+                {
+                    "doc_count": 210759,
+                    "key": "2"
+                },
+                {
+                    "doc_count": 210627,
+                    "key": "Z"
+                },
+                {
+                    "doc_count": 210519,
+                    "key": "M"
+                },
+                {
+                    "doc_count": 210501,
+                    "key": "H"
+                },
+                {
+                    "doc_count": 210494,
+                    "key": "I"
+                },
+                {
+                    "doc_count": 210481,
+                    "key": "0"
+                },
+                {
+                    "doc_count": 210431,
+                    "key": "7"
+                },
+                {
+                    "doc_count": 210377,
+                    "key": "3"
+                },
+                {
+                    "doc_count": 210367,
+                    "key": "S"
+                },
+                {
+                    "doc_count": 210364,
+                    "key": "N"
+                },
+                {
+                    "doc_count": 210349,
+                    "key": "1"
+                },
+                {
+                    "doc_count": 210164,
+                    "key": "8"
+                },
+                {
+                    "doc_count": 210161,
+                    "key": "A"
+                },
+                {
+                    "doc_count": 210141,
+                    "key": "Y"
+                },
+                {
+                    "doc_count": 210123,
+                    "key": "C"
+                },
+                {
+                    "doc_count": 210079,
+                    "key": "T"
+                },
+                {
+                    "doc_count": 210038,
+                    "key": "9"
+                },
+                {
+                    "doc_count": 210038,
+                    "key": "W"
+                },
+                {
+                    "doc_count": 210009,
+                    "key": "B"
+                },
+                {
+                    "doc_count": 209920,
+                    "key": "G"
+                },
+                {
+                    "doc_count": 209920,
+                    "key": "V"
+                },
+                {
+                    "doc_count": 209871,
+                    "key": "E"
+                },
+                {
+                    "doc_count": 209746,
+                    "key": "4"
+                },
+                {
+                    "doc_count": 209732,
+                    "key": "6"
+                },
+                {
+                    "doc_count": 209727,
+                    "key": "O"
+                },
+                {
+                    "doc_count": 209681,
+                    "key": "L"
+                },
+                {
+                    "doc_count": 209506,
+                    "key": "U"
+                }
+            ],
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0
+        }
+    },
+    "hits": {
+        "hits": [],
+        "max_score": null,
+        "total": {
+            "relation": "gte",
+            "value": 10000
+        }
+    },
+    "timed_out": false,
+    "took": 102
+}

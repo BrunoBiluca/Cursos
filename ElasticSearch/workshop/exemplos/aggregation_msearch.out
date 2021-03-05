@@ -1,0 +1,977 @@
+{
+    "responses": [
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_A": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210161
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 32
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_B": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210009
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 30
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_C": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210123
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 41
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_D": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 211022
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 46
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_E": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 209871
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 25
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_F": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210837
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 20
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_G": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 209920
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 40
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_H": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210501
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 40
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_I": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210494
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 15
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_J": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 211069
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 16
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_K": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210812
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 37
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_L": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 209681
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 41
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_M": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210519
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 21
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_N": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210364
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 40
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_O": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 209727
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 32
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_P": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210887
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 57
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_Q": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210971
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 24
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_R": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210944
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 58
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_S": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210367
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 19
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_T": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210079
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 23
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_U": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 209506
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 34
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_V": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 209920
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 37
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_W": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210038
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 40
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_X": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210799
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 21
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_Y": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210141
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 50
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_Z": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210627
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 60
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_0": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210481
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 41
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_1": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210349
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 20
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_2": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210759
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 44
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_3": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210377
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 27
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_4": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 209746
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 18
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_5": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210789
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 36
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_6": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 209732
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 22
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_7": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210431
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 18
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_8": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210164
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 18
+        },
+        {
+            "_shards": {
+                "failed": 0,
+                "skipped": 0,
+                "successful": 1,
+                "total": 1
+            },
+            "aggregations": {
+                "category_9": {
+                    "count": {
+                        "value": 0
+                    },
+                    "doc_count": 210038
+                }
+            },
+            "hits": {
+                "hits": [],
+                "max_score": null,
+                "total": {
+                    "relation": "gte",
+                    "value": 10000
+                }
+            },
+            "status": 200,
+            "timed_out": false,
+            "took": 24
+        }
+    ],
+    "took": 156
+}

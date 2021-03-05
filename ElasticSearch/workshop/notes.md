@@ -239,6 +239,19 @@ Podemos notar uma diferença muito grande no tempo de injestão entre os tipos d
 
 Pipelines podem ser utilizados para corrigir ou modificar algum documento que está sendo inserido no Elasticsearch, dessa forma garantimos uma sanidade dos dados em um índice ou podemos também em tempo de inserção criar novos dados a partir do documento enviado a fim de melhorar performance em consultas ou agregações ou removendo dados que podem ser ignorados quando utilizados no Elasticsearch.
 
+Outra vantagem de utilizar Pipelines é poder compartilhar pipelines entre vários indexes possibilitando assim uma consistência maior dos dados.
+
+Um pipeline é constituido como uma lista de `processors`.
+
+Principais processors utilizados:
+
+- `set`: atribuir um valor ao campo, pode ser um valor estático ou uma valor do documento a ser injetado
+- `append`: adiciona elementos a um array já existem em um documento
+- `json`: converte uma string json para um json estruturado
+  - Muito utilizado quando a sua fonte de dados só consegue enviar strings para o Elasticsearch, como é o caso do conector de Hadoop quando enviamos um DataFrame para persistir.
+- `script`: podemos utilizar de uma linguagem de script (por padrão painless) para formatarmos os dados
+- `pipeline`: podemos chamar um próximo pipeline de execução
+
 > TODO: criar um exemplo de Pipeline
 
 # Queries

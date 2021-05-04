@@ -10,13 +10,18 @@ networks:
 
 services: 
   db:
-    image: postgres:10
+    image: postgres:latest
     volumes:
       # Data volume
-      - dados:/var/lib/postgresql/data
+      - ./dados:/var/lib/postgresql/data
       # Scripts
       - ./scripts:/scripts
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - 5432:5432
     networks: 
       - banco
   frontend:
@@ -33,7 +38,7 @@ services:
   app:
     image: python:3.6
     environment: 
-      - DB_NAME=123_sender
+      - DB_NAME=email_sender
     volumes:
       - ./app:/app
     working_dir: /app

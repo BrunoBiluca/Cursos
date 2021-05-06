@@ -27,12 +27,18 @@
     <ClCompile Include="01BackgroundColor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="03IndexBuffers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="01BackgroundColor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="02Triangles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="03IndexBuffers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="01BackgroundColor.cpp" />
+    <ClCompile Include="03IndexBuffers.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="02Triangles.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="01BackgroundColor.h" />
     <ClInclude Include="02Triangles.h" />
+    <ClInclude Include="03IndexBuffers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

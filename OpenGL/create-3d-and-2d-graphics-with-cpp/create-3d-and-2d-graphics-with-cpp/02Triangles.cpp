@@ -37,34 +37,58 @@ int run02()
 
 	GLuint shaderProgram = CreateShaderProgram();
 
+	//// Right triangle
+	//GLfloat vertices[] = {
+	//	-0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower left corner
+	//	0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower right corner
+	//	-0.5F, 0.5F * float(sqrt(3)) * 2 / 3, 0.0F // Upper corner
+	//};
+
+	// Square
+	//GLfloat vertices[] = {
+	//	-0.5F, -0.5F, 0.0F, // Lower left corner
+	//	0.5F, -0.5F, 0.0F, // Lower right corner
+	//	-0.5F, 0.5F, 0.0F, // Upper left corner
+	//	-0.5F, 0.5F, 0.0F, // Upper left corner
+	//	0.5F, 0.5F, 0.0F, // Upper right corner
+	//	0.5F, -0.5F, 0.0F // Lower right corner
+	//};
+
 	GLfloat vertices[] = {
-		-0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower left corner
-		0.5F, -0.5F * float(sqrt(3)) / 3, 0.0F, // Lower right corner
-		0.0F, 0.5F * float(sqrt(3)) * 2 / 3, 0.0F // Upper corner
+		-0.5F, -0.5F, // Lower left corner
+		0.5F, -0.5F, // Lower right corner
+		0.5F, 0.5F, // Upper right corner
+		-0.5F, 0.5F // Upper left corner
 	};
 
-	GLuint vertexArrayObject;
-	GLuint vertexBufferObject;
+	GLuint vertexArrayObject[1];
+	GLuint vertexBufferObject[1];
 
 	// Necessário garantir a ordem das chamadas de funções
-	glGenVertexArrays(1, &vertexArrayObject);
-	glGenBuffers(1, &vertexBufferObject);
+	glGenVertexArrays(1, vertexArrayObject);
+	glGenBuffers(1, vertexBufferObject);
 
-	glBindVertexArray(vertexArrayObject);
+	glBindVertexArray(vertexArrayObject[0]);
 
-	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject[0]);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+	// 2 coordinates (x, y)
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), nullptr);
+
+	// 3 coordinates (x, y, z)
+	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 	glEnableVertexAttribArray(0);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 
-	SceneLoop(window, shaderProgram, vertexArrayObject);
+	SceneLoop(window, shaderProgram, vertexArrayObject[0]);
 
 	glfwDestroyWindow(window);
 	glfwTerminate();
+
+	return 0;
 }
 
 GLFWwindow* CreateWindow()
@@ -87,13 +111,15 @@ void SceneLoop(GLFWwindow* window, GLuint shaderProgram, GLuint VAO)
 {
 
 	while (!glfwWindowShouldClose(window))
-	{		
-		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+	{
+		glClearColor(0.07F, 0.13F, 0.17F, 1.0F);
 
 		glClear(GL_COLOR_BUFFER_BIT);
 		glUseProgram(shaderProgram);
 		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		//glDrawArrays(GL_TRIANGLES, 0, 3);
+		//glDrawArrays(GL_TRIANGLES, 0, 6);
+		glDrawArrays(GL_LINE_LOOP, 0, 4);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();

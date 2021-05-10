@@ -150,13 +150,29 @@
     <ClCompile Include="01BackgroundColor.cpp" />
     <ClCompile Include="03IndexBuffers.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="02Triangles.cpp" />
+    <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="Square.cpp" />
+    <ClCompile Include="VertexBuffer.cpp" />
+    <ClCompile Include="VertextArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="01BackgroundColor.h" />
     <ClInclude Include="02Triangles.h" />
     <ClInclude Include="03IndexBuffers.h" />
+    <ClInclude Include="IndexBuffer.h" />
+    <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="Square.h" />
+    <ClInclude Include="VertexArray.h" />
+    <ClInclude Include="VertexBuffer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="default.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="default.frag" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

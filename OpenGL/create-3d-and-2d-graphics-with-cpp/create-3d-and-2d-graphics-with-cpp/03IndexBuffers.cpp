@@ -4,6 +4,28 @@
 
 #include "03IndexBuffers.h"
 #include "02Triangles.h"
+#include "ShaderProgram.h"
+#include "VertexArray.h"
+#include "IndexBuffer.h"
+
+
+// Triangle
+GLfloat vertices[] = {
+	-0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Lower left corner
+	0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, // Lower right corner
+	0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f, // Upper corner
+	-0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inner left
+	0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f, // Inner right
+	0.0f, -0.5f * float(sqrt(3)) / 3, 0.0f // Inner down
+};
+
+GLuint indices[] =
+{
+	0, 3, 5, // Lower left triangle
+	3, 2, 4, // Lower right triangle
+	5, 4, 1 // Upper triangle
+};
+
 
 int run03()
 {
@@ -20,59 +42,27 @@ int run03()
 		return -1;
 	}
 
-	GLuint shaderProgram = CreateShaderProgram();
+	ShaderProgram shaderProgram("default.vert", "default.frag");
 
-	GLfloat vertices[] =
-	{
-		-0.5f, -0.5f * float(sqrt(3)) / 3, // Lower left corner
-		0.5f, -0.5f * float(sqrt(3)) / 3, // Lower right corner
-		0.0f, 0.5f * float(sqrt(3)) * 2 / 3, // Upper corner
-		-0.5f / 2, 0.5f * float(sqrt(3)) / 6, // Inner left
-		0.5f / 2, 0.5f * float(sqrt(3)) / 6, // Inner right
-		0.0f, -0.5f * float(sqrt(3)) / 3 // Inner down
-	};
+	VertexArray vertexArray;
+	vertexArray.Bind();
 
-	GLuint indices[] =
-	{
-		0, 3, 5, // Lower left triangle
-		3, 2, 4, // Lower right triangle
-		5, 4, 1 // Upper triangle
-	};
+	VertexBuffer vertexBuffer(vertices, sizeof(vertices));
+	vertexArray.LinkVBO(vertexBuffer, 0);
 
-	GLuint vertexArrayObject[1];	// VAO
-	GLuint vertexBufferObject[1];	// VBO
-	GLuint indexBufferObject;		// EBO
+	IndexBuffer indexBuffer(indices, sizeof(indices));
 
-	// Necessário garantir a ordem das chamadas de funções
-	glGenVertexArrays(1, vertexArrayObject);
-	glGenBuffers(1, vertexBufferObject);
-	glGenBuffers(1, &indexBufferObject);
+	vertexArray.Unbind();
+	vertexBuffer.Unbind();
+	indexBuffer.Unbind();
 
-	glBindVertexArray(vertexArrayObject[0]);
+	SceneLoop2(window, shaderProgram, vertexArray);
 
-	// Set vertices data to buffer
-	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferObject[0]);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	vertexArray.Delete();
+	vertexBuffer.Delete();
+	indexBuffer.Delete();
+	shaderProgram.Delete();
 
-	// Set indices data to buffer
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferObject);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-	// 2 coordinates (x, y)
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), nullptr);
-	glEnableVertexAttribArray(0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
-
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
-	SceneLoop2(window, shaderProgram, vertexArrayObject[0]);
-
-	glDeleteVertexArrays(1, vertexArrayObject);
-	glDeleteBuffers(1, vertexBufferObject);
-	glDeleteBuffers(1, &indexBufferObject);
 
 	glfwDestroyWindow(window);
 	glfwTerminate();
@@ -80,7 +70,7 @@ int run03()
 	return 0;
 }
 
-void SceneLoop2(GLFWwindow* window, GLuint shaderProgram, GLuint VAO)
+void SceneLoop2(GLFWwindow* window, ShaderProgram shaderProgram, VertexArray VAO)
 {
 
 	while (!glfwWindowShouldClose(window))
@@ -88,8 +78,8 @@ void SceneLoop2(GLFWwindow* window, GLuint shaderProgram, GLuint VAO)
 		glClearColor(0.07F, 0.13F, 0.17F, 1.0F);
 
 		glClear(GL_COLOR_BUFFER_BIT);
-		glUseProgram(shaderProgram);
-		glBindVertexArray(VAO);
+		shaderProgram.Activate();
+		VAO.Bind();
 		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(window);

@@ -153,8 +153,12 @@
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="02Triangles.cpp" />
+    <ClCompile Include="MainProgram.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="Square.cpp" />
+    <ClCompile Include="stb.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Texture.h" />
     <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="VertextArray.cpp" />
   </ItemGroup>
@@ -163,6 +167,7 @@
     <ClInclude Include="02Triangles.h" />
     <ClInclude Include="03IndexBuffers.h" />
     <ClInclude Include="IndexBuffer.h" />
+    <ClInclude Include="MainProgram.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="VertexArray.h" />
@@ -170,9 +175,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert" />
+    <None Include="invert_shader.vert" />
+    <None Include="scale_brightness.frag" />
+    <None Include="scale_shader.vert" />
+    <None Include="texture_default.frag" />
+    <None Include="texture_default.vert" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="default.frag" />
+    <Text Include="colored.frag" />
+    <Text Include="invert_color.frag" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="pop_cat.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

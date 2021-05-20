@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\textures">
+      <UniqueIdentifier>{1f335c54-ea5a-471a-b11e-f7ba71b65255}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c">
@@ -45,6 +48,18 @@
     <ClCompile Include="Square.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="01BackgroundColor.h">
@@ -71,9 +86,27 @@
     <ClInclude Include="Square.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MainProgram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="scale_shader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="invert_shader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="scale_brightness.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="texture_default.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="texture_default.frag">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
@@ -81,5 +114,16 @@
     <Text Include="default.frag">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="colored.frag">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="invert_color.frag">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="pop_cat.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

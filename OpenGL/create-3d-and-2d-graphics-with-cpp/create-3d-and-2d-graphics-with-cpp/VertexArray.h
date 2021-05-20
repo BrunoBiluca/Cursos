@@ -11,6 +11,14 @@ public:
 	VertexArray();
 
 	void LinkVBO(VertexBuffer& VBO, GLuint layout);
+	void LinkAttrib(
+		VertexBuffer& VBO,
+		GLuint layout,
+		GLuint numComponents,
+		GLenum type,
+		GLsizeiptr stride,
+		void* offset
+	);
 	void Bind();
 	void Unbind();
 	void Delete();

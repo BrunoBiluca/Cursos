@@ -109,6 +109,9 @@
     <None Include="texture_default.frag">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="mirror_texture.frag">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="default.frag">

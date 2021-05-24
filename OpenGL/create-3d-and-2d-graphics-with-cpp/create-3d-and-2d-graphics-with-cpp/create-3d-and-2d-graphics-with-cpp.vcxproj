@@ -176,6 +176,7 @@
   <ItemGroup>
     <None Include="default.vert" />
     <None Include="invert_shader.vert" />
+    <None Include="mirror_texture.frag" />
     <None Include="scale_brightness.frag" />
     <None Include="scale_shader.vert" />
     <None Include="texture_default.frag" />

@@ -159,6 +159,7 @@
     <ClCompile Include="stb.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Texture.h" />
+    <ClCompile Include="TextureBuilder.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="VertextArray.cpp" />
   </ItemGroup>
@@ -170,6 +171,7 @@
     <ClInclude Include="MainProgram.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Square.h" />
+    <ClInclude Include="TextureBuilder.h" />
     <ClInclude Include="VertexArray.h" />
     <ClInclude Include="VertexBuffer.h" />
   </ItemGroup>

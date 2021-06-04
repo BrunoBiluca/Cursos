@@ -8,6 +8,8 @@
 #include "MainProgram.h"
 #include "Texture.h"
 #include "TextureBuilder.cpp"
+#include "Camera.h"
+#include "CameraMovement.h"
 
 int runMain()
 {
@@ -78,6 +80,9 @@ int runMain()
 	float rotation = 0.0f;
 	double prevTime = glfwGetTime();
 
+	Camera camera(width, height, glm::vec3(0.0f, 0.3f, 2.0f));
+	CameraMovement movement;
+
 	glEnable(GL_DEPTH_TEST);
 
 	while (!glfwWindowShouldClose(window))
@@ -94,20 +99,14 @@ int runMain()
 			prevTime = glfwGetTime();
 		}
 
-		glm::mat4 model = glm::mat4(1.0F);
-		glm::mat4 view = glm::mat4(1.0F);
-		glm::mat4 proj = glm::mat4(1.0F);
+		movement.Inputs(window, camera);
+		camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "cameraView");
 
+		glm::mat4 model = glm::mat4(1.0F);
 		model = glm::rotate(model, glm::radians(rotation), glm::vec3(0.0f, 1.0f, 0.0f));
-		view = glm::translate(view, glm::vec3(0.0f, -0.5f, -2.0f));
-		proj = glm::perspective(glm::radians(45.0f), (float)width / height, 0.1f, 100.0f);
 
 		int modelLoc = glGetUniformLocation(shaderProgram.ID, "model");
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		int viewLoc = glGetUniformLocation(shaderProgram.ID, "view");
-		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
-		int projLoc = glGetUniformLocation(shaderProgram.ID, "proj");
-		glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(proj));
 
 		glUniform1f(scaleUniform, 1.0F);
 

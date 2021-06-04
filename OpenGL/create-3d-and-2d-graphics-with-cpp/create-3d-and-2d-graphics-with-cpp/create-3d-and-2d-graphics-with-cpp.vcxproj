@@ -149,6 +149,8 @@
   <ItemGroup>
     <ClCompile Include="01BackgroundColor.cpp" />
     <ClCompile Include="03IndexBuffers.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CameraMovement.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -167,6 +169,8 @@
     <ClInclude Include="01BackgroundColor.h" />
     <ClInclude Include="02Triangles.h" />
     <ClInclude Include="03IndexBuffers.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="CameraMovement.h" />
     <ClInclude Include="IndexBuffer.h" />
     <ClInclude Include="MainProgram.h" />
     <ClInclude Include="ShaderProgram.h" />

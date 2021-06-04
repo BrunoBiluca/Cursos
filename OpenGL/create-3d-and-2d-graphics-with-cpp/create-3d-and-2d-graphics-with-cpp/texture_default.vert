@@ -15,14 +15,14 @@ out vec3 color;
 out vec2 texCoord;
 
 // Inputs the matrices needed for 3D viewing with perspective
+uniform mat4 cameraView;
+
 uniform mat4 model;
-uniform mat4 view;
-uniform mat4 proj;
 
 
 void main()
 {
-	gl_Position = proj * view * model * vec4(
+	gl_Position = cameraView * model * vec4(
 		aPos.x * scale, 
 		aPos.y * scale, 
 		aPos.z * scale, 

@@ -20,19 +20,13 @@ public:
 	glm::vec3 Orientation = glm::vec3(0.0f, 0.0f, -1.0f);
 	glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
 
+	glm::mat4 cameraMatrix = glm::mat4(1.0f);
+
 	// Camera constructor to set up initial values
 	Camera(int width, int height, glm::vec3 position);
 
-	// Updates and exports the camera matrix to the Vertex Shader
-	void Matrix(
-		float FOVdeg, 
-		float nearPlane, 
-		float farPlane, 
-		ShaderProgram& shader, 
-		const char* uniform
-	);
+	void SetupPerspectiveView(float FOVdeg, float nearPlane, float farPlane);
 
-	// Handles camera inputs
-	void Inputs(GLFWwindow* window);
+	void ExportMatrix(ShaderProgram& shader, const char* uniform);
 };
 

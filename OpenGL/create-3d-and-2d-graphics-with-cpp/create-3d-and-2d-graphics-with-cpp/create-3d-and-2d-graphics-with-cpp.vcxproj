@@ -182,6 +182,10 @@
   <ItemGroup>
     <None Include="default.vert" />
     <None Include="invert_shader.vert" />
+    <None Include="light.frag" />
+    <None Include="light.vert" />
+    <None Include="light_color.frag" />
+    <None Include="light_shader.vert" />
     <None Include="mirror_texture.frag" />
     <None Include="scale_brightness.frag" />
     <None Include="scale_shader.vert" />

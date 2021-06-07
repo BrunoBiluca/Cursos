@@ -130,6 +130,18 @@
     <None Include="mirror_texture.frag">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="light_shader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="light_color.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="light.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="light.frag">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="default.frag">

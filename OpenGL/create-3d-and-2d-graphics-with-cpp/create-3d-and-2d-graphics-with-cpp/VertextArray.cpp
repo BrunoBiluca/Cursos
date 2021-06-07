@@ -24,6 +24,24 @@ void VertexArray::LinkAttrib(
 	VBO.Unbind();
 }
 
+void VertexArray::LinkAttribFloat(
+	VertexBuffer& VBO, GLuint layout, GLuint numComponents,
+	GLenum type, GLsizeiptr stride, GLuint offset
+)
+{
+	VBO.Bind();
+	glVertexAttribPointer(
+		layout,
+		numComponents,
+		type,
+		GL_FALSE,
+		stride * sizeof(float),
+		(void*)(offset * sizeof(float))
+	);
+	glEnableVertexAttribArray(layout);
+	VBO.Unbind();
+}
+
 void VertexArray::Bind()
 {
 	glBindVertexArray(ID);

@@ -19,6 +19,7 @@ public:
 		GLsizeiptr stride,
 		void* offset
 	);
+	void LinkAttribFloat(VertexBuffer& VBO, GLuint layout, GLuint numComponents, GLenum type, GLsizeiptr stride, GLuint offset);
 	void Bind();
 	void Unbind();
 	void Delete();

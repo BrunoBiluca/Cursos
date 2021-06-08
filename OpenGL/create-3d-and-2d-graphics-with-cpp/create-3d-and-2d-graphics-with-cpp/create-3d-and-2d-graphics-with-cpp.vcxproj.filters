@@ -158,5 +158,11 @@
     <Image Include="pop_cat.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
+    <Image Include="planks.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="planksSpec.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

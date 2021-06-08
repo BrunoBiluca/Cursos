@@ -10,6 +10,8 @@ public:
 
 	GLuint ID;
 	GLenum textureType;
+	GLuint unit;
+
 	unsigned char* imageBytes;
 	int widthImg, heightImg, numColorChannel;
 
@@ -23,7 +25,8 @@ public:
 
 		glGenTextures(1, &ID);
 		// Assigns the texture to a Texture Unit
-		glActiveTexture(slot);
+		glActiveTexture(GL_TEXTURE0 + slot);
+		unit = slot;
 		glBindTexture(texType, ID);
 
 		// Configures the type of algorithm that is used to make the image smaller or bigger
@@ -86,6 +89,7 @@ public:
 
 	void Bind()
 	{
+		glActiveTexture(GL_TEXTURE0 + unit);
 		glBindTexture(textureType, ID);
 	}
 

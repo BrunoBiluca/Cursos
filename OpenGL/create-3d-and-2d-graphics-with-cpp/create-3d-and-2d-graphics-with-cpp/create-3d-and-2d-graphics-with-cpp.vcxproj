@@ -198,6 +198,8 @@
     <Text Include="invert_color.frag" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="planks.png" />
+    <Image Include="planksSpec.png" />
     <Image Include="pop_cat.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

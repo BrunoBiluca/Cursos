@@ -187,6 +187,7 @@
     <None Include="light_color.frag" />
     <None Include="light_shader.vert" />
     <None Include="mirror_texture.frag" />
+    <None Include="point_light.frag" />
     <None Include="scale_brightness.frag" />
     <None Include="scale_shader.vert" />
     <None Include="texture_default.frag" />
@@ -195,7 +196,9 @@
   <ItemGroup>
     <Text Include="default.frag" />
     <Text Include="colored.frag" />
+    <Text Include="direct_light.frag" />
     <Text Include="invert_color.frag" />
+    <Text Include="spot_light.frag" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="planks.png" />

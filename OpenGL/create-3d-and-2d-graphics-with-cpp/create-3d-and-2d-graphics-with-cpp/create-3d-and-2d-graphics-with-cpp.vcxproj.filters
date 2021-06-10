@@ -142,6 +142,9 @@
     <None Include="light.frag">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="point_light.frag">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="default.frag">
@@ -151,6 +154,12 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="invert_color.frag">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="spot_light.frag">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="direct_light.frag">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

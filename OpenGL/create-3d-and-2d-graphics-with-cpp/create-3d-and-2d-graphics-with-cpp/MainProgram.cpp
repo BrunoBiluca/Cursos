@@ -110,7 +110,7 @@ int runMain()
 	}
 
 	// Cria o triângulo com textura
-	ShaderProgram shaderProgram("light_shader.vert", "light_color.frag");
+	ShaderProgram shaderProgram("light_shader.vert", "point_light.frag");
 
 	GLuint scaleUniform = glGetUniformLocation(shaderProgram.ID, "scale");
 

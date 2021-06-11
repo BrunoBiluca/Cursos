@@ -13,9 +13,8 @@ in vec3 Normal;
 // Imports the current position from the Vertex Shader
 in vec3 currentPosition;
 
-// Gets the Texture Units from the main function
-uniform sampler2D tex0;
-uniform sampler2D tex1;
+uniform sampler2D diffuse0;
+uniform sampler2D specular0;
 // Gets the color of the light from the main function
 uniform vec4 lightColor;
 // Gets the position of the light from the main function
@@ -41,8 +40,8 @@ void main()
 	float specular = specAmount * specularLight;
 
 	FragColor = (
-		texture(tex0, texCoord) * (diffuse + ambient) 
-		+ texture(tex1, texCoord).r * specular
+		texture(diffuse0, texCoord) * (diffuse + ambient) 
+		+ texture(specular0, texCoord).r * specular
 	) 
 		* lightColor;
 }

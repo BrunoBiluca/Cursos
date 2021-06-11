@@ -1,17 +1,15 @@
-#ifndef INDEX_BUFFER_CLASS_H
-#define INDEX_BUFFER_CLASS_H
+#pragma once
 
 #include<glad/glad.h>
+#include<vector>
 
 class IndexBuffer
 {
 public:
 	GLuint ID;
-	IndexBuffer(GLuint* indices, GLsizeiptr size);
+	explicit IndexBuffer(std::vector<GLuint>& indices);
 
 	void Bind();
 	void Unbind();
 	void Delete();
 };
-
-#endif

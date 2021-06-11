@@ -6,9 +6,7 @@
 #include<glm/gtc/type_ptr.hpp>
 
 #include "MainProgram.h"
-#include "Texture.h"
-#include "TextureBuilder.cpp"
-#include "Camera.h"
+#include "Mesh.h"
 #include "CameraMovement.h"
 
 int runMain()
@@ -17,48 +15,32 @@ int runMain()
 	const unsigned int height = 800;
 
 	// Vertices coordinates
-	//GLfloat vertices[] =
-	//{ //     COORDINATES     /        COLORS          /    TexCoord   /        NORMALS       //
-	//	-0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f, 	 0.0f, 0.0f,   0.0f, -1.0f, 0.0f, // Bottom side
-	//	-0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,	 0.0f, 5.0f,   0.0f, -1.0f, 0.0f, // Bottom side
-	//	 0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,	 5.0f, 5.0f,   0.0f, -1.0f, 0.0f, // Bottom side
-	//	 0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,	 5.0f, 0.0f,   0.0f, -1.0f, 0.0f, // Bottom side
-
-	//	-0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f, 	 0.0f, 0.0f,  -0.8f, 0.5f,  0.0f, // Left Side
-	//	-0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,	 5.0f, 0.0f,  -0.8f, 0.5f,  0.0f, // Left Side
-	//	 0.0f, 0.8f,  0.0f,   0.92f, 0.86f, 0.76f,	 2.5f, 5.0f,  -0.8f, 0.5f,  0.0f, // Left Side
-
-	//	-0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,	 5.0f, 0.0f,   0.0f, 0.5f, -0.8f, // Non-facing side
-	//	 0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,	 0.0f, 0.0f,   0.0f, 0.5f, -0.8f, // Non-facing side
-	//	 0.0f, 0.8f,  0.0f,   0.92f, 0.86f, 0.76f,	 2.5f, 5.0f,   0.0f, 0.5f, -0.8f, // Non-facing side
-
-	//	 0.5f, 0.0f, -0.5f,   0.83f, 0.70f, 0.44f,	 0.0f, 0.0f,   0.8f, 0.5f,  0.0f, // Right side
-	//	 0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,	 5.0f, 0.0f,   0.8f, 0.5f,  0.0f, // Right side
-	//	 0.0f, 0.8f,  0.0f,   0.92f, 0.86f, 0.76f,	 2.5f, 5.0f,   0.8f, 0.5f,  0.0f, // Right side
-
-	//	 0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f,	 5.0f, 0.0f,   0.0f, 0.5f,  0.8f, // Facing side
-	//	-0.5f, 0.0f,  0.5f,   0.83f, 0.70f, 0.44f, 	 0.0f, 0.0f,   0.0f, 0.5f,  0.8f, // Facing side
-	//	 0.0f, 0.8f,  0.0f,   0.92f, 0.86f, 0.76f,	 2.5f, 5.0f,   0.0f, 0.5f,  0.8f  // Facing side
-	//};
-
-	//// Indices for vertices order
-	//GLuint indices[] =
-	//{
-	//	0, 1, 2, // Bottom side
-	//	0, 2, 3, // Bottom side
-	//	4, 6, 5, // Left side
-	//	7, 9, 8, // Non-facing side
-	//	10, 12, 11, // Right side
-	//	13, 15, 14 // Facing side
-	//};
-
-	// Vertices coordinates
-	GLfloat vertices[] =
-	{ //     COORDINATES     /        COLORS        /    TexCoord    /       NORMALS     //
-		-1.0f, 0.0f,  1.0f,		0.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 1.0f, 0.0f,
-		-1.0f, 0.0f, -1.0f,		0.0f, 0.0f, 0.0f,		0.0f, 1.0f,		0.0f, 1.0f, 0.0f,
-		 1.0f, 0.0f, -1.0f,		0.0f, 0.0f, 0.0f,		1.0f, 1.0f,		0.0f, 1.0f, 0.0f,
-		 1.0f, 0.0f,  1.0f,		0.0f, 0.0f, 0.0f,		1.0f, 0.0f,		0.0f, 1.0f, 0.0f
+	Vertex vertices[] =
+	{
+		Vertex{
+			glm::vec3(-1.0f, 0.0f,  1.0f),
+			glm::vec3(0.0f, 1.0f, 0.0f),
+			glm::vec3(1.0f, 1.0f, 1.0f),
+			glm::vec2(0.0f, 0.0f)
+		},
+		Vertex{
+			glm::vec3(-1.0f, 0.0f, -1.0f), 
+			glm::vec3(0.0f, 1.0f, 0.0f), 
+			glm::vec3(1.0f, 1.0f, 1.0f), 
+			glm::vec2(0.0f, 1.0f)
+		},
+		Vertex{
+			glm::vec3(1.0f, 0.0f, -1.0f), 
+			glm::vec3(0.0f, 1.0f, 0.0f), 
+			glm::vec3(1.0f, 1.0f, 1.0f), 
+			glm::vec2(1.0f, 1.0f)
+		},
+		Vertex{
+			glm::vec3(1.0f, 0.0f,  1.0f), 
+			glm::vec3(0.0f, 1.0f, 0.0f), 
+			glm::vec3(1.0f, 1.0f, 1.0f), 
+			glm::vec2(1.0f, 0.0f)
+		}
 	};
 
 	// Indices for vertices order
@@ -68,16 +50,16 @@ int runMain()
 		0, 2, 3
 	};
 
-	GLfloat lightVertices[] =
+	Vertex lightVertices[] =
 	{ //     COORDINATES     //
-		-0.1f, -0.1f,  1.1f,
-		-0.1f, -0.1f,  0.9f,
-		 0.1f, -0.1f,  0.9f,
-		 0.1f, -0.1f,  1.1f,
-		-0.1f,  0.1f,  1.1f,
-		-0.1f,  0.1f,  0.9f,
-		 0.1f,  0.1f,  0.9f,
-		 0.1f,  0.1f,  1.1f
+		Vertex{glm::vec3(-0.1f, -0.1f,  0.1f)},
+		Vertex{glm::vec3(-0.1f, -0.1f, -0.1f)},
+		Vertex{glm::vec3(0.1f, -0.1f, -0.1f)},
+		Vertex{glm::vec3(0.1f, -0.1f,  0.1f)},
+		Vertex{glm::vec3(-0.1f,  0.1f,  0.1f)},
+		Vertex{glm::vec3(-0.1f,  0.1f, -0.1f)},
+		Vertex{glm::vec3(0.1f,  0.1f, -0.1f)},
+		Vertex{glm::vec3(0.1f,  0.1f,  0.1f)}
 	};
 
 	GLuint lightIndices[] =
@@ -102,60 +84,40 @@ int runMain()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	GLFWwindow* window = CreateWindow();
-	if (window == nullptr)
+	GLFWwindow* window = glfwCreateWindow(width, height, "YoutubeOpenGL", NULL, NULL);
+	if (window == NULL)
 	{
+		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();
 		return -1;
 	}
+	glfwMakeContextCurrent(window);
+	gladLoadGL();
+	glViewport(0, 0, width, height);
 
 	// Cria o triângulo com textura
 	ShaderProgram shaderProgram("light_shader.vert", "point_light.frag");
 
-	GLuint scaleUniform = glGetUniformLocation(shaderProgram.ID, "scale");
+	TextureBuilder textures[]
+	{
+		TextureBuilder("planks.png", "diffuse", 0).Format(GL_RGBA, GL_UNSIGNED_BYTE).Build(),
+		TextureBuilder("planksSpec.png", "specular", 1).Format(GL_RED, GL_UNSIGNED_BYTE).Build()
+	};
 
-	VertexArray vertexArray;
-	vertexArray.Bind();
+	std::vector<Vertex> verts(vertices, vertices + sizeof(vertices) / sizeof(Vertex));
+	std::vector<GLuint> ind(indices, indices + sizeof(indices) / sizeof(GLuint));
+	std::vector<TextureBuilder> tex(textures, textures + sizeof(textures) / sizeof(TextureBuilder));
 
-	VertexBuffer vertexBuffer(vertices, sizeof(vertices));
-	vertexArray.LinkAttribFloat(vertexBuffer, 0, 3, GL_FLOAT, 11, 0);
-	vertexArray.LinkAttribFloat(vertexBuffer, 1, 3, GL_FLOAT, 11, 3);
-	vertexArray.LinkAttribFloat(vertexBuffer, 2, 2, GL_FLOAT, 11, 6);
-	vertexArray.LinkAttribFloat(vertexBuffer, 3, 3, GL_FLOAT, 11, 8);
-
-	IndexBuffer indexBuffer(indices, sizeof(indices));
-
-	vertexArray.Unbind();
-	vertexBuffer.Unbind();
-	indexBuffer.Unbind();
-
-	TextureBuilder mainTexture("planks.png", GL_TEXTURE_2D, 0);
-	mainTexture.Format(GL_RGBA, GL_UNSIGNED_BYTE)
-		.Repeat()
-		.Build();
-	mainTexture.TexUnit(shaderProgram, "tex0", 0);
-
-	TextureBuilder specularTexture("planksSpec.png", GL_TEXTURE_2D, 1);
-	specularTexture.Format(GL_RED, GL_UNSIGNED_BYTE)
-		.Repeat()
-		.Build();
-	specularTexture.TexUnit(shaderProgram, "tex1", 1);
+	Mesh floor(verts, ind, tex);
 
 	// Cria a fonte de luz
 	ShaderProgram lightShaderProgram("light.vert", "light.frag");
 
-	VertexArray lightVAO;
-	lightVAO.Bind();
-
-	VertexBuffer lightVBO(lightVertices, sizeof(lightVertices));
-
-	IndexBuffer lightEBO(lightIndices, sizeof(lightIndices));
-
-	lightVAO.LinkAttrib(lightVBO, 0, 3, GL_FLOAT, 3 * sizeof(float), nullptr);
-
-	lightVAO.Unbind();
-	lightVBO.Unbind();
-	lightEBO.Unbind();
+	std::vector<Vertex> lightVerts(
+		lightVertices, lightVertices + sizeof(lightVertices) / sizeof(Vertex)
+	);
+	std::vector<GLuint> lightInd(lightIndices, lightIndices + sizeof(lightIndices) / sizeof(GLuint));
+	Mesh light(lightVerts, lightInd, tex);
 
 	// Configura estado da fonte de luz
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -203,40 +165,14 @@ int runMain()
 		movement.Inputs(window, camera);
 		camera.SetupPerspectiveView(45.0f, 0.1f, 100.0f);
 
-		// Ativa o shader program da pirâmide
-		shaderProgram.Activate();
-		glUniform3f(
-			glGetUniformLocation(shaderProgram.ID, "camPos"),
-			camera.Position.x, camera.Position.y, camera.Position.z
-		);
-		glUniform1f(scaleUniform, 1.0F);
-
-		camera.ExportMatrix(shaderProgram, "camMatrix");
-		mainTexture.Bind();
-		specularTexture.Bind();
-		vertexArray.Bind();
-		glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(int), GL_UNSIGNED_INT, nullptr);
-
-		// Ativa o shader program da fonte de luz
-		lightShaderProgram.Activate();
-		camera.ExportMatrix(lightShaderProgram, "camMatrix");
-		lightVAO.Bind();
-		glDrawElements(GL_TRIANGLES, sizeof(lightIndices) / sizeof(int), GL_UNSIGNED_INT, nullptr);
+		floor.Draw(shaderProgram, camera);
+		light.Draw(lightShaderProgram, camera);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
-	vertexArray.Delete();
-	vertexBuffer.Delete();
-	indexBuffer.Delete();
-	mainTexture.Delete();
-	specularTexture.Delete();
 	shaderProgram.Delete();
-
-	lightVAO.Delete();
-	lightVBO.Delete();
-	lightEBO.Delete();
 	lightShaderProgram.Delete();
 
 	glfwDestroyWindow(window);

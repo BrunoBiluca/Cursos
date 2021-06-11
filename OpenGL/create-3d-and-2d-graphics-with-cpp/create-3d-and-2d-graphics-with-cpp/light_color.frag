@@ -8,8 +8,8 @@ in vec2 texCoord;
 in vec3 Normal;
 in vec3 currentPosition;
 
-uniform sampler2D tex0;
-uniform sampler2D tex1;
+uniform sampler2D diffuse0;
+uniform sampler2D specular0;
 
 uniform vec4 lightColor;
 uniform vec3 lightPos;
@@ -33,8 +33,8 @@ void main()
 	float specular = specAmount * specularLight;
 
 	// outputs final color
-	FragColor = texture(tex0, texCoord) 
+	FragColor = texture(diffuse0, texCoord) 
 		* lightColor 
 		* (diffuse + ambient) 
-		+ (texture(tex1, texCoord).r * specular);
+		+ (texture(specular0, texCoord).r * specular);
 }

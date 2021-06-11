@@ -147,15 +147,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="01BackgroundColor.cpp" />
-    <ClCompile Include="03IndexBuffers.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraMovement.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="IndexBuffer.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="02Triangles.cpp" />
     <ClCompile Include="MainProgram.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="stb.cpp" />
@@ -166,13 +164,11 @@
     <ClCompile Include="VertextArray.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="01BackgroundColor.h" />
-    <ClInclude Include="02Triangles.h" />
-    <ClInclude Include="03IndexBuffers.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovement.h" />
     <ClInclude Include="IndexBuffer.h" />
     <ClInclude Include="MainProgram.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="TextureBuilder.h" />

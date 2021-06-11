@@ -1,5 +1,4 @@
-#ifndef VERTEX_ARRAY_CLASS_H
-#define VERTEX_ARRAY_CLASS_H
+#pragma once
 
 #include<glad/glad.h>
 #include"VertexBuffer.h"
@@ -24,4 +23,3 @@ public:
 	void Unbind();
 	void Delete();
 };
-#endif

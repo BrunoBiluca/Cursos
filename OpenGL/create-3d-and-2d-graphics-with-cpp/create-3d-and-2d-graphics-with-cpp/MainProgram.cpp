@@ -1,3 +1,8 @@
+//------- Ignore this ----------
+#include<filesystem>
+namespace fs = std::filesystem;
+//------------------------------
+
 #include<iostream>
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
@@ -8,6 +13,7 @@
 #include "MainProgram.h"
 #include "Mesh.h"
 #include "CameraMovement.h"
+#include "Model.h"
 
 int runMain()
 {
@@ -95,64 +101,31 @@ int runMain()
 	gladLoadGL();
 	glViewport(0, 0, width, height);
 
-	// Cria o triângulo com textura
-	ShaderProgram shaderProgram("light_shader.vert", "point_light.frag");
+	Camera camera(width, height, glm::vec3(0.0f, 0.3f, 2.0f));
+	CameraMovement movement;
 
-	TextureBuilder textures[]
-	{
-		TextureBuilder("planks.png", "diffuse", 0).Format(GL_RGBA, GL_UNSIGNED_BYTE).Build(),
-		TextureBuilder("planksSpec.png", "specular", 1).Format(GL_RED, GL_UNSIGNED_BYTE).Build()
-	};
+	ShaderProgram shaderProgram("model.vert", "point_light.frag");
 
-	std::vector<Vertex> verts(vertices, vertices + sizeof(vertices) / sizeof(Vertex));
-	std::vector<GLuint> ind(indices, indices + sizeof(indices) / sizeof(GLuint));
-	std::vector<TextureBuilder> tex(textures, textures + sizeof(textures) / sizeof(TextureBuilder));
-
-	Mesh floor(verts, ind, tex);
-
-	// Cria a fonte de luz
-	ShaderProgram lightShaderProgram("light.vert", "light.frag");
-
-	std::vector<Vertex> lightVerts(
-		lightVertices, lightVertices + sizeof(lightVertices) / sizeof(Vertex)
-	);
-	std::vector<GLuint> lightInd(lightIndices, lightIndices + sizeof(lightIndices) / sizeof(GLuint));
-	Mesh light(lightVerts, lightInd, tex);
-
-	// Configura estado da fonte de luz
 	glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);
 	glm::mat4 lightModel = glm::mat4(1.0f);
 	lightModel = glm::translate(lightModel, lightPos);
-	lightShaderProgram.Activate();
-	glUniformMatrix4fv(
-		glGetUniformLocation(lightShaderProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(lightModel)
-	);
-	glUniform4f(
-		glGetUniformLocation(lightShaderProgram.ID, "lightColor"),
-		lightColor.x, lightColor.y, lightColor.z, lightColor.w
-	);
-
-	// Configura a pirâmide
-	glm::vec3 pyramidPos = glm::vec3(0.0f, 0.0f, 0.0f);
-	glm::mat4 pyramidModel = glm::mat4(1.0f);
-	pyramidModel = glm::translate(pyramidModel, pyramidPos);
 
 	shaderProgram.Activate();
-	glUniformMatrix4fv(
-		glGetUniformLocation(shaderProgram.ID, "model"), 1, GL_FALSE, glm::value_ptr(pyramidModel)
-	);
 	glUniform4f(
-		glGetUniformLocation(shaderProgram.ID, "lightColor"),
+		glGetUniformLocation(shaderProgram.ID, "lightColor"), 
 		lightColor.x, lightColor.y, lightColor.z, lightColor.w
 	);
 	glUniform3f(
-		glGetUniformLocation(shaderProgram.ID, "lightPos"),
+		glGetUniformLocation(shaderProgram.ID, "lightPos"), 
 		lightPos.x, lightPos.y, lightPos.z
 	);
 
-	Camera camera(width, height, glm::vec3(0.0f, 0.3f, 2.0f));
-	CameraMovement movement;
+	std::string parentDir = (fs::current_path().fs::path::parent_path()).string();
+	std::string modelPath = "/create-3d-and-2d-graphics-with-cpp/models/sword/scene.gltf";
+	std::cout << (parentDir + modelPath).c_str() << std::endl;
+
+	Model model((parentDir + modelPath).c_str());
 
 	glEnable(GL_DEPTH_TEST);
 
@@ -165,15 +138,13 @@ int runMain()
 		movement.Inputs(window, camera);
 		camera.SetupPerspectiveView(45.0f, 0.1f, 100.0f);
 
-		floor.Draw(shaderProgram, camera);
-		light.Draw(lightShaderProgram, camera);
+		model.Draw(shaderProgram, camera);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
 	shaderProgram.Delete();
-	lightShaderProgram.Delete();
 
 	glfwDestroyWindow(window);
 	glfwTerminate();

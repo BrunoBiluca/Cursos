@@ -63,6 +63,9 @@
     <ClCompile Include="Mesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ShaderProgram.h">
@@ -93,6 +96,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -131,6 +137,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="point_light.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="model.vert">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

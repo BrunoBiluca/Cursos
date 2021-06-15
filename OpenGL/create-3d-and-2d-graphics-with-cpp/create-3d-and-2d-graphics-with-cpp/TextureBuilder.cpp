@@ -15,7 +15,7 @@ public:
 	unsigned char* imageBytes;
 	int widthImg, heightImg, numColorChannel;
 
-	TextureBuilder(const char* image, const char* texType, GLenum slot)
+	TextureBuilder(const char* image, const char* texType, GLuint slot)
 	{
 		// Assigns the type of the texture ot the texture object
 		textureType = texType;
@@ -35,6 +35,15 @@ public:
 
 		float flatColor[] = { 0.8F, 0.76F, 0.7F, 1.0F };
 		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, flatColor);
+
+		if (numColorChannel == 4)
+			Format(GL_RGBA, GL_UNSIGNED_BYTE);
+		else if (numColorChannel == 3)
+			Format(GL_RGB, GL_UNSIGNED_BYTE);
+		else if (numColorChannel == 1)
+			Format(GL_RED, GL_UNSIGNED_BYTE);
+		else
+			throw std::invalid_argument("Automatic Texture type recognition failed");
 	}
 
 	TextureBuilder& Format(GLenum format, GLenum pixelType)

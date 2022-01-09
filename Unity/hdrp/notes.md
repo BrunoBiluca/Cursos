@@ -91,3 +91,12 @@ O material deve ser do tipo HDRP/Decal.
 ## Volumentric Fog
 
 ![](images/volumes/volumetric_fog_inspector.png)
+
+# Câmeras
+
+## Anti-Aliasing
+
+![](images/cameras/anti_aliasing_inspector.png)
+
+# Reflexos
+
